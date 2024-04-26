@@ -10,8 +10,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
-import org.zerock.domain.ProductVO;
-import org.zerock.domain.Criteria;
+
+import com.unknown.paldak.domain.Criteria;
+import com.unknown.paldak.domain.ProductVO;
+import com.unknown.paldak.service.ProductService;
 
 import lombok.extern.log4j.Log4j;
 

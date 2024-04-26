@@ -4,12 +4,13 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
+import org.springframework.mock.web.MockMultipartFile;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
-import org.springframework.test.web.servlet.MockMvcBuilder;
-import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
@@ -33,7 +34,7 @@ public class ProductControllerTests {
 
 	@Test
 	public void testList() throws Exception {
-		log.info(mockMvc.perform(MockMvcRequestBuilders.get("/board/list")) // 요청 URL
+		log.info(mockMvc.perform(MockMvcRequestBuilders.get("/admin/product/list")) // 요청 URL
 				.andReturn() // 요청반환
 				.getModelAndView() // 모델과 뷰반환
 				.getModelMap()); // 모델맵 객체 반환
@@ -41,47 +42,55 @@ public class ProductControllerTests {
 
 	@Test
 	public void testListPaging() throws Exception {
-		log.info(mockMvc.perform(MockMvcRequestBuilders.get("/board/list") // 요청 URL
+		log.info(mockMvc.perform(MockMvcRequestBuilders.get("/admin/product/list") // 요청 URL
 				.param("pageNum", "1")
-				.param("amount", "3"))
+				.param("amount", "10"))
 				.andReturn() // 요청반환
 				.getModelAndView() // 모델과 뷰반환
 				.getModelMap()); // 모델맵 객체 반환
 	}
 	
-	@Test
-	public void testResister() throws Exception {
-		String resultPage = mockMvc
-				.perform(MockMvcRequestBuilders.post("/board/register").param("title", "title....")
-						.param("content", "content....").param("writer", "writer...."))
-				.andReturn().getModelAndView().getViewName();
+//	@Test
+//	public void testResister() throws Exception {
+//		String resultPage = mockMvc
+//				.perform(MockMvcRequestBuilders.post("/admin/product/register").param("productName", "test")
+//						.param("content", "content....").param("writer", "writer...."))
+//				.andReturn().getModelAndView().getViewName();
+//
+//		log.info(resultPage);
+//
+//	}
 
-		log.info(resultPage);
-
-	}
-
-	@Test
-	public void testGet() throws Exception {
-		log.info(mockMvc.perform(MockMvcRequestBuilders.get("/board/get").param("bno", "4")).andReturn()
-				.getModelAndView().getModelMap());
-
-	}
-
+//	@Test
+//	public void testGet() throws Exception {
+//		log.info(mockMvc.perform(MockMvcRequestBuilders.get("/admin/product/get").param("productId", "10124")).andReturn()
+//				.getModelAndView().getModelMap());
+//
+//	}
+//
 	@Test
 	public void testModify() throws Exception {
-		String resultPage = mockMvc
-				.perform(
-						MockMvcRequestBuilders.post("/board/modify").param("bno", "3").param("title", "수정된 텍스트 새글 제목10")
-								.param("content", "수정된 텍스트 새글 제목10").param("writer", "user03"))
-				.andReturn().getModelAndView().getViewName();
-		log.info(resultPage);
+	    // 테스트할 파일 생성
+	    MockMultipartFile file = new MockMultipartFile("file", "test.txt", MediaType.TEXT_PLAIN_VALUE, "Hello, World!".getBytes());
 
+	    String resultPage = mockMvc.perform(MockMvcRequestBuilders.multipart("/admin/product/modify")
+	            .file(file)
+	            .param("productName", "수정된 텍스트 새글 제목10")
+	            .param("productDescription", "수정된 텍스트 새글 제목10")
+	            .param("productPrice", "1000")
+	            .param("productCategory", "1000")
+	            .param("productBrand", "nike")
+	            .param("productImageURL", "수정된 텍스트 새글 제목10")
+	            .param("productId", "10124"))
+	            .andReturn().getModelAndView().getViewName();
+
+	    log.info(resultPage);
 	}
 	
 	
 	@Test
 	public void testRemove() throws Exception {
-		String resultPage = mockMvc.perform(MockMvcRequestBuilders.post("/board/remove").param("bno", "1"))
+		String resultPage = mockMvc.perform(MockMvcRequestBuilders.post("/admin/product/remove").param("productId", "10126"))
 				.andReturn().getModelAndView().getViewName();
 			log.info(resultPage);
 		
