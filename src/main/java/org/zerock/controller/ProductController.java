@@ -110,8 +110,9 @@ public class ProductController {
 
 	@PostMapping("/modify")
 	public String modify(MultipartFile[] uploadFile, ProductVO productVO, @ModelAttribute("cri") Criteria cri, RedirectAttributes rttr) {
-	    
-		if (uploadFile != null) { // uploadFile이 null이 아닌 경우에만 실행
+		System.out.println(productVO.getProductImageURL());
+		System.out.println(uploadFile[0].getSize());
+		if (uploadFile[0].getSize() != 0 ) { // uploadFile이 null이 아닌 경우에만 실행
 	        String uploadPath = servletContext.getRealPath("/upload");
 	        log.info(uploadPath);
 
