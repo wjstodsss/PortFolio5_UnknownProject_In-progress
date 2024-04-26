@@ -11,9 +11,9 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
-import com.unknown.paldak.domain.Criteria;
-import com.unknown.paldak.domain.ProductVO;
-import com.unknown.paldak.service.ProductService;
+import com.unknown.ecommerce.domain.Criteria;
+import com.unknown.ecommerce.domain.ProductVO;
+import com.unknown.ecommerce.service.ProductService;
 
 import lombok.extern.log4j.Log4j;
 

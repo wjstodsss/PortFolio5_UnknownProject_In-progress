@@ -9,9 +9,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import com.unknown.paldak.domain.Criteria;
-import com.unknown.paldak.domain.ProductVO;
-import com.unknown.paldak.mapper.ProductMapper;
+import com.unknown.ecommerce.domain.Criteria;
+import com.unknown.ecommerce.domain.ProductVO;
+import com.unknown.ecommerce.mapper.ProductMapper;
 
 import lombok.extern.log4j.Log4j;
 

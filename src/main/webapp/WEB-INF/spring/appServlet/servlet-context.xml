@@ -31,7 +31,7 @@
 	</beans:bean>
 
 	<context:component-scan
-		base-package="com.unknown.paldak.controller" />
+		base-package="com.unknown.ecommerce.controller" />
 
 
 </beans:beans>
