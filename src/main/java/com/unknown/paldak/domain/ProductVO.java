@@ -2,9 +2,13 @@ package com.unknown.paldak.domain;
 
 import java.util.Date;
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
-@Data
+@Getter
+@Setter
+@ToString
 public class ProductVO {
   private Long productId;
   private String productName;
@@ -16,3 +20,4 @@ public class ProductVO {
   private Date productRegdate;
   private Date productUpdateDate;
 }
+

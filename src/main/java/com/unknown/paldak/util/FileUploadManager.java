@@ -3,11 +3,18 @@ package com.unknown.paldak.util;
 import java.io.File;
 import java.io.IOException;
 
+import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
 
+import lombok.RequiredArgsConstructor;
+
+@Component
+@RequiredArgsConstructor
 public class FileUploadManager {
-    public static String uploadFiles(MultipartFile[] uploadFiles, String uploadPath) {
-        File uploadDir = new File(uploadPath);
+	private final UploadPathConfig uploadPathConfig;
+	
+    public String uploadFiles(MultipartFile[] uploadFiles) {
+        File uploadDir = new File(uploadPathConfig.getUploadPath());
         if (!uploadDir.exists()) {
             uploadDir.mkdirs();
         }
@@ -16,7 +23,7 @@ public class FileUploadManager {
         
         for (MultipartFile multipartFile : uploadFiles) {
             String originalFilename = multipartFile.getOriginalFilename();
-            String uploadedFilePath = uploadPath + "/" + originalFilename;
+            String uploadedFilePath = uploadDir + "/" + originalFilename;
             
             try { 
                 multipartFile.transferTo(new File(uploadedFilePath)); // 파일을 업로드

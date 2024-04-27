@@ -43,7 +43,7 @@
 					onclick="location.href='admin/product/modify?productId=${product.productId}'">Modify</button>
 
 				<button data-oper='list' class="btn btn-default btn-info"
-					onclick="location.href='admin/product/list'">List</button>
+					onclick="location.href='list'">List</button>
 
 				<form id="operForm" action="admin/product/modify" method='get'>
 					<input type='hidden' id='productId' name='productId'

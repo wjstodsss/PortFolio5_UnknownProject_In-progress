@@ -5,7 +5,6 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
 
-import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.core.io.Resource;
@@ -29,6 +28,7 @@ import com.unknown.paldak.domain.PageDTO;
 import com.unknown.paldak.domain.ProductVO;
 import com.unknown.paldak.service.ProductService;
 import com.unknown.paldak.util.FileUploadManager;
+import com.unknown.paldak.util.UploadPathConfig;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j;
@@ -40,7 +40,8 @@ import lombok.extern.log4j.Log4j;
 public class ProductController {
 
 	private final ProductService productService;
-	private final ServletContext servletContext;
+	private final FileUploadManager fileUploadManager;
+	private final UploadPathConfig uploadPathConfig;
 	
 	@GetMapping("/list")
 	public String list(Criteria cri, Model model) {
@@ -59,11 +60,13 @@ public class ProductController {
 	
 	@PostMapping("/register")
 	public String register(@RequestParam("uploadFile") MultipartFile[] uploadFile, Model model, ProductVO productVO, RedirectAttributes rttr) {
-		String imageURL = FileUploadManager.uploadFiles(uploadFile, servletContext.getRealPath("/resources/upload"));
-	    productVO.setProductImageURL(imageURL);
+		
+		if (!uploadFile[0].isEmpty()) { 
+			String imageURL = fileUploadManager.uploadFiles(uploadFile);
+			productVO.setProductImageURL(imageURL);
+		}
 	    
-	    
-	    productService.register(productVO); // 상품 등록
+	    productService.register(productVO);
 	    
 	    rttr.addFlashAttribute("result", productVO.getProductId());
 	    
@@ -89,8 +92,8 @@ public class ProductController {
 	
 	@PostMapping("/modify")
 	public String modify(MultipartFile[] uploadFile, ProductVO productVO, @ModelAttribute("cri") Criteria cri, RedirectAttributes rttr) {
-		if (uploadFile[0].getSize() != 0 ) { 
-			String imageURL = FileUploadManager.uploadFiles(uploadFile, servletContext.getRealPath("/resources/upload"));
+		if (!uploadFile[0].isEmpty()) { 
+			String imageURL = fileUploadManager.uploadFiles(uploadFile);
 		    productVO.setProductImageURL(imageURL);
 		    
 	    }
@@ -120,16 +123,12 @@ public class ProductController {
 	}
 
 	
-	@GetMapping("/resources/upload/{fileName:.+}")
-	public ResponseEntity<Resource> downloadFile(@PathVariable String fileName) {
-	    log.info("..*******************************...");
-	    // 파일 경로 설정
-	    
-	    String uploadDirectory = servletContext.getRealPath("/resources/upload");
-	    log.info(uploadDirectory);
+	@GetMapping("/upload/{fileName:.+}")
+	public ResponseEntity<Resource> downloadFile(@PathVariable String fileName) {  
+	    String uploadDirectory = uploadPathConfig.getUploadPath();
 	    Path filePath = Paths.get(uploadDirectory).resolve(fileName).normalize();
-	    log.info(filePath);
 	    Resource resource;
+	    
 	    try {
 	        resource = new UrlResource(filePath.toUri());
 	        if (resource.exists()) {
