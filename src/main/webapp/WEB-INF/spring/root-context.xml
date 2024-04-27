@@ -17,8 +17,8 @@
 	    <property name="jdbcUrl" value="jdbc:log4jdbc:oracle:thin:@localhost:1521:XE" />
 
 	    <!-- 데이터베이스 접속 계정 정보 설정 -->
-	    <property name="username" value="book_ex" />
-	    <property name="password" value="1234" />
+	    <property name="username" value="c##unknown" />
+	    <property name="password" value="12341234" />
 	</bean>
 
 	<!-- HikariCP를 사용한 데이터베이스 커넥션 풀을 생성하는 빈 -->
@@ -36,9 +36,9 @@
 	
 	<!-- 컴포넌트 스캔 -->
 	
-	<context:component-scan base-package="com.unknown.ecommerce.service"/>
+	<context:component-scan base-package="com.unknown.paldak.service"/>
 	
 	<!-- Mapper인터페이스  -->
-	<mybatis-spring:scan base-package="com.unknown.ecommerce.mapper"/>
+	<mybatis-spring:scan base-package="com.unknown.paldak.mapper"/>
 	
 </beans>

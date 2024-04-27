@@ -16,13 +16,13 @@ public class PageDTO {
     public PageDTO(Criteria cri, int total) {
     	this.cri = cri;
     	
-    	this.total = total;  // 85개면 실제 페이지는 9
+    	this.total = total;
     	
-    	this.endPage = (int) (Math.ceil(cri.getPageNum() /10.0)) * 10;  //끝 페이지 10
+    	this.endPage = (int) (Math.ceil(cri.getPageNum() /10.0)) * 10;
     	
-    	this.startPage = this.endPage - 9; //시작페이지
+    	this.startPage = this.endPage - 9;
     	
-    	int realEnd = (int) (Math.ceil((total*1.0)/cri.getAmount())); //실제페이지 9
+    	int realEnd = (int) (Math.ceil((total*1.0)/cri.getAmount()));
     	
     	if(realEnd < this.endPage) {
     		this.endPage = realEnd;

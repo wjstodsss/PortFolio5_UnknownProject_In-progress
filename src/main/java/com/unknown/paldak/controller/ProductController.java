@@ -1,6 +1,5 @@
 package com.unknown.paldak.controller;
 
-import java.io.File;
 import java.net.MalformedURLException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -29,6 +28,7 @@ import com.unknown.paldak.domain.Criteria;
 import com.unknown.paldak.domain.PageDTO;
 import com.unknown.paldak.domain.ProductVO;
 import com.unknown.paldak.service.ProductService;
+import com.unknown.paldak.util.FileUploadManager;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j;
@@ -56,39 +56,17 @@ public class ProductController {
         return "admin/product/list";
 	}
 
-
+	
 	@PostMapping("/register")
-	public String register(MultipartFile[] uploadFile, Model model, ProductVO productVO, RedirectAttributes rttr) {
-	    String uploadPath = servletContext.getRealPath("/upload");
-	    log.info(uploadPath);
+	public String register(@RequestParam("uploadFile") MultipartFile[] uploadFile, Model model, ProductVO productVO, RedirectAttributes rttr) {
+		String imageURL = FileUploadManager.uploadFiles(uploadFile, servletContext.getRealPath("/resources/upload"));
+	    productVO.setProductImageURL(imageURL);
 	    
-	    // 업로드 디렉토리 생성
-	    File uploadDir = new File(uploadPath);
-	    if (!uploadDir.exists()) {
-	        uploadDir.mkdirs();
-	    }
 	    
-	    for (MultipartFile multipartFile : uploadFile) {
-	        log.info("---------------------------------");
-	        log.info("upload File Name : " + multipartFile.getOriginalFilename());
-	        log.info("upload File Size : " + multipartFile.getSize());
-
-	     // 실제로 파일을 저장하기 위한 File 객체 생성
-	        File saveFile = new File(uploadPath, multipartFile.getOriginalFilename());
-	        productVO.setProductImageURL(multipartFile.getOriginalFilename());
-	        try { // 파일을 지정된 경로에 저장
-	            multipartFile.transferTo(saveFile);
-	        } catch (Exception e) { // 파일 저장 중 예외 발생 시 에러 메시지 출력
-	            e.printStackTrace();
-	        }
-	    }
+	    productService.register(productVO); // 상품 등록
 	    
-	    log.info("register... " + productVO);
-	    productService.register(productVO);
-
 	    rttr.addFlashAttribute("result", productVO.getProductId());
-	    log.info(productVO.getProductId());
-	   
+	    
 	    return "redirect:list";
 	}
 
@@ -108,36 +86,13 @@ public class ProductController {
 	        return "admin/product/modify";
 	    }
 	} 
-
+	
 	@PostMapping("/modify")
 	public String modify(MultipartFile[] uploadFile, ProductVO productVO, @ModelAttribute("cri") Criteria cri, RedirectAttributes rttr) {
-		System.out.println(productVO.getProductImageURL());
-		System.out.println(uploadFile[0].getSize());
 		if (uploadFile[0].getSize() != 0 ) { 
-	        String uploadPath = servletContext.getRealPath("/upload");
-	        log.info(uploadPath);
-
-	        // 업로드 디렉토리 생성
-	        File uploadDir = new File(uploadPath);
-	        if (!uploadDir.exists()) {
-	            uploadDir.mkdirs();
-	        }
-	        
-	        for (MultipartFile multipartFile : uploadFile) {
-	        	
-	            log.info("---------------------------------");
-	            log.info("upload File Name : " + multipartFile.getOriginalFilename());
-	            log.info("upload File Size : " + multipartFile.getSize());
-
-	            // 실제로 파일을 저장하기 위한 File 객체 생성
-	            File saveFile = new File(uploadPath, multipartFile.getOriginalFilename());
-	            productVO.setProductImageURL(multipartFile.getOriginalFilename());
-	            try { // 파일을 지정된 경로에 저장
-	                multipartFile.transferTo(saveFile);
-	            } catch (Exception e) { // 파일 저장 중 예외 발생 시 에러 메시지 출력
-	                e.printStackTrace();
-	            }
-	        }
+			String imageURL = FileUploadManager.uploadFiles(uploadFile, servletContext.getRealPath("/resources/upload"));
+		    productVO.setProductImageURL(imageURL);
+		    
 	    }
 	    
 	    if (productService.modify(productVO)) {
@@ -165,11 +120,12 @@ public class ProductController {
 	}
 
 	
-	@GetMapping("/upload/{fileName:.+}")
+	@GetMapping("/resources/upload/{fileName:.+}")
 	public ResponseEntity<Resource> downloadFile(@PathVariable String fileName) {
 	    log.info("..*******************************...");
 	    // 파일 경로 설정
-	    String uploadDirectory = servletContext.getRealPath("/upload");
+	    
+	    String uploadDirectory = servletContext.getRealPath("/resources/upload");
 	    log.info(uploadDirectory);
 	    Path filePath = Paths.get(uploadDirectory).resolve(fileName).normalize();
 	    log.info(filePath);
@@ -187,7 +143,4 @@ public class ProductController {
 	    }
 	    return ResponseEntity.notFound().build();
 	}
-	
 }
-
-

@@ -43,7 +43,7 @@
                                         <td>${product.productId}</td>
                                         <td>
                                         	<a class="move" href='${product.productId}'>
-                                        		<img src="upload/${product.productImageURL}" alt="Product Image" style="max-width: 100px;">
+                                        		<img src="resources/upload/${product.productImageURL}" alt="Product Image" style="max-width: 100px;">
                                         	</a>
                                         </td>
                                         <td><a class="move" href='${product.productId}'> ${product.productName}</a> </td>

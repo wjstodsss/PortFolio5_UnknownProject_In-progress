@@ -46,7 +46,6 @@ public class ProductServiceImpl implements ProductService{
 
 	@Override
 	public List<ProductVO> getList(Criteria cri) {
-		System.out.println("**///////************************");
 		return mapper.getListWithPaging(cri);
 	}
 	

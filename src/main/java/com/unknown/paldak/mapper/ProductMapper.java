@@ -22,8 +22,7 @@ public interface ProductMapper {
 	
 	public int update(ProductVO board);
 	
-	//페이지 정보를 기반으로 게시물 목록을 가져옴
 	public List<ProductVO> getListWithPaging(Criteria cri);
 	
-	public int getTotalCount(Criteria cri);  // 전체 데이터 갯수
+	public int getTotalCount(Criteria cri);
 }
