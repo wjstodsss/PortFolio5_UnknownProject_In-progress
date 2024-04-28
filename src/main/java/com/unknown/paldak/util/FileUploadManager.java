@@ -1,7 +1,12 @@
 package com.unknown.paldak.util;
 
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+
+import javax.servlet.ServletContext;
 
 import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
@@ -12,6 +17,7 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class FileUploadManager {
 	private final UploadPathConfig uploadPathConfig;
+	private final ServletContext servletContext;
 	
     public String uploadFiles(MultipartFile[] uploadFiles) {
         File uploadDir = new File(uploadPathConfig.getUploadPath());

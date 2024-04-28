@@ -40,7 +40,7 @@
 				</div>
 
 				<button data-oper='modify' class="btn btn-default btn-success"
-					onclick="location.href='admin/product/modify?productId=${product.productId}'">Modify</button>
+					onclick="location.href='modify?productId=${product.productId}'">Modify</button>
 
 				<button data-oper='list' class="btn btn-default btn-info"
 					onclick="location.href='list'">List</button>

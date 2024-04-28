@@ -43,6 +43,7 @@ public class ProductController {
 	private final FileUploadManager fileUploadManager;
 	private final UploadPathConfig uploadPathConfig;
 	
+	
 	@GetMapping("/list")
 	public String list(Criteria cri, Model model) {
 		

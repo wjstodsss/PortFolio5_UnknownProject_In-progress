@@ -147,9 +147,8 @@
 	            actionForm.submit();
 	        });
 	
-	        if (result !== null) { 
-	            checkModal(result);
-	        }
+	       checkModal(result);
+	       
 	
 	        history.replaceState({}, null, null);
 	
@@ -157,7 +156,7 @@
 	            self.location="register";
 	        });
 	    });
-	
+	    
 	    function checkModal(result){
 	        if(result ===''  || history.state){
 	            return;
@@ -168,6 +167,8 @@
 	            $("#myModal").modal("show");
 	        }
 	    }
+	
+	    
 
     </script>
     

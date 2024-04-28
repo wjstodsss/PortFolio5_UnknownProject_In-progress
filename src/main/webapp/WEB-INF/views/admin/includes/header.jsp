@@ -4,8 +4,6 @@
 <html lang="en">
 
 <head>
-<!-- jQuery -->
-    <script src="/resources/vendor/jquery/jquery.min.js"></script>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -13,10 +11,15 @@
     <meta name="author" content="">
 
     <title>Team-Unknown</title>
-
+	<!-- jQuery -->
+    <script src="/resources/vendor/jquery/jquery.min.js"></script>
+    
+    <!-- Bootstrap Core JavaScript -->
+    <script src="/resources/vendor/bootstrap/js/bootstrap.min.js"></script>
+    
     <!-- Bootstrap Core CSS -->
     <link href="/resources/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
+   
     <!-- MetisMenu CSS -->
     <link href="/resources/vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
 
