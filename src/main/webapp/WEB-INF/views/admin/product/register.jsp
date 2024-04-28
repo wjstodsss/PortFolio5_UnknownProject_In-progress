@@ -10,7 +10,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Board Register</title>
->
+
 </head>
 <body>
 <div class="row">
