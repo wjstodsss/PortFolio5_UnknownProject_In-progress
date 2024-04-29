@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.unknown.paldak.admin.mapper.QnaMapper">
+    <select id="getList" resultType="com.unknown.paldak.admin.domain.QnaVO">
+        select * from tbl_qna where qnaId > 0 order by qnaId desc
+    </select>
+
+    <insert id="insert" parameterType="com.unknown.paldak.admin.domain.QnaVO">
+        insert into tbl_qna(qnaId, qnaName, qnaDescription, qnaPrice, qnaCategory, qnaBrand, qnaImageURL)
+        VALUES (
+        #{qnaId},
+        #{qnaName},
+        #{qnaDescription},
+        #{qnaPrice},
+        #{qnaCategory},
+        #{qnaBrand},
+        #{qnaImageURL}
+        )
+    </insert>
+
+    <insert id="insertSelectKey" parameterType="com.unknown.paldak.admin.domain.QnaVO">
+        <selectKey keyProperty="qnaId" order="BEFORE" resultType="long">
+            select seq_qna.nextval from dual
+        </selectKey>
+        INSERT INTO tbl_qna (qnaId, qnaName, qnaDescription, qnaPrice, qnaCategory, qnaBrand, qnaImageURL)
+        VALUES (
+        #{qnaId},
+        #{qnaName},
+        #{qnaDescription},
+        #{qnaPrice},
+        #{qnaCategory},
+        #{qnaBrand},
+        #{qnaImageURL}
+        )
+    </insert>
+
+    <select id="read" parameterType="long" resultType="com.unknown.paldak.admin.domain.QnaVO">
+        select * from tbl_qna where qnaId = #{qnaId}
+    </select>
+
+    <delete id="delete" parameterType="long">
+        delete from tbl_qna where qnaId = #{qnaId}
+    </delete>
+
+    <update id="update" parameterType="com.unknown.paldak.admin.domain.QnaVO">
+        update tbl_qna 
+        set qnaName=#{qnaName}, qnaDescription=#{qnaDescription}, qnaPrice=#{qnaPrice}, qnaCategory=#{qnaCategory}, qnaBrand=#{qnaBrand}, qnaImageURL=#{qnaImageURL}
+        where qnaId=#{qnaId}
+    </update>
+
+    <select id="getListWithPaging" parameterType="com.unknown.paldak.admin.common.domain.Criteria" resultType="com.unknown.paldak.admin.domain.QnaVO">
+        <![CDATA[
+            select qnaId, qnaName, qnaDescription, qnaPrice, qnaCategory, qnaBrand, qnaImageURL, qnaRegdate, qnaUpdateDate from (
+            select /*+INDEX_DESC(tbl_qna pk_qna) */ rownum rn, qnaId, qnaName, qnaDescription, qnaPrice, qnaCategory, qnaBrand, qnaImageURL, qnaRegdate, qnaUpdateDate
+            from tbl_qna 
+            where rownum <=  #{pageNum} * #{amount}
+            ) where rn > (#{pageNum}-1) * #{amount}
+        ]]>
+    </select>
+    
+    <select id="getTotalCount" resultType="int">
+        select count(*) from tbl_qna where qnaId > 0
+    </select>
+</mapper>

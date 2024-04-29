@@ -12,15 +12,15 @@ public interface ProductMapper {
 	
 	public List<ProductVO> getList();
 	
-	public void insert(ProductVO board);
+	public void insert(ProductVO productVO);
 	
-	public void insertSelectKey(ProductVO board);
+	public void insertSelectKey(ProductVO productVO);
 	
-	public ProductVO read(Long bno);
+	public ProductVO read(Long productId);
 	
-	public int delete(Long bno);
+	public int delete(Long productId);
 	
-	public int update(ProductVO board);
+	public int update(ProductVO productVO);
 	
 	//페이지 정보를 기반으로 게시물 목록을 가져옴
 	public List<ProductVO> getListWithPaging(Criteria cri);

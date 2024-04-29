@@ -21,27 +21,27 @@ public class ProductServiceImpl implements ProductService{
 	private ProductMapper mapper;
 
 	@Override
-	public void register(ProductVO board) {
-		log.info("register... " + board);
-		mapper.insertSelectKey(board);
+	public void register(ProductVO productVO) {
+		log.info("register... " + productVO);
+		mapper.insertSelectKey(productVO);
 		
 	}
 
 	@Override
-	public ProductVO get(Long bno) {
-		log.info("get..." + bno);	
-		return mapper.read(bno);
+	public ProductVO get(Long productId) {
+		log.info("get..." + productId);	
+		return mapper.read(productId);
 	}
 
 	@Override
-	public boolean modify(ProductVO board) {
-		return mapper.update(board)==1;
+	public boolean modify(ProductVO productVO) {
+		return mapper.update(productVO)==1;
 	}
 
 	@Override
-	public Boolean remove(Long bno) {
-		log.info("remove ... " + bno);
-		return mapper.delete(bno)==1;
+	public Boolean remove(Long productId) {
+		log.info("remove ... " + productId);
+		return mapper.delete(productId)==1;
 	}
 
 	@Override

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.unknown.paldak.admin.mapper.FaqMapper">
+    <select id="getList" resultType="com.unknown.paldak.admin.domain.FaqVO">
+        select * from tbl_faq where faqId > 0 order by faqId desc
+    </select>
+
+    <insert id="insert" parameterType="com.unknown.paldak.admin.domain.FaqVO">
+        insert into tbl_faq(faqId, faqName, faqDescription, faqPrice, faqCategory, faqBrand, faqImageURL)
+        VALUES (
+        #{faqId},
+        #{faqName},
+        #{faqDescription},
+        #{faqPrice},
+        #{faqCategory},
+        #{faqBrand},
+        #{faqImageURL}
+        )
+    </insert>
+
+    <insert id="insertSelectKey" parameterType="com.unknown.paldak.admin.domain.FaqVO">
+        <selectKey keyProperty="faqId" order="BEFORE" resultType="long">
+            select seq_faq.nextval from dual
+        </selectKey>
+        INSERT INTO tbl_faq (faqId, faqName, faqDescription, faqPrice, faqCategory, faqBrand, faqImageURL)
+        VALUES (
+        #{faqId},
+        #{faqName},
+        #{faqDescription},
+        #{faqPrice},
+        #{faqCategory},
+        #{faqBrand},
+        #{faqImageURL}
+        )
+    </insert>
+
+    <select id="read" parameterType="long" resultType="com.unknown.paldak.admin.domain.FaqVO">
+        select * from tbl_faq where faqId = #{faqId}
+    </select>
+
+    <delete id="delete" parameterType="long">
+        delete from tbl_faq where faqId = #{faqId}
+    </delete>
+
+    <update id="update" parameterType="com.unknown.paldak.admin.domain.FaqVO">
+        update tbl_faq 
+        set faqName=#{faqName}, faqDescription=#{faqDescription}, faqPrice=#{faqPrice}, faqCategory=#{faqCategory}, faqBrand=#{faqBrand}, faqImageURL=#{faqImageURL}
+        where faqId=#{faqId}
+    </update>
+
+    <select id="getListWithPaging" parameterType="com.unknown.paldak.admin.common.domain.Criteria" resultType="com.unknown.paldak.admin.domain.FaqVO">
+        <![CDATA[
+            select faqId, faqName, faqDescription, faqPrice, faqCategory, faqBrand, faqImageURL, faqRegdate, faqUpdateDate from (
+            select /*+INDEX_DESC(tbl_faq pk_faq) */ rownum rn, faqId, faqName, faqDescription, faqPrice, faqCategory, faqBrand, faqImageURL, faqRegdate, faqUpdateDate
+            from tbl_faq 
+            where rownum <=  #{pageNum} * #{amount}
+            ) where rn > (#{pageNum}-1) * #{amount}
+        ]]>
+    </select>
+    
+    <select id="getTotalCount" resultType="int">
+        select count(*) from tbl_faq where faqId > 0
+    </select>
+</mapper>

@@ -6,13 +6,13 @@ import com.unknown.paldak.admin.common.domain.Criteria;
 import com.unknown.paldak.admin.domain.ProductVO;
 
 public interface ProductService {
-  public void register(ProductVO board);
+  public void register(ProductVO productVO);
   
-  public ProductVO get(Long bno);
+  public ProductVO get(Long productId);
   
-  public boolean modify(ProductVO board);
+  public boolean modify(ProductVO productVO);
   
-  public Boolean remove(Long bno);
+  public Boolean remove(Long productId);
   
   public List<ProductVO> getList(Criteria cri);
   
