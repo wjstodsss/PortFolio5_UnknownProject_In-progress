@@ -10,7 +10,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Board Register</title>
->
+
 </head>
 <body>
 <div class="row">
@@ -49,6 +49,7 @@
                     <div class="form-group">
                         <label for="uploadFile">uploadFile</label>
                         <input type="file" id="uploadFile" name="uploadFile" multiple>
+                        <input type="hidden" value='defaltImage.jpg' name='productImageURL'>
                     </div>
                     <button type="submit" class="btn btn-default btn-success">Submit Button</button>
                     <button type="reset" class="btn btn-default btn-info">Reset Button</button>

@@ -127,47 +127,49 @@
     
     
     <script>
-       $(document).ready(function(){
-    	   var result = '${result}';
-    	   
-    	   checkModal(result);
-    	   
-    	   history.replaceState({}, null, null);  //뒤로가기 모달창 보여준 뒤에는 더 이상 보여주지 않기
-    	   
-    	   function checkModal(result){
-    		   if(result ===''  || history.state){
-    			   return;
-    		   }else {
-    			   if(parseInt(result) > 0){
-    				   $(".modal-body").html("게시글" + parseInt(result) + "번이 등록되었습니다.");
-    			   }
-    			   $("#myModal").modal("show");
-    		   }
-    	   }
-    	   
-    	   
-    	   $("#regBtn").on("click", function(){
-    		   self.location="register";
-    	   });
-    	   
-    	   
-    	   var actionForm = $("#actionForm");
-    		$(".paginate_button a").on("click", function(e){
-    			e.preventDefault();
-    			console.log("click");
-    						
-    			actionForm.find("input[name='pageNum']").val($(this).attr("href"));			
-    			actionForm.submit();	
-    		});
-    	   
-    		
-    		$(".move").on("click", function(e){
-    			e.preventDefault();
-    			actionForm.append("<input type='hidden' name='productId' value='" + $(this).attr("href") + "'>");
-    			actionForm.attr("action", "get");
-    			actionForm.submit();
-    		});
-       });
+	    $(document).ready(function(){
+	        var actionForm = $("#actionForm");
+	        var result = '${result}';
+	        console.log(result + "kkkkkk");
+	
+	        $(".paginate_button a").on("click", function(e){
+	            e.preventDefault();
+	            console.log("click");
+	
+	            actionForm.find("input[name='pageNum']").val($(this).attr("href"));
+	            actionForm.submit();    
+	        });
+	
+	        $(".move").on("click", function(e){
+	            e.preventDefault();
+	            actionForm.append("<input type='hidden' name='productId' value='" + $(this).attr("href") + "'>");
+	            actionForm.attr("action", "get");
+	            actionForm.submit();
+	        });
+	
+	       checkModal(result);
+	       
+	
+	        history.replaceState({}, null, null);
+	
+	        $("#regBtn").on("click", function(){
+	            self.location="register";
+	        });
+	    });
+	    
+	    function checkModal(result){
+	        if(result ===''  || history.state){
+	            return;
+	        } else {
+	            if(parseInt(result) > 0){
+	                $(".modal-body").html("게시글" + parseInt(result) + "번이 등록되었습니다.");
+	            }
+	            $("#myModal").modal("show");
+	        }
+	    }
+	
+	    
+
     </script>
     
     
