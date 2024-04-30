@@ -43,7 +43,7 @@
                                         <td>${notice.noticeId}</td>
                                         <td>
                                         	<a class="move" href='${notice.noticeId}'>
-                                        		<img src="upload/${notice.noticeImageURL}" alt="Notice Image" style="max-width: 100px;">
+                                        		<img src="/download/${notice.noticeImageURL}" alt="Notice Image" style="max-width: 100px;">
                                         	</a>
                                         </td>
                                         <td><a class="move" href='${notice.noticeId}'> ${notice.noticeName}</a> </td>

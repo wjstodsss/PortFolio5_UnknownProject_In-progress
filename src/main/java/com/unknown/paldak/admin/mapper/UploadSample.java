@@ -1,4 +1,4 @@
-package com.unknown.paldak.admin.controller;
+package com.unknown.paldak.admin.mapper;
 
 import java.io.File;
 
@@ -12,7 +12,7 @@ import lombok.extern.log4j.Log4j;
 
 @Controller
 @Log4j
-public class UploadController {
+public class UploadSample {
 	// 업로드 폼을 보여주는 GET 요청을 처리하는 핸들러
 	@GetMapping("/uploadForm")
 	public void uploadForm() {

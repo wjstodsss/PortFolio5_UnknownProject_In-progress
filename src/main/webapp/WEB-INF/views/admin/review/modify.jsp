@@ -48,7 +48,7 @@
 						</div>
 						<div class="form-group">
 							<label>변경전 이미지</label>
-							<img src="upload/${review.reviewImageURL}" alt="제품이미지" style="max-width: 100px">
+							<img src="/download/${review.reviewImageURL}" alt="제품이미지" style="max-width: 100px">
 							<input type="hidden" value='${review.reviewImageURL}' name='reviewImageURL'>
 							
 						</div>

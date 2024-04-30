@@ -9,6 +9,10 @@
 	
 	<!-- Root Context: defines shared resources visible to all other web components -->
 		  	<!-- Root Context: 다른 모든 웹 컴포넌트에서 사용 가능한 공유 리소스 정의 -->
+		  	
+		  	<!-- Mapper인터페이스  -->
+	<mybatis-spring:scan base-package="com.unknown.paldak.admin.mapper"/>
+		  	
 	
 	<!-- HikariCP 구성 -->
 	<bean id="hikariConfig" class="com.zaxxer.hikari.HikariConfig">
@@ -38,7 +42,5 @@
 		<constructor-arg index="0" ref="sqlSessionFactory" />
 	</bean>
 	
-	<!-- Mapper인터페이스  -->
-	<mybatis-spring:scan base-package="com.unknown.paldak.admin.mapper"/>
-
+	
 </beans>

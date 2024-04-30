@@ -43,7 +43,7 @@
                                         <td>${review.reviewId}</td>
                                         <td>
                                         	<a class="move" href='${review.reviewId}'>
-                                        		<img src="upload/${review.reviewImageURL}" alt="Review Image" style="max-width: 100px;">
+                                        		<img src="/download/${review.reviewImageURL}" alt="Review Image" style="max-width: 100px;">
                                         	</a>
                                         </td>
                                         <td><a class="move" href='${review.reviewId}'> ${review.reviewName}</a> </td>

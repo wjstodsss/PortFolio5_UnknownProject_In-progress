@@ -38,21 +38,21 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                  <c:forEach var="member" items="${members}">
+                                  <c:forEach var="qna" items="${qnas}">
                                      <tr class="odd gradeX">
-                                        <td>${member.memberId}</td>
+                                        <td>${qna.qnaId}</td>
                                         <td>
-                                        	<a class="move" href='${member.memberId}'>
-                                        		<img src="upload/${member.memberImageURL}" alt="Qna Image" style="max-width: 100px;">
+                                        	<a class="move" href='${qna.qnaId}'>
+                                        		<img src="/download/${qna.qnaImageURL}" alt="Qna Image" style="max-width: 100px;">
                                         	</a>
                                         </td>
-                                        <td><a class="move" href='${member.memberId}'> ${member.memberName}</a> </td>
-                                        <td>${member.memberDescription}</td>
-                                        <td>${member.memberPrice}</td>
-                                        <td>${member.memberCategory}</td>
-                                        <td>${member.memberBrand}</td>
-                                        <td><fmt:formatDate pattern="yyyy-MM-dd" value="${member.memberRegdate}"/></td>
-                                        <td><fmt:formatDate pattern="yyyy-MM-dd" value="${member.memberUpdateDate}"/></td>
+                                        <td><a class="move" href='${qna.qnaId}'> ${qna.qnaName}</a> </td>
+                                        <td>${qna.qnaDescription}</td>
+                                        <td>${qna.qnaPrice}</td>
+                                        <td>${qna.qnaCategory}</td>
+                                        <td>${qna.qnaBrand}</td>
+                                        <td><fmt:formatDate pattern="yyyy-MM-dd" value="${qna.qnaRegdate}"/></td>
+                                        <td><fmt:formatDate pattern="yyyy-MM-dd" value="${qna.qnaUpdateDate}"/></td>
                                      </tr>
                                   
                                   </c:forEach>
@@ -79,7 +79,7 @@
 							</div> 
 							<!-- end 페이지 처리 --> 
                         
-		                       <form id='actionForm' action="/admin/member/list" method='get'>
+		                       <form id='actionForm' action="/admin/qna/list" method='get'>
 									<input type='hidden' name='pageNum' value='${pageMaker.cri.pageNum}'>
 									<input type='hidden' name='amount' value='${pageMaker.cri.amount}'>
 								</form>
@@ -142,7 +142,7 @@
 	
 	        $(".move").on("click", function(e){
 	            e.preventDefault();
-	            actionForm.append("<input type='hidden' name='memberId' value='" + $(this).attr("href") + "'>");
+	            actionForm.append("<input type='hidden' name='qnaId' value='" + $(this).attr("href") + "'>");
 	            actionForm.attr("action", "get");
 	            actionForm.submit();
 	        });

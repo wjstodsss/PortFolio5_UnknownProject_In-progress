@@ -43,7 +43,7 @@
                                         <td>${member.memberId}</td>
                                         <td>
                                         	<a class="move" href='${member.memberId}'>
-                                        		<img src="upload/${member.memberImageURL}" alt="Member Image" style="max-width: 100px;">
+                                        		<img src="/download/${member.memberImageURL}" alt="Member Image" style="max-width: 100px;">
                                         	</a>
                                         </td>
                                         <td><a class="move" href='${member.memberId}'> ${member.memberName}</a> </td>

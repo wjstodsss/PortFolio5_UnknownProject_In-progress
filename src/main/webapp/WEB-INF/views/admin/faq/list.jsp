@@ -43,7 +43,7 @@
                                         <td>${faq.faqId}</td>
                                         <td>
                                         	<a class="move" href='${faq.faqId}'>
-                                        		<img src="upload/${faq.faqImageURL}" alt="Faq Image" style="max-width: 100px;">
+                                        		<img src="/download/${faq.faqImageURL}" alt="Faq Image" style="max-width: 100px;">
                                         	</a>
                                         </td>
                                         <td><a class="move" href='${faq.faqId}'> ${faq.faqName}</a> </td>

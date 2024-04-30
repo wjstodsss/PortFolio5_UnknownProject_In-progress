@@ -126,23 +126,5 @@ public class ReviewController {
 	}
 
 	
-	@GetMapping("/upload/{fileName:.+}")
-	public ResponseEntity<Resource> downloadFile(@PathVariable String fileName) {  
-	    String uploadDirectory = uploadPathConfig.getUploadPath();
-	    Path filePath = Paths.get(uploadDirectory).resolve(fileName).normalize();
-	    Resource resource;
-	    
-	    try {
-	        resource = new UrlResource(filePath.toUri());
-	        if (resource.exists()) {
-	            return ResponseEntity.ok()
-	                    .contentType(MediaType.APPLICATION_OCTET_STREAM)
-	                    .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + resource.getFilename() + "\"")
-	                    .body(resource);
-	        }
-	    } catch (MalformedURLException e) {
-	        e.printStackTrace();
-	    }
-	    return ResponseEntity.notFound().build();
-	}
+
 }

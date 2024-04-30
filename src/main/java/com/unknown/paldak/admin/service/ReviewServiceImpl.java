@@ -46,7 +46,6 @@ public class ReviewServiceImpl implements ReviewService{
 
 	@Override
 	public List<ReviewVO> getList(Criteria cri) {
-		System.out.println(cri);
 		return mapper.getListWithPaging(cri);
 	}
 	
