@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.unknown.paldak.admin.common.domain.Criteria;
+
 import com.unknown.paldak.admin.domain.ProductVO;
 import com.unknown.paldak.admin.mapper.ProductMapper;
 
@@ -15,7 +16,7 @@ import lombok.extern.log4j.Log4j;
 @Log4j
 @Service
 @AllArgsConstructor
-public class ProductServiceImpl implements ProductService{
+public class ProductServiceImpl implements BaseService<ProductVO>{
     
 	@Autowired
 	private ProductMapper mapper;

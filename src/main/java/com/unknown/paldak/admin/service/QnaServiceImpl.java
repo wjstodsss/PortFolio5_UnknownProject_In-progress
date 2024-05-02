@@ -1,6 +1,6 @@
 package com.unknown.paldak.admin.service;
 
-import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.log;
+
 
 import java.util.List;
 
@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.unknown.paldak.admin.common.domain.Criteria;
+
 import com.unknown.paldak.admin.domain.QnaVO;
 import com.unknown.paldak.admin.mapper.QnaMapper;
 
@@ -17,7 +18,7 @@ import lombok.extern.log4j.Log4j;
 @Log4j
 @Service
 @AllArgsConstructor
-public class QnaServiceImpl implements QnaService{
+public class QnaServiceImpl implements BaseService<QnaVO>{
     
 	@Autowired
 	private QnaMapper mapper;

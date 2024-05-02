@@ -15,7 +15,7 @@ import lombok.extern.log4j.Log4j;
 @Log4j
 @Service
 @AllArgsConstructor
-public class MemberServiceImpl implements MemberService{
+public class MemberServiceImpl implements BaseService<MemberVO>{
     
 	@Autowired
 	private MemberMapper mapper;

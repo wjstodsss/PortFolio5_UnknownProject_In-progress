@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.unknown.paldak.admin.common.domain.Criteria;
+
 import com.unknown.paldak.admin.domain.ReviewVO;
 import com.unknown.paldak.admin.mapper.ReviewMapper;
 
@@ -15,7 +16,7 @@ import lombok.extern.log4j.Log4j;
 @Log4j
 @Service
 @AllArgsConstructor
-public class ReviewServiceImpl implements ReviewService{
+public class ReviewServiceImpl implements BaseService<ReviewVO>{
     
 	@Autowired
 	private ReviewMapper mapper;

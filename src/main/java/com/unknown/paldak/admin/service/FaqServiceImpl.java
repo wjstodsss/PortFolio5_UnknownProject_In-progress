@@ -15,7 +15,7 @@ import lombok.extern.log4j.Log4j;
 @Log4j
 @Service
 @AllArgsConstructor
-public class FaqServiceImpl implements FaqService{
+public class FaqServiceImpl implements BaseService<FaqVO>{
     
 	@Autowired
 	private FaqMapper mapper;

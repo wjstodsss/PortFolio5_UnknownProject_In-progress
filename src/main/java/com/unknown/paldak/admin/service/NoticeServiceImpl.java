@@ -15,7 +15,7 @@ import lombok.extern.log4j.Log4j;
 @Log4j
 @Service
 @AllArgsConstructor
-public class NoticeServiceImpl implements NoticeService{
+public class NoticeServiceImpl implements BaseService<NoticeVO>{
     
 	@Autowired
 	private NoticeMapper mapper;
