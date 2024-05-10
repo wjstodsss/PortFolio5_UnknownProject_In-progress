@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.unknown.paldak.admin.mapper.MemberMapper">
+    <select id="getList" resultType="com.unknown.paldak.admin.domain.MemberVO">
+        select * from tbl_member where memberId > 0 order by memberId desc
+    </select>
+
+    <insert id="insert" parameterType="com.unknown.paldak.admin.domain.MemberVO">
+        insert into tbl_member(memberId, memberName, memberDescription, memberPrice, memberCategory, memberBrand, memberImageURL)
+        VALUES (
+        #{memberId},
+        #{memberName},
+        #{memberDescription},
+        #{memberPrice},
+        #{memberCategory},
+        #{memberBrand},
+        #{memberImageURL}
+        )
+    </insert>
+
+    <insert id="insertSelectKey" parameterType="com.unknown.paldak.admin.domain.MemberVO">
+        <selectKey keyProperty="memberId" order="BEFORE" resultType="long">
+            select seq_member.nextval from dual
+        </selectKey>
+        INSERT INTO tbl_member (memberId, memberName, memberDescription, memberPrice, memberCategory, memberBrand, memberImageURL)
+        VALUES (
+        #{memberId},
+        #{memberName},
+        #{memberDescription},
+        #{memberPrice},
+        #{memberCategory},
+        #{memberBrand},
+        #{memberImageURL}
+        )
+    </insert>
+
+    <select id="read" parameterType="long" resultType="com.unknown.paldak.admin.domain.MemberVO">
+        select * from tbl_member where memberId = #{memberId}
+    </select>
+
+    <delete id="delete" parameterType="long">
+        delete from tbl_member where memberId = #{memberId}
+    </delete>
+
+    <update id="update" parameterType="com.unknown.paldak.admin.domain.MemberVO">
+        update tbl_member 
+        set memberName=#{memberName}, memberDescription=#{memberDescription}, memberPrice=#{memberPrice}, memberCategory=#{memberCategory}, memberBrand=#{memberBrand}, memberImageURL=#{memberImageURL}
+        where memberId=#{memberId}
+    </update>
+
+    <select id="getListWithPaging" parameterType="com.unknown.paldak.admin.common.domain.Criteria" resultType="com.unknown.paldak.admin.domain.MemberVO">
+        <![CDATA[
+            select memberId, memberName, memberDescription, memberPrice, memberCategory, memberBrand, memberImageURL, memberRegdate, memberUpdateDate from (
+            select /*+INDEX_DESC(tbl_member pk_member) */ rownum rn, memberId, memberName, memberDescription, memberPrice, memberCategory, memberBrand, memberImageURL, memberRegdate, memberUpdateDate
+            from tbl_member 
+            where rownum <=  #{pageNum} * #{amount}
+            ) where rn > (#{pageNum}-1) * #{amount}
+        ]]>
+    </select>
+    
+    <select id="getTotalCount" resultType="int">
+        select count(*) from tbl_member where memberId > 0
+    </select>
+</mapper>
