@@ -28,7 +28,7 @@
 - 버전 관리: Git
 - 라이브러리: spring-web-MVC, mybatis, ojdbc, spring-security, lombok, hikariCP, jackson, gson, aspectJ, thumbnailator, json-simple
 
-### **참고 웹사이트([랭킹닭컴](https://jinganebanchan.com/](https://www.rankingdak.com/)**
+### **참고 웹사이트([랭킹닭컴](https://www.rankingdak.com/)**
 
 1. **디자인 및 레이아웃 분석:**  헤더, 슬라이더, 세션, 푸터로 구성된 레이아웃과 편리하고 익숙한 인터페이스 구조를 갖고 있습니다.
 2. **게시판 분석**: 공지사항, 질의응답, 자주찾는 질문, 구매후기 4개의 게시판과 특정 게시판은 이미지 파일 첨부가 가능합니다.
