@@ -30,7 +30,7 @@
 
 		<!-- 파일 업로드 기능에 대한 설정 -->
 		<multipart-config>
-			<location>C:\\upload\\temp</location> <!-- 파일이 임시로 저장될 위치 -->
+			
 			<max-file-size>20971520</max-file-size> <!-- 최대 파일 크기: 20MB (1MB * 20) -->
 			<max-request-size>41943040</max-request-size><!-- 최대 요청 크기: 40MB -->
 			<!-- 파일 크기가 이 값보다 크면 디스크에 기록되고, 그렇지 않으면 메모리에 기록된다 -->

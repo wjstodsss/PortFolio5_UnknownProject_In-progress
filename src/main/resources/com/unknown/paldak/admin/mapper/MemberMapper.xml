@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.unknown.paldak.admin.mapper.MemberMapper">
+	<select id="getList"
+		resultType="com.unknown.paldak.admin.domain.MemberVO">
+		select * from tbl_member where memberId > 0 order by memberId desc
+	</select>
+	<insert id="insertSelectKey"
+		parameterType="com.unknown.paldak.admin.domain.MemberVO"
+		useGeneratedKeys="true" keyProperty="memberId">
+		<selectKey keyProperty="memberId" order="BEFORE"
+			resultType="int">
+			select seq_member.nextval from dual
+		</selectKey>
+		insert into tbl_member(memberId, memberName, memberPw, memberMail,
+		memberAddr1, memberAddr2, memberAddr3, adminCk, money, point,
+		memberPhone)
+		values (
+		#{memberId},
+		#{memberName},
+		#{memberPw},
+		#{memberMail},
+		#{memberAddr1},
+		#{memberAddr2},
+		#{memberAddr3},
+		#{adminCk},
+		#{money},
+		#{point},
+		#{memberPhone}
+		)
+	</insert>
+
+	<select id="read" parameterType="long"
+		resultType="com.unknown.paldak.admin.domain.MemberVO">
+		select * from tbl_member where memberId = #{memberId}
+	</select>
+
+	<delete id="delete" parameterType="long">
+		delete from tbl_member where memberId = #{memberId}
+	</delete>
+
+	<update id="update"
+		parameterType="com.unknown.paldak.admin.domain.MemberVO">
+		update tbl_member
+		set memberPw=#{memberPw}, memberName=#{memberName},
+		memberMail=#{memberMail}, memberAddr1=#{memberAddr1},
+		memberAddr2=#{memberAddr2},
+		memberAddr3=#{memberAddr3}, adminCk=#{adminCk}, money=#{money}, point=#{point},
+		memberPhone=#{memberPhone}
+		where memberId=#{memberId}
+	</update>
+	
+	
+	<sql id="criterial">
+		<trim prefix="(" suffix=") AND " prefixOverrides="OR">
+			<foreach item='type' collection="typeArr">
+				<trim prefix="OR">
+					<choose>
+						<when test="type == 'N'.toString()">
+							memberName like '%'||#{keyword}||'%'
+						</when>
+						<when test="type == 'A'.toString()">
+							memberAddr2 like '%'||#{keyword}||'%' or memberAddr3 like '%'||#{keyword}||'%'
+						</when>
+						<when test="type == 'M'.toString()">
+							memberMail like '%'||#{keyword}||'%'
+						</when>
+					</choose>
+				</trim>
+			</foreach>
+		</trim>
+	</sql>
+
+
+	<select id="getListWithPaging"
+		parameterType="com.unknown.paldak.admin.common.domain.Criteria"
+		resultType="com.unknown.paldak.admin.domain.MemberVO">
+        <![CDATA[
+            select memberId, memberPw, memberName, memberMail, memberAddr1, memberAddr2, memberAddr3, adminCk, regDate, money, point, memberPhone 
+            from (
+            	select /*+INDEX_DESC(tbl_member pk_member) */ rownum rn, memberId, memberPw, memberName, memberMail, memberAddr1, memberAddr2, memberAddr3, adminCk, regDate, money, point, memberPhone
+            from tbl_member 
+            where
+        ]]>
+             <include refid="criterial"></include>
+             
+        <![CDATA[ 
+             rownum <=  #{pageNum} * #{amount}
+            ) where rn > (#{pageNum}-1) * #{amount}
+        ]]>
+	</select>
+
+	<select id="getDescListWithPaging"
+		parameterType="com.unknown.paldak.admin.common.domain.Criteria"
+		resultType="com.unknown.paldak.admin.domain.MemberVO">
+    <![CDATA[
+        select memberId, memberPw, memberName, memberMail, memberAddr1, memberAddr2, memberAddr3, adminCk, regDate, money, point, memberPhone 
+        from (
+            select /*+INDEX_DESC(tbl_member pk_member) */ rownum rn, memberId, memberPw, memberName, memberMail, memberAddr1, memberAddr2, memberAddr3, adminCk, regDate, money, point, memberPhone
+            from (
+                select * from tbl_member order by memberId desc
+            ) where
+    ]]>
+             <include refid="criterial"></include>
+             
+    <![CDATA[             
+             rownum <= #{pageNum} * #{amount}
+        ) 
+        where rn > (#{pageNum} - 1) * #{amount}
+    ]]>
+	</select>
+
+
+	<select id="getTotalCount" resultType="int">
+		select count(*) from tbl_member where
+		<include refid="criterial"></include>
+		 memberId > 0
+</select>
+
+</mapper>

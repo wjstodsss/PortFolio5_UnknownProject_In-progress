@@ -9,6 +9,10 @@
 	
 	<!-- Root Context: defines shared resources visible to all other web components -->
 		  	<!-- Root Context: 다른 모든 웹 컴포넌트에서 사용 가능한 공유 리소스 정의 -->
+		  	
+		  	<!-- Mapper인터페이스  -->
+	<mybatis-spring:scan base-package="com.unknown.paldak.admin.mapper"/>
+		  	
 	
 	<!-- HikariCP 구성 -->
 	<bean id="hikariConfig" class="com.zaxxer.hikari.HikariConfig">
@@ -29,15 +33,14 @@
 	<!-- Mybatis SqlSessionFactoryBean 설정 -->
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 	    <property name="dataSource" ref="dataSource"/>
+	    <property name="configLocation" value="classpath:mybatis-config.xml" />
 	</bean>
 	
-	<!-- Mapper인터페이스  -->
-	<mybatis-spring:scan base-package="org.zerock.mapper"/>
+	<!-- SqlSessionTemplate 설정 -->
+	<bean id="sqlSessionTemplate"
+		class="org.mybatis.spring.SqlSessionTemplate">
+		<constructor-arg index="0" ref="sqlSessionFactory" />
+	</bean>
 	
-	
-	<!-- 컴포넌트 스캔 -->
-	<context:component-scan base-package="org.zerock.sample"/>
-	
-	<context:component-scan base-package="org.zerock.service"/>
 	
 </beans>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.unknown.paldak.admin.mapper.NoticeMapper">
+    <select id="getList" resultType="com.unknown.paldak.admin.domain.NoticeVO">
+        select * from tbl_notice where noticeId > 0 order by noticeId desc
+    </select>
+
+    <insert id="insert" parameterType="com.unknown.paldak.admin.domain.NoticeVO">
+        insert into tbl_notice(noticeId, noticeName, noticeDescription, noticePrice, noticeCategory, noticeBrand, noticeImageURL)
+        VALUES (
+        #{noticeId},
+        #{noticeName},
+        #{noticeDescription},
+        #{noticePrice},
+        #{noticeCategory},
+        #{noticeBrand},
+        #{noticeImageURL}
+        )
+    </insert>
+
+    <insert id="insertSelectKey" parameterType="com.unknown.paldak.admin.domain.NoticeVO">
+        <selectKey keyProperty="noticeId" order="BEFORE" resultType="long">
+            select seq_notice.nextval from dual
+        </selectKey>
+        INSERT INTO tbl_notice (noticeId, noticeName, noticeDescription, noticePrice, noticeCategory, noticeBrand, noticeImageURL)
+        VALUES (
+        #{noticeId},
+        #{noticeName},
+        #{noticeDescription},
+        #{noticePrice},
+        #{noticeCategory},
+        #{noticeBrand},
+        #{noticeImageURL}
+        )
+    </insert>
+
+    <select id="read" parameterType="long" resultType="com.unknown.paldak.admin.domain.NoticeVO">
+        select * from tbl_notice where noticeId = #{noticeId}
+    </select>
+
+    <delete id="delete" parameterType="long">
+        delete from tbl_notice where noticeId = #{noticeId}
+    </delete>
+
+    <update id="update" parameterType="com.unknown.paldak.admin.domain.NoticeVO">
+        update tbl_notice 
+        set noticeName=#{noticeName}, noticeDescription=#{noticeDescription}, noticePrice=#{noticePrice}, noticeCategory=#{noticeCategory}, noticeBrand=#{noticeBrand}, noticeImageURL=#{noticeImageURL}
+        where noticeId=#{noticeId}
+    </update>
+
+    <select id="getListWithPaging" parameterType="com.unknown.paldak.admin.common.domain.Criteria" resultType="com.unknown.paldak.admin.domain.NoticeVO">
+        <![CDATA[
+            select noticeId, noticeName, noticeDescription, noticePrice, noticeCategory, noticeBrand, noticeImageURL, noticeRegdate, noticeUpdateDate from (
+            select /*+INDEX_DESC(tbl_notice pk_notice) */ rownum rn, noticeId, noticeName, noticeDescription, noticePrice, noticeCategory, noticeBrand, noticeImageURL, noticeRegdate, noticeUpdateDate
+            from tbl_notice 
+            where rownum <=  #{pageNum} * #{amount}
+            ) where rn > (#{pageNum}-1) * #{amount}
+        ]]>
+    </select>
+    
+    <select id="getTotalCount" resultType="int">
+        select count(*) from tbl_notice where noticeId > 0
+    </select>
+</mapper>

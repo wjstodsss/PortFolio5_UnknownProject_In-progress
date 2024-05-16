@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.unknown.paldak.admin.mapper.ReviewMapper">
+    <select id="getList" resultType="com.unknown.paldak.admin.domain.ReviewVO">
+        select * from tbl_review where reviewId > 0 order by reviewId desc
+    </select>
+
+    <insert id="insert" parameterType="com.unknown.paldak.admin.domain.ReviewVO">
+        insert into tbl_review(reviewId, reviewName, reviewDescription, reviewPrice, reviewCategory, reviewBrand, reviewImageURL)
+        VALUES (
+        #{reviewId},
+        #{reviewName},
+        #{reviewDescription},
+        #{reviewPrice},
+        #{reviewCategory},
+        #{reviewBrand},
+        #{reviewImageURL}
+        )
+    </insert>
+
+    <insert id="insertSelectKey" parameterType="com.unknown.paldak.admin.domain.ReviewVO">
+        <selectKey keyProperty="reviewId" order="BEFORE" resultType="long">
+            select seq_review.nextval from dual
+        </selectKey>
+        INSERT INTO tbl_review (reviewId, reviewName, reviewDescription, reviewPrice, reviewCategory, reviewBrand, reviewImageURL)
+        VALUES (
+        #{reviewId},
+        #{reviewName},
+        #{reviewDescription},
+        #{reviewPrice},
+        #{reviewCategory},
+        #{reviewBrand},
+        #{reviewImageURL}
+        )
+    </insert>
+
+    <select id="read" parameterType="long" resultType="com.unknown.paldak.admin.domain.ReviewVO">
+        select * from tbl_review where reviewId = #{reviewId}
+    </select>
+
+    <delete id="delete" parameterType="long">
+        delete from tbl_review where reviewId = #{reviewId}
+    </delete>
+
+    <update id="update" parameterType="com.unknown.paldak.admin.domain.ReviewVO">
+        update tbl_review 
+        set reviewName=#{reviewName}, reviewDescription=#{reviewDescription}, reviewPrice=#{reviewPrice}, reviewCategory=#{reviewCategory}, reviewBrand=#{reviewBrand}, reviewImageURL=#{reviewImageURL}
+        where reviewId=#{reviewId}
+    </update>
+
+    <select id="getListWithPaging" parameterType="com.unknown.paldak.admin.common.domain.Criteria" resultType="com.unknown.paldak.admin.domain.ReviewVO">
+        <![CDATA[
+            select reviewId, reviewName, reviewDescription, reviewPrice, reviewCategory, reviewBrand, reviewImageURL, reviewRegdate, reviewUpdateDate from (
+            select /*+INDEX_DESC(tbl_review pk_review) */ rownum rn, reviewId, reviewName, reviewDescription, reviewPrice, reviewCategory, reviewBrand, reviewImageURL, reviewRegdate, reviewUpdateDate
+            from tbl_review 
+            where rownum <=  #{pageNum} * #{amount}
+            ) where rn > (#{pageNum}-1) * #{amount}
+            
+        ]]>
+    </select>
+    
+    <select id="getTotalCount" resultType="int">
+        select count(*) from tbl_review where reviewId > 0
+    </select>
+</mapper>
