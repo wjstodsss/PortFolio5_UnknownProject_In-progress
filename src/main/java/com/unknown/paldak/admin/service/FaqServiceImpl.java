@@ -6,7 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.unknown.paldak.admin.common.domain.Criteria;
-import com.unknown.paldak.admin.domain.FaqVO;
+import com.unknown.paldak.admin.domain.FAQVO;
+
 import com.unknown.paldak.admin.mapper.FaqMapper;
 
 import lombok.AllArgsConstructor;
@@ -15,26 +16,26 @@ import lombok.extern.log4j.Log4j;
 @Log4j
 @Service
 @AllArgsConstructor
-public class FaqServiceImpl implements BaseService<FaqVO>{
+public class FaqServiceImpl implements BaseService<FAQVO>{
     
 	@Autowired
 	private FaqMapper mapper;
 
 	@Override
-	public void register(FaqVO faqVO) {
+	public void register(FAQVO faqVO) {
 		log.info("register... " + faqVO);
 		mapper.insertSelectKey(faqVO);
 		
 	}
 
 	@Override
-	public FaqVO get(Long faqId) {
+	public FAQVO get(Long faqId) {
 		log.info("get..." + faqId);	
 		return mapper.read(faqId);
 	}
 
 	@Override
-	public boolean modify(FaqVO faqVO) {
+	public boolean modify(FAQVO faqVO) {
 		return mapper.update(faqVO)==1;
 	}
 
@@ -45,9 +46,14 @@ public class FaqServiceImpl implements BaseService<FaqVO>{
 	}
 
 	@Override
-	public List<FaqVO> getList(Criteria cri) {
+	public List<FAQVO> getList(Criteria cri) {
 		System.out.println(cri);
 		return mapper.getListWithPaging(cri);
+	}
+	
+	@Override
+	public List<FAQVO> getDescList(Criteria cri) {
+		return mapper.getDescListWithPaging(cri);
 	}
 	
 	@Override

@@ -1,6 +1,6 @@
 package com.unknown.paldak.admin.mapper;
 
-import com.unknown.paldak.admin.domain.FaqVO;
+import com.unknown.paldak.admin.domain.FAQVO;
 
-public interface FaqMapper extends BaseMapper<FaqVO> {
+public interface FaqMapper extends BaseMapper<FAQVO> {
 }

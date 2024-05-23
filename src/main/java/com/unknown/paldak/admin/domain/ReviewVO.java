@@ -10,13 +10,11 @@ import lombok.ToString;
 @Setter
 @ToString
 public class ReviewVO {
-  private Long reviewId;
-  private String reviewName;
-  private String reviewDescription;
-  private Long reviewPrice;
-  private Integer reviewCategory;
-  private String reviewBrand;
-  private String reviewImageURL;
-  private Date reviewRegdate;
-  private Date reviewUpdateDate;
+   private Long reviewId;
+   private String reviewTitle;
+   private String reviewContent;
+   private String reviewImageURL;
+   private String reviewWriter;
+   private Date reviewRegdate;
+   private Date reviewUpdateDate;
 }

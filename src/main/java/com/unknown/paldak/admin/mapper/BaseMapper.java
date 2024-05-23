@@ -19,6 +19,9 @@ public interface BaseMapper<T> {
     int update(T item);
 
     List<T> getListWithPaging(Criteria cri);
-
+    
+    List<T> getDescListWithPaging(Criteria cri);
+    
     int getTotalCount(Criteria cri);
+ 
 }

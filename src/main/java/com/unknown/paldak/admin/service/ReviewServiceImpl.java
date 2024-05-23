@@ -51,6 +51,11 @@ public class ReviewServiceImpl implements BaseService<ReviewVO>{
 	}
 	
 	@Override
+	public List<ReviewVO> getDescList(Criteria cri) {
+		return mapper.getDescListWithPaging(cri);
+	}
+	
+	@Override
 	public int getTotal(Criteria cri) {
 		return mapper.getTotalCount(cri);
 	}

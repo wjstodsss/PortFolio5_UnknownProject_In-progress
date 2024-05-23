@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.unknown.paldak.admin.common.domain.Criteria;
-
+import com.unknown.paldak.admin.domain.NoticeVO;
 import com.unknown.paldak.admin.domain.ProductVO;
 import com.unknown.paldak.admin.mapper.ProductMapper;
 
@@ -49,6 +49,11 @@ public class ProductServiceImpl implements BaseService<ProductVO>{
 	public List<ProductVO> getList(Criteria cri) {
 		System.out.println(cri);
 		return mapper.getListWithPaging(cri);
+	}
+	
+	@Override
+	public List<ProductVO> getDescList(Criteria cri) {
+		return mapper.getDescListWithPaging(cri);
 	}
 	
 	@Override

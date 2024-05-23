@@ -15,5 +15,7 @@ public interface BaseService<T> {
   
   public List<T> getList(Criteria cri);
   
+  public List<T> getDescList(Criteria cri);
+  
   public int getTotal(Criteria cri);
 }

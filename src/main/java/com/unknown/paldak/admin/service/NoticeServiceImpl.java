@@ -51,6 +51,11 @@ public class NoticeServiceImpl implements BaseService<NoticeVO>{
 	}
 	
 	@Override
+	public List<NoticeVO> getDescList(Criteria cri) {
+		return mapper.getDescListWithPaging(cri);
+	}
+	
+	@Override
 	public int getTotal(Criteria cri) {
 		return mapper.getTotalCount(cri);
 	}

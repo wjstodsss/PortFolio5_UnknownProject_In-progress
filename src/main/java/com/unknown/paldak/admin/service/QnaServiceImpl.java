@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.unknown.paldak.admin.common.domain.Criteria;
 
-import com.unknown.paldak.admin.domain.QnaVO;
+import com.unknown.paldak.admin.domain.QNAVO;
 import com.unknown.paldak.admin.mapper.QnaMapper;
 
 import lombok.AllArgsConstructor;
@@ -18,26 +18,26 @@ import lombok.extern.log4j.Log4j;
 @Log4j
 @Service
 @AllArgsConstructor
-public class QnaServiceImpl implements BaseService<QnaVO>{
+public class QnaServiceImpl implements BaseService<QNAVO>{
     
 	@Autowired
 	private QnaMapper mapper;
 
 	@Override
-	public void register(QnaVO qnaVO) {
+	public void register(QNAVO qnaVO) {
 		log.info("register... " + qnaVO);
 		mapper.insertSelectKey(qnaVO);
 		
 	}
 
 	@Override
-	public QnaVO get(Long qnaId) {
+	public QNAVO get(Long qnaId) {
 		log.info("get..." + qnaId);	
 		return mapper.read(qnaId);
 	}
 
 	@Override
-	public boolean modify(QnaVO qnaVO) {
+	public boolean modify(QNAVO qnaVO) {
 		return mapper.update(qnaVO)==1;
 	}
 
@@ -48,9 +48,15 @@ public class QnaServiceImpl implements BaseService<QnaVO>{
 	}
 
 	@Override
-	public List<QnaVO> getList(Criteria cri) {
+	public List<QNAVO> getList(Criteria cri) {
 		System.out.println(cri);
 		return mapper.getListWithPaging(cri);
+	}
+	
+	@Override
+	public List<QNAVO> getDescList(Criteria cri) {
+		System.out.println(cri);
+		return mapper.getDescListWithPaging(cri);
 	}
 	
 	@Override

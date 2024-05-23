@@ -9,14 +9,13 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class QnaVO {
-  private Long qnaId;
-  private String qnaName;
-  private String qnaDescription;
-  private Long qnaPrice;
-  private Integer qnaCategory;
-  private String qnaBrand;
-  private String qnaImageURL;
-  private Date qnaRegdate;
-  private Date qnaUpdateDate;
+public class QNAVO {
+   private Long qnaId;
+   private String qnaTitle;
+   private String qnaContent;
+   private String qnaCategory;
+   private String qnaImageURL;
+   private String qnaWriter;
+   private Date qnaRegdate;
+   private Date qnaUpdateDate;
 }

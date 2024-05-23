@@ -10,14 +10,17 @@ import lombok.ToString;
 @Setter
 @ToString
 public class MemberVO {
-  private Long memberId;
-  private String memberName;
-  private String memberDescription;
-  private Long memberPrice;
-  private Integer memberCategory;
-  private String memberBrand;
-  private String memberImageURL;
-  private Date memberRegdate;
-  private Date memberUpdateDate;
+	private int memberId;
+    private String memberPw;
+    private String memberName;
+    private String memberMail;
+    private String memberAddr1;
+    private String memberAddr2;
+    private String memberAddr3;
+    private int adminCk;
+    private Date regDate;
+    private int money;
+    private int point;
+    private int memberPhone;
 }
 

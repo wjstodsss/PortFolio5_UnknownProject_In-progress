@@ -23,6 +23,8 @@ public class MemberServiceImpl implements BaseService<MemberVO>{
 	@Override
 	public void register(MemberVO memberVO) {
 		log.info("register... " + memberVO);
+		
+System.out.println("lkjkljl");
 		mapper.insertSelectKey(memberVO);
 		
 	}
@@ -48,6 +50,11 @@ public class MemberServiceImpl implements BaseService<MemberVO>{
 	public List<MemberVO> getList(Criteria cri) {
 		System.out.println(cri);
 		return mapper.getListWithPaging(cri);
+	}
+	
+	@Override
+	public List<MemberVO> getDescList(Criteria cri) {
+		return mapper.getDescListWithPaging(cri);
 	}
 	
 	@Override

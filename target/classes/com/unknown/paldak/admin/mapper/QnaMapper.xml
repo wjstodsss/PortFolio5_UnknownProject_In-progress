@@ -4,40 +4,27 @@
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.unknown.paldak.admin.mapper.QnaMapper">
-    <select id="getList" resultType="com.unknown.paldak.admin.domain.QnaVO">
+    <select id="getList" resultType="com.unknown.paldak.admin.domain.QNAVO">
         select * from tbl_qna where qnaId > 0 order by qnaId desc
     </select>
+    
 
-    <insert id="insert" parameterType="com.unknown.paldak.admin.domain.QnaVO">
-        insert into tbl_qna(qnaId, qnaName, qnaDescription, qnaPrice, qnaCategory, qnaBrand, qnaImageURL)
-        VALUES (
-        #{qnaId},
-        #{qnaName},
-        #{qnaDescription},
-        #{qnaPrice},
-        #{qnaCategory},
-        #{qnaBrand},
-        #{qnaImageURL}
-        )
-    </insert>
-
-    <insert id="insertSelectKey" parameterType="com.unknown.paldak.admin.domain.QnaVO">
+    <insert id="insertSelectKey" parameterType="com.unknown.paldak.admin.domain.QNAVO">
         <selectKey keyProperty="qnaId" order="BEFORE" resultType="long">
             select seq_qna.nextval from dual
         </selectKey>
-        INSERT INTO tbl_qna (qnaId, qnaName, qnaDescription, qnaPrice, qnaCategory, qnaBrand, qnaImageURL)
+        INSERT INTO tbl_qna (qnaId, qnaTitle, qnaContent, qnaCategory, qnaWriter, qnaImageURL)
         VALUES (
         #{qnaId},
-        #{qnaName},
-        #{qnaDescription},
-        #{qnaPrice},
+        #{qnaTitle},
+        #{qnaContent},
         #{qnaCategory},
-        #{qnaBrand},
+        #{qnaWriter},
         #{qnaImageURL}
         )
     </insert>
 
-    <select id="read" parameterType="long" resultType="com.unknown.paldak.admin.domain.QnaVO">
+    <select id="read" parameterType="long" resultType="com.unknown.paldak.admin.domain.QNAVO">
         select * from tbl_qna where qnaId = #{qnaId}
     </select>
 
@@ -45,23 +32,98 @@
         delete from tbl_qna where qnaId = #{qnaId}
     </delete>
 
-    <update id="update" parameterType="com.unknown.paldak.admin.domain.QnaVO">
+    <update id="update" parameterType="com.unknown.paldak.admin.domain.QNAVO">
         update tbl_qna 
-        set qnaName=#{qnaName}, qnaDescription=#{qnaDescription}, qnaPrice=#{qnaPrice}, qnaCategory=#{qnaCategory}, qnaBrand=#{qnaBrand}, qnaImageURL=#{qnaImageURL}
+        set qnaTitle=#{qnaTitle}, qnaContent=#{qnaContent}, qnaCategory=#{qnaCategory}, qnaWriter=#{qnaWriter}, qnaImageURL=#{qnaImageURL}
         where qnaId=#{qnaId}
     </update>
 
-    <select id="getListWithPaging" parameterType="com.unknown.paldak.admin.common.domain.Criteria" resultType="com.unknown.paldak.admin.domain.QnaVO">
+
+    <sql id="criterial">
+		<trim prefix="(" suffix=") AND " prefixOverrides="OR">
+			<foreach item='type' collection="typeArr">
+				<trim prefix="OR">
+					<choose>
+						<when test="type == 'W'.toString()">
+							qnaWriter like '%'||#{keyword}||'%'
+						</when>
+						<when test="type == 'T'.toString()">
+							qnaTitle like '%'||#{keyword}||'%'
+						</when>
+						<when test="type == 'C'.toString()">
+							qnaContent like '%'||#{keyword}||'%'
+						</when>
+					</choose>
+				</trim>
+			</foreach>
+		</trim>
+	</sql>
+
+    
+    <select id="getListWithPaging" parameterType="com.unknown.paldak.admin.common.domain.Criteria" resultType="com.unknown.paldak.admin.domain.QNAVO">
         <![CDATA[
-            select qnaId, qnaName, qnaDescription, qnaPrice, qnaCategory, qnaBrand, qnaImageURL, qnaRegdate, qnaUpdateDate from (
-            select /*+INDEX_DESC(tbl_qna pk_qna) */ rownum rn, qnaId, qnaName, qnaDescription, qnaPrice, qnaCategory, qnaBrand, qnaImageURL, qnaRegdate, qnaUpdateDate
-            from tbl_qna 
-            where rownum <=  #{pageNum} * #{amount}
+            select qnaId, qnaTitle, qnaContent, qnaCategory, qnaWriter, qnaImageURL, qnaRegdate, qnaUpdateDate 
+            from (
+            select /*+INDEX_DESC(tbl_qna pk_qna) */ rownum rn, qnaId, qnaTitle, qnaContent, qnaCategory, qnaWriter, qnaImageURL, qnaRegdate, qnaUpdateDate
+            from (select * from tbl_qna order by
+         ]]> 
+
+         <choose>
+	        <when test="sortColumn != null and sortColumn == 'qnaTitle'">
+	            <![CDATA[ qnaTitle ]]>
+	        </when>
+	        <when test="sortColumn != null and sortColumn == 'qnaId'">
+	            <![CDATA[ qnaId ]]>
+	        </when>
+	        <otherwise>
+	            <![CDATA[ qnaWriter ]]>
+	        </otherwise>
+	     </choose>
+	         
+        <![CDATA[
+        		 asc)
+            where 
+        ]]>
+            <include refid="criterial"></include>
+       <![CDATA[ 
+            rownum <=  #{pageNum} * #{amount}
+            ) where rn > (#{pageNum}-1) * #{amount}
+        ]]>
+    </select>
+
+    <select id="getDescListWithPaging" parameterType="com.unknown.paldak.admin.common.domain.Criteria" resultType="com.unknown.paldak.admin.domain.QNAVO">
+        <![CDATA[
+            select qnaId, qnaTitle, qnaContent, qnaCategory, qnaWriter, qnaImageURL, qnaRegdate, qnaUpdateDate from (
+            select /*+INDEX_DESC(tbl_qna pk_qna) */ rownum rn, qnaId, qnaTitle, qnaContent, qnaCategory, qnaWriter, qnaImageURL, qnaRegdate, qnaUpdateDate
+            from (select * from tbl_qna order by
+         ]]> 
+
+         <choose>
+	        <when test="sortColumn != null and sortColumn == 'qnaTitle'">
+	            <![CDATA[ qnaTitle ]]>
+	        </when>
+	        <when test="sortColumn != null and sortColumn == 'qnaId'">
+	            <![CDATA[ qnaId ]]>
+	        </when>
+	        <otherwise>
+	            <![CDATA[ qnaWriter ]]>
+	        </otherwise>
+	     </choose>
+	         
+        <![CDATA[
+        		 desc)
+            where 
+        ]]>
+            <include refid="criterial"></include>
+       <![CDATA[ 
+            rownum <=  #{pageNum} * #{amount}
             ) where rn > (#{pageNum}-1) * #{amount}
         ]]>
     </select>
     
     <select id="getTotalCount" resultType="int">
-        select count(*) from tbl_qna where qnaId > 0
-    </select>
+		select count(*) from tbl_qna where
+		<include refid="criterial"></include>
+		 qnaId > 0
+</select>
 </mapper>
