@@ -34,7 +34,7 @@
 
     <update id="update" parameterType="com.unknown.paldak.admin.domain.QNAVO">
         update tbl_qna 
-        set qnaTitle=#{qnaTitle}, qnaContent=#{qnaContent}, qnaCategory=#{qnaCategory}, qnaWriter=#{qnaWriter}, qnaImageURL=#{qnaImageURL}
+        set qnaTitle=#{qnaTitle}, qnaContent=#{qnaContent}, qnaCategory=#{qnaCategory}, qnaWriter=#{qnaWriter}, qnaImageURL=#{qnaImageURL}, qnaUpdateDate=#{qnaUpdateDate}
         where qnaId=#{qnaId}
     </update>
 
@@ -50,8 +50,8 @@
 						<when test="type == 'T'.toString()">
 							qnaTitle like '%'||#{keyword}||'%'
 						</when>
-						<when test="type == 'C'.toString()">
-							qnaContent like '%'||#{keyword}||'%'
+						<when test="type == 'I'.toString()">
+							qnaId like '%'||#{keyword}||'%'
 						</when>
 					</choose>
 				</trim>
@@ -72,11 +72,11 @@
 	        <when test="sortColumn != null and sortColumn == 'qnaTitle'">
 	            <![CDATA[ qnaTitle ]]>
 	        </when>
-	        <when test="sortColumn != null and sortColumn == 'qnaId'">
-	            <![CDATA[ qnaId ]]>
+	        <when test="sortColumn != null and sortColumn == 'qnaWriter'">
+	            <![CDATA[ qnaWriter ]]>
 	        </when>
 	        <otherwise>
-	            <![CDATA[ qnaWriter ]]>
+	        	<![CDATA[ qnaId ]]>
 	        </otherwise>
 	     </choose>
 	         
@@ -102,11 +102,11 @@
 	        <when test="sortColumn != null and sortColumn == 'qnaTitle'">
 	            <![CDATA[ qnaTitle ]]>
 	        </when>
-	        <when test="sortColumn != null and sortColumn == 'qnaId'">
-	            <![CDATA[ qnaId ]]>
+	         <when test="sortColumn != null and sortColumn == 'qnaWriter'">
+	            <![CDATA[ qnaWriter ]]>
 	        </when>
 	        <otherwise>
-	            <![CDATA[ qnaWriter ]]>
+	        	<![CDATA[ qnaId ]]>
 	        </otherwise>
 	     </choose>
 	         

@@ -2,13 +2,15 @@ package com.unknown.paldak.admin.service;
 
 
 
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.unknown.paldak.admin.common.domain.Criteria;
-
 import com.unknown.paldak.admin.domain.QNAVO;
 import com.unknown.paldak.admin.mapper.QnaMapper;
 
@@ -38,6 +40,9 @@ public class QnaServiceImpl implements BaseService<QNAVO>{
 
 	@Override
 	public boolean modify(QNAVO qnaVO) {
+		LocalDateTime now = LocalDateTime.now();
+		Date date = Date.from(now.atZone(ZoneId.systemDefault()).toInstant());
+		qnaVO.setQnaUpdateDate(date);
 		return mapper.update(qnaVO)==1;
 	}
 

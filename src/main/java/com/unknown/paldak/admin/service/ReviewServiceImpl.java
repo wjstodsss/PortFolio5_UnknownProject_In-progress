@@ -1,5 +1,8 @@
 package com.unknown.paldak.admin.service;
 
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,6 +39,9 @@ public class ReviewServiceImpl implements BaseService<ReviewVO>{
 
 	@Override
 	public boolean modify(ReviewVO reviewVO) {
+		LocalDateTime now = LocalDateTime.now();
+		Date date = Date.from(now.atZone(ZoneId.systemDefault()).toInstant());
+		reviewVO.setReviewUpdateDate(date);
 		return mapper.update(reviewVO)==1;
 	}
 

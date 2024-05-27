@@ -32,7 +32,7 @@
 
     <update id="update" parameterType="com.unknown.paldak.admin.domain.FAQVO">
         update tbl_faq 
-        set faqTitle=#{faqTitle}, faqDescription=#{faqDescription}, faqCategory=#{faqCategory}, faqImageURL=#{faqImageURL}
+        set faqTitle=#{faqTitle}, faqDescription=#{faqDescription}, faqCategory=#{faqCategory}, faqImageURL=#{faqImageURL}, faqUpdateDate=#{faqUpdateDate}
         where faqId=#{faqId}
     </update>
 

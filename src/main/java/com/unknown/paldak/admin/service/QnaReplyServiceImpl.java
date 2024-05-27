@@ -1,5 +1,8 @@
 package com.unknown.paldak.admin.service;
 
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,6 +42,9 @@ public class QnaReplyServiceImpl implements BaseService<ReplyVO>{
 
 	@Override
 	public boolean modify(ReplyVO replyVO) {
+		LocalDateTime now = LocalDateTime.now();
+		Date date = Date.from(now.atZone(ZoneId.systemDefault()).toInstant());
+		replyVO.setReplyUpdateDate(date);
 		return mapper.update(replyVO)==1;
 	}
 
