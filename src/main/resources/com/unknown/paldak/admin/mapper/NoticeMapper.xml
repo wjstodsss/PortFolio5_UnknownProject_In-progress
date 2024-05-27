@@ -32,7 +32,7 @@
 
     <update id="update" parameterType="com.unknown.paldak.admin.domain.NoticeVO">
         update tbl_notice 
-        set noticeTitle=#{noticeTitle}, noticeDescription=#{noticeDescription}, noticeBrand=#{noticeBrand}, noticeImageURL=#{noticeImageURL}
+        set noticeTitle=#{noticeTitle}, noticeDescription=#{noticeDescription}, noticeBrand=#{noticeBrand}, noticeImageURL=#{noticeImageURL}, noticeUpdateDate=#{noticeUpdateDate}
         where noticeId=#{noticeId}
     </update>
 
@@ -43,13 +43,13 @@
 				<trim prefix="OR">
 					<choose>
 						<when test="type == 'T'.toString()">
-							faqTitle like '%'||#{keyword}||'%'
+							noticeTitle like '%'||#{keyword}||'%'
 						</when>
 						<when test="type == 'D'.toString()">
-							faqDescription like '%'||#{keyword}||'%'
+							noticeDescription like '%'||#{keyword}||'%'
 						</when>
 						<when test="type == 'I'.toString()">
-							faqId like '%'||#{keyword}||'%'
+							noticeId like '%'||#{keyword}||'%'
 						</when>
 					</choose>
 				</trim>

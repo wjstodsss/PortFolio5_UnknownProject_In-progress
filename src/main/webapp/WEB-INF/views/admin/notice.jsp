@@ -228,7 +228,7 @@
 			
                 <div class="form-group">
 					<label for="noticeRegdate">등록일</label> <input type="text"
-						id="noticeRegdate" name='noticeRegdate' class="form-control" readonly>					
+						id="noticeRegdate" class="form-control" readonly>				
 				</div>
 
                 <div class="form-group">

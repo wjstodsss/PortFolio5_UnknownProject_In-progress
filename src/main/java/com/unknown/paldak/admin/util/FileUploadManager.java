@@ -1,10 +1,10 @@
 package com.unknown.paldak.admin.util;
 
 import java.io.File;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.UUID;
 
 import javax.servlet.ServletContext;
 
@@ -28,12 +28,33 @@ public class FileUploadManager {
         StringBuilder imageURLs = new StringBuilder(); // 업로드된 파일 경로들을 저장할 StringBuilder
         
         for (MultipartFile multipartFile : uploadFiles) {
-            String originalFilename = multipartFile.getOriginalFilename();
-            String uploadedFilePath = uploadDir + "/" + originalFilename;
+        	
+        	SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+            String currentDate = dateFormat.format(new Date());
+            String datePath = currentDate.replace("-", File.separator);
+            System.out.println("datePath = " + datePath );
+            File dateDir = new File(uploadDir, datePath);
+            if (!dateDir.exists()) {
+                dateDir.mkdirs();
+            }
             
+            
+            
+            String originalFilename = multipartFile.getOriginalFilename();
+      
+            String extension = originalFilename.substring(originalFilename.lastIndexOf("."));
+            String uuid = UUID.randomUUID().toString();
+            String savedFilename = uuid + "_" + originalFilename;
+            String uploadedFilePath = dateDir + "/" + savedFilename;
+            System.out.println("originalFilename = " + originalFilename);
+            System.out.println("extension = " + extension);
+            System.out.println("uuid = " + uuid);
+            System.out.println("savedFilename = " + savedFilename);
+          
             try { 
-                multipartFile.transferTo(new File(uploadedFilePath)); // 파일을 업로드
-                imageURLs.append(originalFilename).append(";"); // 업로드된 파일의 경로를 StringBuilder에 추가
+            	multipartFile.transferTo(new File(uploadedFilePath)); // 파일을 업로드
+                imageURLs.append(datePath).append("/").append(savedFilename).append(";"); // 업로드된 파일의 경로를 StringBuilder에 추가
+                System.out.println("imageURLs = " + imageURLs );
             } catch (IOException e) {
                 e.printStackTrace();
             }

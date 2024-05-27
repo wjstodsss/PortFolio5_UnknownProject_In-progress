@@ -33,7 +33,7 @@
 
     <update id="update" parameterType="com.unknown.paldak.admin.domain.ReviewVO">
         update tbl_review 
-        set reviewTitle=#{reviewTitle}, reviewContent=#{reviewContent}, reviewWriter=#{reviewWriter}, reviewImageURL=#{reviewImageURL}
+        set reviewTitle=#{reviewTitle}, reviewContent=#{reviewContent}, reviewWriter=#{reviewWriter}, reviewImageURL=#{reviewImageURL}, reviewUpdateDate=#{reviewUpdateDate}
         where reviewId=#{reviewId}
     </update>
 
@@ -71,11 +71,11 @@
 	        <when test="sortColumn != null and sortColumn == 'reviewTitle'">
 	            <![CDATA[ reviewTitle ]]>
 	        </when>
-	        <when test="sortColumn != null and sortColumn == 'reviewId'">
-	            <![CDATA[ reviewId ]]>
+	         <when test="sortColumn != null and sortColumn == 'reviewWriter'">
+	            <![CDATA[ reviewWriter ]]>
 	        </when>
 	        <otherwise>
-	            <![CDATA[ reviewWriter ]]>
+	        	<![CDATA[ reviewId ]]>
 	        </otherwise>
 	     </choose>
 	         
@@ -101,11 +101,11 @@
 	        <when test="sortColumn != null and sortColumn == 'reviewTitle'">
 	            <![CDATA[ reviewTitle ]]>
 	        </when>
-	        <when test="sortColumn != null and sortColumn == 'reviewId'">
-	            <![CDATA[ reviewId ]]>
+	         <when test="sortColumn != null and sortColumn == 'reviewWriter'">
+	            <![CDATA[ reviewWriter ]]>
 	        </when>
 	        <otherwise>
-	            <![CDATA[ reviewWriter ]]>
+	        	<![CDATA[ reviewId ]]>
 	        </otherwise>
 	     </choose>
 	         

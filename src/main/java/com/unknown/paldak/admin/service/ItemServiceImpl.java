@@ -9,8 +9,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.unknown.paldak.admin.common.domain.Criteria;
-import com.unknown.paldak.admin.domain.NoticeVO;
-import com.unknown.paldak.admin.mapper.NoticeMapper;
+
+import com.unknown.paldak.admin.domain.ItemVO;
+import com.unknown.paldak.admin.mapper.ItemMapper;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j;
@@ -18,46 +19,44 @@ import lombok.extern.log4j.Log4j;
 @Log4j
 @Service
 @AllArgsConstructor
-public class NoticeServiceImpl implements BaseService<NoticeVO>{
+public class ItemServiceImpl implements BaseService<ItemVO>{
     
 	@Autowired
-	private NoticeMapper mapper;
+	private ItemMapper mapper;
 
 	@Override
-	public void register(NoticeVO noticeVO) {
-		log.info("register... " + noticeVO);
-		mapper.insertSelectKey(noticeVO);
-		
+	public void register(ItemVO itemVO) {
+		log.info("register... " + itemVO);
+		mapper.insertSelectKey(itemVO);
 	}
 
 	@Override
-	public NoticeVO get(Long noticeId) {
-		log.info("get..." + noticeId);	
-		return mapper.read(noticeId);
+	public ItemVO get(Long itemId) {
+
+		return mapper.read(itemId);
 	}
 
 	@Override
-	public boolean modify(NoticeVO noticeVO) {
+	public boolean modify(ItemVO itemVO) {
 		LocalDateTime now = LocalDateTime.now();
 		Date date = Date.from(now.atZone(ZoneId.systemDefault()).toInstant());
-		noticeVO.setNoticeUpdateDate(date);
-		return mapper.update(noticeVO)==1;
+		itemVO.setUpdateDate(date);
+		return mapper.update(itemVO)==1;
 	}
 
 	@Override
-	public Boolean remove(Long noticeId) {
-		log.info("remove ... " + noticeId);
-		return mapper.delete(noticeId)==1;
+	public Boolean remove(Long itemId) {
+		log.info("remove ... " + itemId);
+		return mapper.delete(itemId)==1;
 	}
 
 	@Override
-	public List<NoticeVO> getList(Criteria cri) {
-		System.out.println(cri);
+	public List<ItemVO> getList(Criteria cri) {
 		return mapper.getListWithPaging(cri);
 	}
 	
 	@Override
-	public List<NoticeVO> getDescList(Criteria cri) {
+	public List<ItemVO> getDescList(Criteria cri) {
 		return mapper.getDescListWithPaging(cri);
 	}
 	

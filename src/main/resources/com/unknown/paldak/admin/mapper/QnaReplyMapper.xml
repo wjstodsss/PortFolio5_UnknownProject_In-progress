@@ -33,7 +33,7 @@
 
     <update id="update" parameterType="com.unknown.paldak.admin.common.domain.ReplyVO">
         update tbl_qna_reply 
-        set reply=#{reply}
+        set reply=#{reply}, replyUpdateDate=#{replyUpdateDate}
         where replyId=#{replyId}
     </update>
 

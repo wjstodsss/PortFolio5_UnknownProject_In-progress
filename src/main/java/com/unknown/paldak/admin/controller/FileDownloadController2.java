@@ -1,7 +1,6 @@
 package com.unknown.paldak.admin.controller;
 
 
-import java.io.File;
 import java.net.MalformedURLException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -21,18 +20,14 @@ import lombok.RequiredArgsConstructor;
 
 @Controller
 @RequiredArgsConstructor
-public class FileDownloadController {
+public class FileDownloadController2 {
 
     private final UploadPathConfig uploadPathConfig;
 
-    @GetMapping("/download/{year}/{month}/{day}/{fileName:.+}")
-    public ResponseEntity<Resource> downloadFile(@PathVariable String year,
-                                                 @PathVariable String month,
-                                                 @PathVariable String day,
-                                                 @PathVariable String fileName) {
+    @GetMapping("/download/{fileName:.+}")
+    public ResponseEntity<Resource> downloadFile(@PathVariable String fileName) {
         String uploadDirectory = uploadPathConfig.getUploadPath();
-        String filePathString = String.join(File.separator, uploadDirectory, year, month, day, fileName);
-        Path filePath = Paths.get(filePathString).normalize();
+        Path filePath = Paths.get(uploadDirectory).resolve(fileName).normalize();
         Resource resource;
 
         try {

@@ -1,5 +1,8 @@
 package com.unknown.paldak.admin.service;
 
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,6 +39,9 @@ public class FaqServiceImpl implements BaseService<FAQVO>{
 
 	@Override
 	public boolean modify(FAQVO faqVO) {
+		LocalDateTime now = LocalDateTime.now();
+		Date date = Date.from(now.atZone(ZoneId.systemDefault()).toInstant());
+		faqVO.setFaqUpdateDate(date);
 		return mapper.update(faqVO)==1;
 	}
 

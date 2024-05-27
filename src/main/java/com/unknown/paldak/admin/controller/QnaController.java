@@ -72,6 +72,7 @@ public class QnaController {
 		
 		List<ReplyVO> replyList = replyService.getList(cri);
 		model.addAttribute("replys", replyList);
+		
 		replyList.forEach(replyVO -> System.out.println(replyVO + "z------------zz"));
 		List<QNAVO> list = qnaService.getDescList(cri);
 		list.forEach(qnaVO -> System.out.println(qnaVO + "zzzzzzzzzzzzzzzz"));
