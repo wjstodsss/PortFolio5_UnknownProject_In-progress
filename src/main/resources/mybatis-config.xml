@@ -3,6 +3,12 @@
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>   
     <mappers>
-    	<mapper resource="com/unknown/paldak/mapper/ProductMapper.xml"/>	
+    	<mapper resource="com/unknown/paldak/admin/mapper/ProductMapper.xml"/>
+    	<mapper resource="com/unknown/paldak/admin/mapper/MemberMapper.xml"/>
+    	<mapper resource="com/unknown/paldak/admin/mapper/NoticeMapper.xml"/>
+    	<mapper resource="com/unknown/paldak/admin/mapper/QnaMapper.xml"/>
+    	<mapper resource="com/unknown/paldak/admin/mapper/FaqMapper.xml"/>
+    	<mapper resource="com/unknown/paldak/admin/mapper/ReviewMapper.xml"/>
+    	<mapper resource="com/unknown/paldak/admin/mapper/TableHeadMapper.xml"/>		
     </mappers>
 </configuration>

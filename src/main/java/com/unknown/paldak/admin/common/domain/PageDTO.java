@@ -14,21 +14,25 @@ public class PageDTO {
     private Criteria cri; // 몇페이지 , 페이지당 갯수
     
     public PageDTO(Criteria cri, int total) {
-    	this.cri = cri;
-    	
-    	this.total = total;
-    	
-    	this.endPage = (int) (Math.ceil(cri.getPageNum() /10.0)) * 10;
-    	
-    	this.startPage = this.endPage - 9;
-    	
-    	int realEnd = (int) (Math.ceil((total*1.0)/cri.getAmount()));
-    	
-    	if(realEnd < this.endPage) {
-    		this.endPage = realEnd;
-    	}
-    	
-    	this.prev = this.startPage > 1;
-    	this.next = this.endPage < realEnd;
+		this.cri = cri;
+		this.total = total; // 85개면 실제페이지는 9
+		
+		this.endPage = (int) (Math.ceil(cri.getPageNum() / 10.0)) * 10; // 끝페이지 10
+		
+		this.startPage = this.endPage - 9; // 시작페이지
+
+		int realEnd = (int) (Math.ceil((total * 1.0) / cri.getAmount())); // 실제페이지 9
+
+		if (realEnd <= this.endPage) {
+			this.endPage = realEnd;
+		}
+
+		this.prev = this.startPage > 1;
+
+		this.next = this.endPage < realEnd;
+		
+		System.out.println(cri.getPageNum() + "lll");
+		System.out.println(total + "fff");
+		System.out.println(endPage + "sss");
     }
 }

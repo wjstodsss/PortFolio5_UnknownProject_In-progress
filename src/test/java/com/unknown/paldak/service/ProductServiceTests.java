@@ -5,7 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import com.unknown.paldak.admin.product.service.ProductService;
+import com.unknown.paldak.admin.service.BaseService;
 
 import lombok.extern.log4j.Log4j;
 
@@ -15,7 +15,7 @@ import lombok.extern.log4j.Log4j;
 public class ProductServiceTests {
 
 	@Autowired
-	private ProductService service;
+	private BaseService service;
 
 //
 //	

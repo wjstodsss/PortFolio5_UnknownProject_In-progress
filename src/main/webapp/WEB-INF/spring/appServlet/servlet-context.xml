@@ -31,7 +31,7 @@
 	</beans:bean>
 
 	<context:component-scan
-		base-package="com.unknown.paldak" />
+		base-package="com.unknown.paldak.admin" />
 
 
 </beans:beans>
