@@ -45,7 +45,7 @@ public class NoticeServiceImpl implements BaseService<NoticeVO>{
 	}
 
 	@Override
-	public Boolean remove(Long noticeId) {
+	public boolean remove(Long noticeId) {
 		log.info("remove ... " + noticeId);
 		return mapper.delete(noticeId)==1;
 	}

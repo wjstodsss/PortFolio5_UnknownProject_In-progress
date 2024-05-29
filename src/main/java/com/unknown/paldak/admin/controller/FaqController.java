@@ -77,7 +77,7 @@ public class FaqController {
 	public String register(@RequestParam("uploadFile") MultipartFile[] uploadFile, Model model, FAQVO faqVO, RedirectAttributes rttr) {
         System.out.println("kkkk");
         if (!uploadFile[0].isEmpty()) { 
-			String imageURL = fileUploadManager.uploadFiles(uploadFile);
+			String imageURL = fileUploadManager.uploadFiles(uploadFile).get("imageURLs");
 			faqVO.setFaqImageURL(imageURL);
 		}
 
@@ -99,7 +99,7 @@ public class FaqController {
 	@PostMapping("/modify")
 	public String modify(MultipartFile[] uploadFile, FAQVO faqVO, @ModelAttribute("cri") Criteria cri, @RequestParam("currentPath") String currentPath, RedirectAttributes rttr) {
         if (!uploadFile[0].isEmpty()) { 
-			String imageURL = fileUploadManager.uploadFiles(uploadFile);
+			String imageURL = fileUploadManager.uploadFiles(uploadFile).get("imageURLs");
 			faqVO.setFaqImageURL(imageURL);
 		}
 

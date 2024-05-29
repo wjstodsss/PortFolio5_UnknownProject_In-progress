@@ -58,7 +58,7 @@ public class ProductController {
 	public String register(@RequestParam("uploadFile") MultipartFile[] uploadFile, Model model, ProductVO productVO, RedirectAttributes rttr) {
 		
 		if (!uploadFile[0].isEmpty()) { 
-			String imageURL = fileUploadManager.uploadFiles(uploadFile);
+			String imageURL = fileUploadManager.uploadFiles(uploadFile).get("imageURLs");
 			productVO.setProductImageURL(imageURL);
 		}
 	    
@@ -89,7 +89,7 @@ public class ProductController {
 	@PostMapping("/modify")
 	public String modify(MultipartFile[] uploadFile, ProductVO productVO, @ModelAttribute("cri") Criteria cri, RedirectAttributes rttr) {
 		if (!uploadFile[0].isEmpty()) { 
-			String imageURL = fileUploadManager.uploadFiles(uploadFile);
+			String imageURL = fileUploadManager.uploadFiles(uploadFile).get("imageURLs");
 		    productVO.setProductImageURL(imageURL);
 		    
 	    }

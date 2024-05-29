@@ -27,13 +27,11 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j;
 
 @Controller
-@Log4j
 @RequestMapping("admin/notice/*")
 @RequiredArgsConstructor
 public class NoticeController {
 
 	private final BaseService<NoticeVO> noticeService;
-	private final TableHeadService tableHeadService;
     private final FileUploadManager fileUploadManager;
 
 
@@ -78,7 +76,7 @@ public class NoticeController {
 	public String register(@RequestParam("uploadFile") MultipartFile[] uploadFile, Model model, NoticeVO noticeVO, RedirectAttributes rttr) {
         System.out.println("kkkk");
         if (!uploadFile[0].isEmpty()) { 
-			String imageURL = fileUploadManager.uploadFiles(uploadFile);
+			String imageURL = fileUploadManager.uploadFiles(uploadFile).get("imageURLs");
 			noticeVO.setNoticeImageURL(imageURL);
 		}
 
@@ -100,7 +98,7 @@ public class NoticeController {
 	@PostMapping("/modify")
 	public String modify(MultipartFile[] uploadFile, NoticeVO noticeVO, @ModelAttribute("cri") Criteria cri, @RequestParam("currentPath") String currentPath, RedirectAttributes rttr) {
         if (!uploadFile[0].isEmpty()) { 
-			String imageURL = fileUploadManager.uploadFiles(uploadFile);
+			String imageURL = fileUploadManager.uploadFiles(uploadFile).get("imageURLs");
 			noticeVO.setNoticeImageURL(imageURL);
 		}
 

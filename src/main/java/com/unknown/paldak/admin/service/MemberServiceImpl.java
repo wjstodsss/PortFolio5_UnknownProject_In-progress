@@ -41,7 +41,7 @@ System.out.println("lkjkljl");
 	}
 
 	@Override
-	public Boolean remove(Long memberId) {
+	public boolean remove(Long memberId) {
 		log.info("remove ... " + memberId);
 		return mapper.delete(memberId)==1;
 	}

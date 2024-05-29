@@ -49,7 +49,7 @@ public class QnaReplyServiceImpl implements BaseService<ReplyVO>{
 	}
 
 	@Override
-	public Boolean remove(Long replyId) {
+	public boolean remove(Long replyId) {
 		log.info("remove ... " + replyId);
 		return mapper.delete(replyId)==1;
 	}
