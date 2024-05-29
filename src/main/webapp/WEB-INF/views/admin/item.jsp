@@ -10,7 +10,7 @@
 	<div class="col-lg-10">
 		<div class="panel panel-default">
 			<div class="panel-heading">
-				Board List Page
+				Item List Page
 				
 			</div>
 			<!-- /.panel-heading -->
@@ -22,16 +22,15 @@
 				            <select class="custom-select" name='type'>
 				                <option value=""
 				                    <c:out value="${pageMaker.cri.type == null?'selected':''}"/>>--</option>
-				                <option value="T"
-				                    <c:out value="${pageMaker.cri.type eq 'T'?'selected':''}"/>>제목</option>
-				                <option value="D"
-				                    <c:out value="${pageMaker.cri.type eq 'D'?'selected':''}"/>>내용</option>
-			                    <option value="I"
-				                    <c:out value="${pageMaker.cri.type eq 'I'?'selected':''}"/>>등록번호</option>
-				                <option value="TD"
-				                    <c:out value="${pageMaker.cri.type eq 'TD'?'selected':''}"/>>제목 or 내용</option>
-				                <option value="TDI"
-				                    <c:out value="${pageMaker.cri.type eq 'TDI'?'selected':''}"/>>제목 or 내용 or 등록번호</option>
+				                <option value="P"
+				                    <c:out value="${pageMaker.cri.type eq 'P'?'selected':''}"/>>상품명</option>
+				                <option value="B"
+				                    <c:out value="${pageMaker.cri.type eq 'B'?'selected':''}"/>>브랜드ID</option>
+			                    <option value="C"
+				                    <c:out value="${pageMaker.cri.type eq 'C'?'selected':''}"/>>카테고리ID</option>
+				                <option value="I"
+				                    <c:out value="${pageMaker.cri.type eq 'I'?'selected':''}"/>>상품번호</option>
+				  
 				            </select> 
 				            <input type='text' class='custom-keyword' name='keyword' value='<c:out value="${pageMaker.cri.keyword}"/>' /> 
 				            <input type='hidden' name='pageNum' value='<c:out value="${pageMaker.cri.pageNum}"/>' /> 
@@ -46,8 +45,8 @@
 				    </div>
 				</div>
 				<!-- end 검색조건 -->
-				<button id="regBtn" type="button" class="btn btn-board btn-xs pull-right btn-info col-lg-1 mx-2 my-2" onclick="goToModalForm()"> 새글 </button> 
-				<a href="/admin/item/list" type="button" class="btn btn-xs btn-light pull-right btn-info col-lg-2 mx-2 my-2">검색해제 일반리스트 </a>
+				<button id="regBtn" type="button" class="btn btn-board btn-xs pull-right btn-info col-lg-1 mx-2 my-2" onclick="goToModalForm()"> 새글 </button>
+				<a href="/admin/item/list" type="button" class="btn btn-board btn-xs btn-light pull-right btn-info col-lg-2 mx-2 my-2">검색해제 일반리스트 </a>
 				<table width="80%"
 					class="table table-striped table-bordered table-hover"
 					id="dataTables-example">
@@ -55,12 +54,14 @@
 					<caption class="table-caption">상품</caption>
 					<thead>
 						<tr>
-							<th>순번</th>
+							<th>상품ID</th>
+							<th>상품이미지</th>
                             <th>상품명</th>
-                            <th>브랜드명</th>
+                            <th>상품재고</th>
                             <th>가격</th>
-                            <th>브랜드ID</th>
-                            <th>카테고리ID</th>
+                            <th>할인율</th>
+                            <th>브랜드명</th>
+                            <th>카테고리</th>
                             <th>등록일</th>
 						</tr>
 					</thead>
@@ -68,11 +69,13 @@
 						<c:forEach var="item" items="${items}">
 							<tr class="odd gradeX">
 								<td><a href='#' id="${item.itemId}" onclick="goToDetailModalForm(this)">${item.itemId}</a></td>
-								<td>${item.itemName}</td>
-                                <td>${item.brandName}</td>
+								<td><img src="/download/${item.itemImageURL}" alt="상품이미지" style="max-width: 70px"></td>
+								<td>${item.itemName}</td>                             
+                                <td>${item.itemStock}</td>
                                 <td>${item.itemPrice}</td>
-                                <td>${item.brandId}</td>
-                                <td>${item.cateCode}</td>
+                                <td>${item.itemDiscount}</td>
+                                <td>${item.brandName}</td>
+                                <td>${item.cateName}</td>
 								<td><fmt:formatDate pattern="yyyy-MM-dd" value="${item.regDate}" /></td>
 							</tr>
 						</c:forEach>
@@ -299,8 +302,10 @@
 
                 <div class="form-group">
                     <label>변경전 이미지</label>
-                    <img src="" alt="공지이미지" style="max-width: 400px" id='imageSRC'>
-                    <input type="hidden" name='brandName' id='imageID' name='brandName'>        
+                    <div class="row">
+                    	<img src="" alt="상품이미지" style="max-width: 250px" id='imageSRC'>
+                    	<input type="hidden" name='itemImageURL' id='imageID'>
+                    </div>
                 </div>
 			
                 <div class="form-group">
@@ -355,7 +360,9 @@ function goToDetailModalForm(element) {
 			$("#itemName").val(response.item.itemName);
 			$("#brandId").text(response.item.brandId);
 			$('#regDate').val(response.item.mnfcYear);
-			$("#mnfcYear").val(response.item.mnfcYear);
+			var mnfcYear = new Date(response.item.mnfcYear);
+			var mnfcYearDateString = mnfcYear.toISOString().substring(0, 10);
+			$("#mnfcYear").val(mnfcYearDateString);
 			$("#manufacturer").val(response.item.manufacturer);
 			$("#cateCode").val(response.item.cateCode);
 			$("#itemPrice").val(response.item.itemPrice);
@@ -363,15 +370,14 @@ function goToDetailModalForm(element) {
 			$("#itemDiscount").val(response.item.itemDiscount);
 			$("#itemIntro").val(response.item.itemIntro);
 			$("#itemContents").val(response.item.itemContents);
-
 			var regDate = new Date(response.item.regDate);
 			var regDateString = regDate.toISOString().substring(0, 10);
-			
 			$('#regDate').val(regDateString);
             var upDateDate = new Date(response.item.updateDate);
 			var updateDateDateString = upDateDate.toISOString().substring(0, 10);
 			$('#updateDate').val(updateDateDateString);
-			
+			$("#imageSRC").attr("src", "/download/" + response.item.itemImageURL);
+	        $("#imageID").val(response.item.itemImageURL);
 			$('#formModal2').modal('show');
 		},
 		error: function(xhr, status, error) {

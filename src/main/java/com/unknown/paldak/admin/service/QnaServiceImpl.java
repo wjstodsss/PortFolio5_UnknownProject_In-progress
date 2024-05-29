@@ -47,7 +47,7 @@ public class QnaServiceImpl implements BaseService<QNAVO>{
 	}
 
 	@Override
-	public Boolean remove(Long qnaId) {
+	public boolean remove(Long qnaId) {
 		log.info("remove ... " + qnaId);
 		return mapper.delete(qnaId)==1;
 	}

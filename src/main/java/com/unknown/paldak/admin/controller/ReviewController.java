@@ -90,7 +90,7 @@ public class ReviewController {
 	public String register(@RequestParam("uploadFile") MultipartFile[] uploadFile, Model model, ReviewVO reviewVO, RedirectAttributes rttr) {
         System.out.println("kkkk");
         if (!uploadFile[0].isEmpty()) { 
-			String imageURL = fileUploadManager.uploadFiles(uploadFile);
+			String imageURL = fileUploadManager.uploadFiles(uploadFile).get("imageURLs");
 			reviewVO.setReviewImageURL(imageURL);
 		}
 
@@ -121,7 +121,7 @@ public class ReviewController {
 	@PostMapping("/modify")
 	public String modify(MultipartFile[] uploadFile, ReviewVO reviewVO, @ModelAttribute("cri") Criteria cri, ReplyVO replyVO, @RequestParam("currentPath") String currentPath, RedirectAttributes rttr) {
         if (!uploadFile[0].isEmpty()) { 
-			String imageURL = fileUploadManager.uploadFiles(uploadFile);
+			String imageURL = fileUploadManager.uploadFiles(uploadFile).get("imageURLs");
 			reviewVO.setReviewImageURL(imageURL);
 		}
 

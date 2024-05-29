@@ -91,7 +91,7 @@ public class QnaController {
 	public String register(@RequestParam("uploadFile") MultipartFile[] uploadFile, Model model, QNAVO qnaVO, RedirectAttributes rttr) {
         System.out.println("kkkk");
         if (!uploadFile[0].isEmpty()) { 
-			String imageURL = fileUploadManager.uploadFiles(uploadFile);
+			String imageURL = fileUploadManager.uploadFiles(uploadFile).get("imageURLs");
 			qnaVO.setQnaImageURL(imageURL);
 		}
 
@@ -122,7 +122,7 @@ public class QnaController {
 	@PostMapping("/modify")
 	public String modify(MultipartFile[] uploadFile, QNAVO qnaVO, @ModelAttribute("cri") Criteria cri, ReplyVO replyVO, @RequestParam("currentPath") String currentPath, RedirectAttributes rttr) {
         if (!uploadFile[0].isEmpty()) { 
-			String imageURL = fileUploadManager.uploadFiles(uploadFile);
+			String imageURL = fileUploadManager.uploadFiles(uploadFile).get("imageURLs");
 			qnaVO.setQnaImageURL(imageURL);
 		}
 
