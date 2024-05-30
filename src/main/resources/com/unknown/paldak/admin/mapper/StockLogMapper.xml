@@ -28,7 +28,7 @@
 							stockOrderId like '%'||#{keyword}||'%'
 						</when>
 						<when test="type == 'N'.toString()">
-							itemName like '%'||#{keyword}||'%'
+							i.itemName like '%'||#{keyword}||'%'
 						</when>
 						<when test="type == 'S'.toString()">
 							isReceived like '%'||'N'||'%'
@@ -154,8 +154,10 @@
     </select>
     
     <select id="getTotalCount" resultType="int">
-		select count(*) from tbl_stockInfo where
-		<include refid="criterial"></include>
-		 stockOrderId > 0
+    	SELECT COUNT(*)
+		FROM tbl_item i
+		JOIN tbl_stockInfo s ON i.itemId = s.itemId
+		and <include refid="criterial"></include>
+		1 = 1
 </select>
 </mapper>

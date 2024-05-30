@@ -44,7 +44,7 @@ public class StockLogController {
 		model.addAttribute("items", list);
 		
 	
-        int total = stockInfoService.getTotal(cri);
+        int total = stockInfoServiceUtil.getLogTotal(cri);
         
         model.addAttribute("pageMaker", new PageDTO(cri, total));     
         return "admin/stockLog";
@@ -64,7 +64,7 @@ public class StockLogController {
 		model.addAttribute("items", list);
 		
 		
-        int total = stockInfoService.getTotal(cri);
+        int total = stockInfoServiceUtil.getLogTotal(cri);
         
         model.addAttribute("pageMaker", new PageDTO(cri, total));
         return "admin/stockLog";

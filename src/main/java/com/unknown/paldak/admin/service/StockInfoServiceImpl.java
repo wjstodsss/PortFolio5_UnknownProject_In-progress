@@ -107,5 +107,9 @@ public class StockInfoServiceImpl implements BaseService<StockInfoVO>{
 		return logMapper.getDescListWithPaging(cri);
 	}
 	
+	public int getLogTotal(Criteria cri) {
+		return logMapper.getTotalCount(cri);
+	}
+	
 	
 }

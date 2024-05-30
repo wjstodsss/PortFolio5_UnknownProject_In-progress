@@ -21,9 +21,9 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.unknown.paldak.admin.common.domain.Criteria;
 import com.unknown.paldak.admin.common.domain.PageDTO;
-import com.unknown.paldak.admin.common.domain.ReplyVO;
 import com.unknown.paldak.admin.domain.AttachImageVO;
 import com.unknown.paldak.admin.domain.ItemVO;
+import com.unknown.paldak.admin.domain.ReviewReplyVO;
 import com.unknown.paldak.admin.service.AttachServiceImpl;
 import com.unknown.paldak.admin.service.BaseService;
 import com.unknown.paldak.admin.util.FileUploadManager;
@@ -125,7 +125,7 @@ public class ItemController {
 
 	
 	@PostMapping("/modify")
-	public String modify(MultipartFile[] uploadFile, ItemVO itemVO, @ModelAttribute("cri") Criteria cri, AttachImageVO attachItemVO, ReplyVO replyVO, @RequestParam("currentPath") String currentPath, RedirectAttributes rttr) {
+	public String modify(MultipartFile[] uploadFile, ItemVO itemVO, @ModelAttribute("cri") Criteria cri, AttachImageVO attachItemVO, ReviewReplyVO replyVO, @RequestParam("currentPath") String currentPath, RedirectAttributes rttr) {
 		
 	        long currentItemId = itemVO.getItemId();
 	        if (!uploadFile[0].isEmpty()) { 		

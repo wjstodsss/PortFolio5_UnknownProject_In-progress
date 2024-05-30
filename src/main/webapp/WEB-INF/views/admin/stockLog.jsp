@@ -129,93 +129,10 @@
 			<!-- /.panel -->
 		</div>
 		<!-- /.col-lg-12 -->
-	</div>
-
-</div>
-<!-- /#page-wrapper -->
-
-</div>
-<!-- 발주 작업 모달 -->
-<div class="modal" id="regModal" tabindex="-1" role="dialog"
-	aria-hidden="true">
-	<div class="modal-dialog" role="document">
-		<div class="modal-content">
-			<div class="modal-header">
-				<h5 class="modal-itemName" id="cartModalLabel">상품 발주</h5>
-				<button type="button" class="close" aria-label="Close" onclick="closeModal('#formModal')">
-					<span aria-hidden="true">&times;</span>
-				</button>
-			</div>
-			<div class="modal-body">
-				<form id="stockOrderRegForm" role="form" action="register" method="post" enctype="multipart/form-data">
-					<input type="hidden" name='itemId' id='regOrederItemId'>
-					<input type="hidden" name='registerType' value='stockOrderReg'>
-					<div class="form-group">
-						<label>발주량</label> <input type="number"
-							class="form-control" name="stockOrderQty"
-							placeholder="발주 수량을 입려하세요" required>
-					</div>
-					<button type="submit" class="btn btn-default btn-success">Submit Button</button>
-					<button type="button" class="btn btn-secondary" onclick="closeModal(this)">닫기</button>
-				</form>
-			</div>
-		</div>
-	</div>
-</div>
-
-<!-- 입고 처리 모달 -->
-<div class="modal" id="receivedModal" tabindex="-1" role="dialog"
-	aria-hidden="true">
-	<div class="modal-dialog" role="document">
-		<div class="modal-content">
-			<div class="modal-header">
-				<h5 class="modal-itemName" id="cartModalLabel">입고 처리</h5>
-				<button type="button" class="close" aria-label="Close" onclick="closeModal('#formModal')">
-					<span aria-hidden="true">&times;</span>
-				</button>
-			</div>
-			<div class="modal-body">
-				<form id="receivedRegForm" role="form" action="register" method="post" enctype="multipart/form-data">
-					<input type="hidden" name='itemId' id='orederItemId'>
-					<input type="hidden" name='stockOrderId' id='stockOrderId'>
-					<input type="hidden" name='registerType' value='receivedReg'>
-					<div class="form-group">
-						<label>입고량</label> <input type="number"
-							class="form-control" name="receivedQty"
-							placeholder="입고 수량을 입려하세요" required>
-					</div>
-					<button type="submit" class="btn btn-default btn-success">Submit Button</button>
-					<button type="button" class="btn btn-secondary" onclick="closeModal(this)">닫기</button>
-				</form>
-			</div>
-		</div>
-	</div>
-</div>
-
+	
 <%@include file="includes/footer.jsp"%>
 
 <script>
-function goToRegModal(clickedElement) {
-    var itemId = clickedElement.dataset.itemid;
-    document.getElementById('regOrederItemId').value = itemId;
-    alert(itemId);
-    $('#regModal').modal('show');
-}
-
-function goToReceivedModal(clickedElement) {
-    var itemId = clickedElement.dataset.itemid;
-    var stockOrderId = clickedElement.dataset.stockid;
-    alert(itemId + " " + stockOrderId);
-    if(stockOrderId == null || stockOrderId == 0) {
-    	alert("처리할 입고 내역이 없습니다.");
-    	return;
-    }
-    document.getElementById('orederItemId').value = itemId;
-    document.getElementById('stockOrderId').value = stockOrderId;
-    
-    $('#receivedModal').modal('show');
-}
-
 function updateActionUrl() {
     var currentUrl = window.location.href;
     var newPath;

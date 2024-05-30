@@ -359,7 +359,6 @@ function goToDetailModalForm(element) {
 			$("#itemId").val(response.item.itemId);
 			$("#itemName").val(response.item.itemName);
 			$("#brandId").text(response.item.brandId);
-			$('#regDate').val(response.item.mnfcYear);
 			var mnfcYear = new Date(response.item.mnfcYear);
 			var mnfcYearDateString = mnfcYear.toISOString().substring(0, 10);
 			$("#mnfcYear").val(mnfcYearDateString);

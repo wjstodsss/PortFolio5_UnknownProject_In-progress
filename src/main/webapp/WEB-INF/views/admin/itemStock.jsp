@@ -18,7 +18,7 @@
 			<!-- 검색조건 -->
 				  <div class="row">       
 				    <div class="col-lg-4">                    
-				        <form id='searchForm' action="/admin/item/log/list" method='get' class='searchForm'>
+				        <form id='searchForm' action="/admin/item/stock/list" method='get' class='searchForm'>
 				            <select class="custom-select" name='type'>
 				                <option value=""
 				                    <c:out value="${pageMaker.cri.type == null?'selected':''}"/>>--</option>
@@ -37,18 +37,18 @@
 				    </div>
 				    <div class="row">
 				    <div class="col-lg-12 button-add">
-				    	<a href="/admin/item/log/list" type="button" class="btn btn-board btn-xs btn-dark pull-right btn-info col-lg-2" data-sortColumn='stockOrderQty'>발주량 오름차순 </a>
-				        <a href="/admin/item/log/descList" type="button" class="btn btn-board btn-xs pull-right btn-info btn-warning col-lg-2" data-sortColumn='stockOrderQty'>발주량 내림차순</a>
-				    	<a href="/admin/item/log/list" type="button" class="btn btn-board btn-xs btn-dark pull-right btn-info col-lg-2" data-sortColumn='itemStock'>재고량 오름차순 </a>
-				        <a href="/admin/item/log/descList" type="button" class="btn btn-board btn-xs pull-right btn-info btn-warning col-lg-2" data-sortColumn='itemStock'>재고량 내림차순</a>
-				     	<a href="/admin/item/log/list" type="button" class="btn btn-board btn-xs btn-dark pull-right btn-info col-lg-2" data-sortColumn='itemId'>오름차순 </a>
-				        <a href="/admin/item/log/descList" type="button" class="btn btn-board btn-xs pull-right btn-info btn-warning col-lg-2" data-sortColumn='itemId'>내림차순</a>		       
+				    	<a href="/admin/item/stock/list" type="button" class="btn btn-board btn-xs btn-dark pull-right btn-info col-lg-2" data-sortColumn='stockOrderQty'>발주량 오름차순 </a>
+				        <a href="/admin/item/stock/descList" type="button" class="btn btn-board btn-xs pull-right btn-info btn-warning col-lg-2" data-sortColumn='stockOrderQty'>발주량 내림차순</a>
+				    	<a href="/admin/item/stock/list" type="button" class="btn btn-board btn-xs btn-dark pull-right btn-info col-lg-2" data-sortColumn='itemStock'>재고량 오름차순 </a>
+				        <a href="/admin/item/stock/descList" type="button" class="btn btn-board btn-xs pull-right btn-info btn-warning col-lg-2" data-sortColumn='itemStock'>재고량 내림차순</a>
+				     	<a href="/admin/item/stock/list" type="button" class="btn btn-board btn-xs btn-dark pull-right btn-info col-lg-2" data-sortColumn='itemId'>오름차순 </a>
+				        <a href="/admin/item/stock/descList" type="button" class="btn btn-board btn-xs pull-right btn-info btn-warning col-lg-2" data-sortColumn='itemId'>내림차순</a>		       
 				    </div>
 				    </div>
 				</div>
 				<!-- end 검색조건 -->
 				<div class="row">
-					<a href="/admin/item/log/list" type="button" class="btn btn-board btn-xs btn-light pull-right btn-info col-lg-2 mx-3 my-2">검색해제 일반리스트 </a>
+					<a href="/admin/item/stock/list" type="button" class="btn btn-board btn-xs btn-light pull-right btn-info col-lg-2 mx-3 my-2">검색해제 일반리스트 </a>
 				</div>
 				<table width="80%"
 					class="table table-striped table-bordered table-hover"
@@ -81,7 +81,6 @@
                                 <td>
                                 	<button type="button" class="btn btn-dark col-lg-8 mx-2 my-2" data-itemid="${item.itemId}" onclick="goToRegModal(this)"> 발주 신청 </button>
                                 </td>
-                                
                                 
                                 <td>${item.stockOrderId}</td>
                                 <td>${item.stockOrderQty}</td>
@@ -125,7 +124,7 @@
 				</div>
 				<!-- end 페이지 처리 -->
 
-				<form id='actionForm' action="/admin/item/log/list" method='get'>
+				<form id='actionForm' action="/admin/item/stock/list" method='get'>
 					<input type='hidden' name='pageNum'
 						value='${pageMaker.cri.pageNum}'> <input type='hidden'
 						name='amount' value='${pageMaker.cri.amount}'>
@@ -231,9 +230,9 @@ function updateActionUrl() {
     var newPath;
 
     if (currentUrl.includes("desc")) {
-    	newPath = "/admin/item/log/descList";
+    	newPath = "/admin/item/stock/descList";
     } else {
-    	newPath = "/admin/item/log/list";
+    	newPath = "/admin/item/stock/list";
     }
    
     // 설정한 값으로 hidden input 업데이트

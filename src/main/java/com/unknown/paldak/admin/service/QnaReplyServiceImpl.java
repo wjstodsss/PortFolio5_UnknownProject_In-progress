@@ -9,7 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.unknown.paldak.admin.common.domain.Criteria;
-import com.unknown.paldak.admin.common.domain.ReplyVO;
+import com.unknown.paldak.admin.domain.QNAReplyVO;
 import com.unknown.paldak.admin.mapper.QnaReplyMapper;
 
 import lombok.AllArgsConstructor;
@@ -18,13 +18,13 @@ import lombok.extern.log4j.Log4j;
 @Log4j
 @Service
 @AllArgsConstructor
-public class QnaReplyServiceImpl implements BaseService<ReplyVO>{
+public class QnaReplyServiceImpl implements BaseService<QNAReplyVO>{
     
 	@Autowired
 	private QnaReplyMapper mapper;
 
 	@Override
-	public void register(ReplyVO replyVO) {
+	public void register(QNAReplyVO replyVO) {
 		System.out.println("111111111111111klsfkldajflkjsalkfsdlkfhsldfkhl");
 		if(replyVO.getReply() != null && replyVO.getReply().length()!=0) {
 			replyVO.setAnswer('Y');
@@ -35,13 +35,13 @@ public class QnaReplyServiceImpl implements BaseService<ReplyVO>{
 	}
 
 	@Override
-	public ReplyVO get(Long replyId) {
+	public QNAReplyVO get(Long replyId) {
 		log.info("get..." + replyId);	
 		return mapper.read(replyId);
 	}
 
 	@Override
-	public boolean modify(ReplyVO replyVO) {
+	public boolean modify(QNAReplyVO replyVO) {
 		LocalDateTime now = LocalDateTime.now();
 		Date date = Date.from(now.atZone(ZoneId.systemDefault()).toInstant());
 		replyVO.setReplyUpdateDate(date);
@@ -55,13 +55,13 @@ public class QnaReplyServiceImpl implements BaseService<ReplyVO>{
 	}
 
 	@Override
-	public List<ReplyVO> getList(Criteria cri) {
+	public List<QNAReplyVO> getList(Criteria cri) {
 		System.out.println(cri+"reply");
 		return mapper.getList();
 	}
 	
 	@Override
-	public List<ReplyVO> getDescList(Criteria cri) {
+	public List<QNAReplyVO> getDescList(Criteria cri) {
 		System.out.println(cri);
 		return mapper.getDescListWithPaging(cri);
 	}
@@ -71,7 +71,7 @@ public class QnaReplyServiceImpl implements BaseService<ReplyVO>{
 		return mapper.getTotalCount(cri);
 	}
 
-	public ReplyVO getByQnaId(Long qnaId) {
+	public QNAReplyVO getByQnaId(Long qnaId) {
 		return mapper.readByQnaId(qnaId);
 	}
 	

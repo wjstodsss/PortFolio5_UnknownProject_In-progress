@@ -18,10 +18,10 @@
                             
                             	 <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown1" role="button" data-bs-toggle="collapse" data-bs-target="#submenu1" aria-expanded="false" aria-controls="submenu1">
-                                        상품 작업
+                                        상품 관리
                                     </a>
                                     <ul class="collapse dropdown-list" id="submenu1" aria-labelledby="navbarDropdown1">
-                                        <li><a class="dropdown-item text-light" href="/admin/item/list">상품 관리</a></li>
+                                        <li><a class="dropdown-item text-light" href="/admin/item/list">상품 작업</a></li>
                                         <li><a class="dropdown-item text-light" href="/admin/item/stock/list">재고 관리</a></li>
                                         <li><a class="dropdown-item text-light" href="/admin/item/log/list">발주/입고 이력</a></li>
                                     </ul>
@@ -39,8 +39,15 @@
                                     </ul>
                                 </li>
                                 
-                               
-
+                                 <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown3" role="button" data-bs-toggle="collapse" data-bs-target="#submenu3" aria-expanded="false" aria-controls="submenu3">
+                                        회원 관리
+                                    </a>
+                                    <ul class="collapse dropdown-list" id="submenu3" aria-labelledby="navbarDropdown3">
+                                        <li><a class="dropdown-item text-light" href="/admin/member/list">회원 작업</a></li>
+                                        <li><a class="dropdown-item text-light" href="/admin/benefits/list">혜택 문의</a></li>
+                                    </ul>
+                                </li>
                             </ul>
                         </div>
                     </div>

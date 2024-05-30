@@ -1,4 +1,4 @@
-package com.unknown.paldak.admin.common.domain;
+package com.unknown.paldak.admin.domain;
 
 import java.util.Date;
 
@@ -9,11 +9,9 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class ReplyVO {
+public class QNAReplyVO {
     private Long replyId;
-    private Long reviewId;
     private Long qnaId;
-    private Long replyTypeId;
     private String reply;
     private String replyer;
     private Date replyDate;

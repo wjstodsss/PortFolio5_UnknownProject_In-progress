@@ -18,21 +18,21 @@
 				  <div class="row">       
 				    <div class="col-lg-12">                    
 				        <form id='searchForm' action="/admin/qna/list" method='get' class='searchForm'>
-				            <select class="custom-select" name='type'>
+				           <select class="custom-select" name='type'>
 				                <option value=""
 				                    <c:out value="${pageMaker.cri.type == null?'selected':''}"/>>--</option>
 				                <option value="W"
 				                    <c:out value="${pageMaker.cri.type eq 'W'?'selected':''}"/>>작성자</option>
 				                <option value="T"
 				                    <c:out value="${pageMaker.cri.type eq 'T'?'selected':''}"/>>제목</option>
-				                <option value="C"
-				                    <c:out value="${pageMaker.cri.type eq 'I'?'selected':''}"/>>글번호</option>
+				                <option value="I"
+				                    <c:out value="${pageMaker.cri.type eq 'I'?'selected':''}"/>>상품ID</option>
 				                <option value="WT"
 				                    <c:out value="${pageMaker.cri.type eq 'WT'?'selected':''}"/>>작성자 or 제목</option>
-				                <option value="WC"
-				                    <c:out value="${pageMaker.cri.type eq 'WI'?'selected':''}"/>>작성자 or 글번호</option>
-				                <option value="WTC"
-				                    <c:out value="${pageMaker.cri.type eq 'WTI'?'selected':''}"/>>작성자 or 제목 or 글번호</option>
+				                <option value="WI"
+				                    <c:out value="${pageMaker.cri.type eq 'WI'?'selected':''}"/>>작성자 or 상품ID</option>
+				                <option value="WTI"
+				                    <c:out value="${pageMaker.cri.type eq 'WTI'?'selected':''}"/>>작성자 or 제목 or 상품ID</option>
 				            </select> 
 				            <input type='text' class='custom-keyword' name='keyword' value='<c:out value="${pageMaker.cri.keyword}"/>' /> 
 				            <input type='hidden' name='pageNum' value='<c:out value="${pageMaker.cri.pageNum}"/>' /> 
@@ -63,6 +63,7 @@
 					<thead>
 						<tr>
 							<th>순번</th>
+							<th>상품ID</th>
                             <th>제목</th>
                             <th>작성자</th>
                             <th>등록일</th>
@@ -81,6 +82,7 @@
 					        </c:forEach>
 					        <tr class="odd gradeX">
 					            <td><a href='#' id="${QNA.qnaId}" onclick="goToDetailModalForm(this)">${QNA.qnaId}</a></td>
+					            <td>${QNA.itemId}</td>
 					            <td>${QNA.qnaTitle}</td>
 					            <td>${QNA.qnaWriter}</td>
 					            <td><fmt:formatDate pattern="yyyy-MM-dd" value="${QNA.qnaRegdate}" /></td>
@@ -172,6 +174,12 @@
 
 
 					<div class="form-group">
+						<label for="itemId">상품ID</label> <input type="text"
+							class="form-control" name="itemId"
+							placeholder="상품ID를 입력하세요" required>
+					</div>
+					
+					<div class="form-group">
 						<label for="qnaTitle">제목</label> <input type="text"
 							class="form-control" name="qnaTitle"
 							placeholder="제목을 입력하세요" required>
@@ -235,6 +243,9 @@
 	        
 				<div class="form-group">
 					<label>게시글 ID</label> <input class="form-control" name='qnaId' id='qnaId' readonly>
+				</div>
+				<div class="form-group">
+					<label>상품 ID</label> <input class="form-control" name='itemId' id='itemId' readonly>
 				</div>
 				<div class="form-group">
 					<label>제목</label> <input class="form-control"
@@ -338,8 +349,8 @@ function goToDetailModalForm(element) {
         },
 		success: function(response) {
 			var QNAData = response.qna;
-			
 			$("#qnaId").val(QNAData.qnaId);
+			$("#itemId").val(QNAData.itemId);
 			$("#qnaTitle").val(QNAData.qnaTitle);
 			$("#qnaContent").text(QNAData.qnaContent);
 			$("#qnaCategory").val(QNAData.qnaCategory);
@@ -354,16 +365,13 @@ function goToDetailModalForm(element) {
 			var isoDateString = upDateDate.toISOString().substring(0, 10);
 			console.log(isoDateString);
 			$('#qnaUpdateDate').val(isoDateString);
-			
 			$("#reply").text("");
 			$("#replyId").val("");
-			
 			if(response.reply != null) {
 				var replyData = response.reply;
 				$("#reply").text(replyData.reply);
 				$("#replyId").val(replyData.replyId);
-			}
-			
+			}	
 			$('#formModal2').modal('show');
 		},
 		error: function(xhr, status, error) {

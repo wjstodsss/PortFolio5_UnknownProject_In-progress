@@ -11,6 +11,7 @@ import lombok.ToString;
 @ToString
 public class ReviewVO {
    private Long reviewId;
+   private Long itemId;
    private String reviewTitle;
    private String reviewContent;
    private String reviewImageURL;
