@@ -11,7 +11,7 @@ public interface BaseService<T> {
   
   public boolean modify(T t);
   
-  public Boolean remove(Long id);
+  public boolean remove(Long id);
   
   public List<T> getList(Criteria cri);
   

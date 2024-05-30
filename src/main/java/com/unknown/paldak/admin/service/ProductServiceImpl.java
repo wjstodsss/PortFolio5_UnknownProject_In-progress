@@ -40,7 +40,7 @@ public class ProductServiceImpl implements BaseService<ProductVO>{
 	}
 
 	@Override
-	public Boolean remove(Long productId) {
+	public boolean remove(Long productId) {
 		log.info("remove ... " + productId);
 		return mapper.delete(productId)==1;
 	}

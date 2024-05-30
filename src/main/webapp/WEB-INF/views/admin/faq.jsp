@@ -10,7 +10,7 @@
 	<div class="col-lg-10">
 		<div class="panel panel-default">
 			<div class="panel-heading">
-				Board List Page
+				Faq List Page
 				
 			</div>
 			<!-- /.panel-heading -->
@@ -36,7 +36,7 @@
 				            <input type='text' class='custom-keyword' name='keyword' value='<c:out value="${pageMaker.cri.keyword}"/>' /> 
 				            <input type='hidden' name='pageNum' value='<c:out value="${pageMaker.cri.pageNum}"/>' /> 
 				            <input type='hidden' name='amount' value='<c:out value="${pageMaker.cri.amount}"/>' />
-				            <button class='btn custom-btn'>Search</button>
+				            <button class='btn btn-default'>Search</button>
 				        </form>
 				    </div>
 				    

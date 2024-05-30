@@ -13,9 +13,10 @@
         <selectKey keyProperty="qnaId" order="BEFORE" resultType="long">
             select seq_qna.nextval from dual
         </selectKey>
-        INSERT INTO tbl_qna (qnaId, qnaTitle, qnaContent, qnaCategory, qnaWriter, qnaImageURL)
+        INSERT INTO tbl_qna (qnaId, itemId, qnaTitle, qnaContent, qnaCategory, qnaWriter, qnaImageURL)
         VALUES (
         #{qnaId},
+        #{itemId},
         #{qnaTitle},
         #{qnaContent},
         #{qnaCategory},
@@ -51,7 +52,7 @@
 							qnaTitle like '%'||#{keyword}||'%'
 						</when>
 						<when test="type == 'I'.toString()">
-							qnaId like '%'||#{keyword}||'%'
+							itemId like '%'||#{keyword}||'%'
 						</when>
 					</choose>
 				</trim>
@@ -62,9 +63,9 @@
     
     <select id="getListWithPaging" parameterType="com.unknown.paldak.admin.common.domain.Criteria" resultType="com.unknown.paldak.admin.domain.QNAVO">
         <![CDATA[
-            select qnaId, qnaTitle, qnaContent, qnaCategory, qnaWriter, qnaImageURL, qnaRegdate, qnaUpdateDate 
+            select qnaId, itemId, qnaTitle, qnaContent, qnaCategory, qnaWriter, qnaImageURL, qnaRegdate, qnaUpdateDate 
             from (
-            select /*+INDEX_DESC(tbl_qna pk_qna) */ rownum rn, qnaId, qnaTitle, qnaContent, qnaCategory, qnaWriter, qnaImageURL, qnaRegdate, qnaUpdateDate
+            select rownum rn, qnaId, itemId, qnaTitle, qnaContent, qnaCategory, qnaWriter, qnaImageURL, qnaRegdate, qnaUpdateDate
             from (select * from tbl_qna order by
          ]]> 
 
@@ -93,8 +94,8 @@
 
     <select id="getDescListWithPaging" parameterType="com.unknown.paldak.admin.common.domain.Criteria" resultType="com.unknown.paldak.admin.domain.QNAVO">
         <![CDATA[
-            select qnaId, qnaTitle, qnaContent, qnaCategory, qnaWriter, qnaImageURL, qnaRegdate, qnaUpdateDate from (
-            select /*+INDEX_DESC(tbl_qna pk_qna) */ rownum rn, qnaId, qnaTitle, qnaContent, qnaCategory, qnaWriter, qnaImageURL, qnaRegdate, qnaUpdateDate
+            select qnaId, itemId, qnaTitle, qnaContent, qnaCategory, qnaWriter, qnaImageURL, qnaRegdate, qnaUpdateDate from (
+            select rownum rn, qnaId, itemId, qnaTitle, qnaContent, qnaCategory, qnaWriter, qnaImageURL, qnaRegdate, qnaUpdateDate
             from (select * from tbl_qna order by
          ]]> 
 

@@ -13,9 +13,10 @@
         <selectKey keyProperty="reviewId" order="BEFORE" resultType="long">
             select seq_review.nextval from dual
         </selectKey>
-        INSERT INTO tbl_review (reviewId, reviewTitle, reviewContent, reviewWriter, reviewImageURL)
+        INSERT INTO tbl_review (reviewId, itemId, reviewTitle, reviewContent, reviewWriter, reviewImageURL)
         VALUES (
         #{reviewId},
+        #{itemId},
         #{reviewTitle},
         #{reviewContent},
         #{reviewWriter},
@@ -50,7 +51,7 @@
 							reviewTitle like '%'||#{keyword}||'%'
 						</when>
 						<when test="type == 'C'.toString()">
-							reviewContent like '%'||#{keyword}||'%'
+							itemId like '%'||#{keyword}||'%'
 						</when>
 					</choose>
 				</trim>
@@ -61,9 +62,9 @@
     
     <select id="getListWithPaging" parameterType="com.unknown.paldak.admin.common.domain.Criteria" resultType="com.unknown.paldak.admin.domain.ReviewVO">
         <![CDATA[
-            select reviewId, reviewTitle, reviewContent, reviewWriter, reviewImageURL, reviewRegdate, reviewUpdateDate 
+            select reviewId, itemId, reviewTitle, reviewContent, reviewWriter, reviewImageURL, reviewRegdate, reviewUpdateDate 
             from (
-            select /*+INDEX_DESC(tbl_review pk_review) */ rownum rn, reviewId, reviewTitle, reviewContent, reviewWriter, reviewImageURL, reviewRegdate, reviewUpdateDate
+            select rownum rn, reviewId, itemId, reviewTitle, reviewContent, reviewWriter, reviewImageURL, reviewRegdate, reviewUpdateDate
             from (select * from tbl_review order by
          ]]> 
 
@@ -92,8 +93,8 @@
 
     <select id="getDescListWithPaging" parameterType="com.unknown.paldak.admin.common.domain.Criteria" resultType="com.unknown.paldak.admin.domain.ReviewVO">
         <![CDATA[
-            select reviewId, reviewTitle, reviewContent, reviewWriter, reviewImageURL, reviewRegdate, reviewUpdateDate from (
-            select rownum rn, reviewId, reviewTitle, reviewContent, reviewWriter, reviewImageURL, reviewRegdate, reviewUpdateDate
+            select reviewId, itemId, reviewTitle, reviewContent, reviewWriter, reviewImageURL, reviewRegdate, reviewUpdateDate from (
+            select rownum rn, reviewId, itemId, reviewTitle, reviewContent, reviewWriter, reviewImageURL, reviewRegdate, reviewUpdateDate
             from (select * from tbl_review order by
          ]]> 
 

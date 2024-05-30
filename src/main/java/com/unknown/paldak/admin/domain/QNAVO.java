@@ -11,6 +11,7 @@ import lombok.ToString;
 @ToString
 public class QNAVO {
    private Long qnaId;
+   private Long itemId;
    private String qnaTitle;
    private String qnaContent;
    private String qnaCategory;

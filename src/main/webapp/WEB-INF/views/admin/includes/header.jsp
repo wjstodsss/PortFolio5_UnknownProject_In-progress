@@ -26,7 +26,6 @@
     <!-- admin_main_style.css 링크 -->
     <link href="/resources/dist/css/admin_main_style.css" rel="stylesheet">
     <script src="/resources/js/common_admin.js"></script>
-
 </head>
 
 <body>
