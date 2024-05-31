@@ -7,9 +7,9 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.unknown.paldak.admin.common.domain.Criteria;
-
 import com.unknown.paldak.admin.domain.ItemVO;
 import com.unknown.paldak.admin.mapper.ItemMapper;
 
@@ -26,7 +26,6 @@ public class ItemServiceImpl implements BaseService<ItemVO>{
 
 	@Override
 	public void register(ItemVO itemVO) {
-		log.info("register... " + itemVO);
 		mapper.insertSelectKey(itemVO);
 	}
 
@@ -45,14 +44,16 @@ public class ItemServiceImpl implements BaseService<ItemVO>{
 	}
 
 	@Override
-	public Boolean remove(Long itemId) {
+	public boolean remove(Long itemId) {
 		log.info("remove ... " + itemId);
 		return mapper.delete(itemId)==1;
 	}
 
 	@Override
 	public List<ItemVO> getList(Criteria cri) {
-		return mapper.getListWithPaging(cri);
+		List<ItemVO> result = mapper.getListWithPaging(cri);
+		
+		return result;
 	}
 	
 	@Override

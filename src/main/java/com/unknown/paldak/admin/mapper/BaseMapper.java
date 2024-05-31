@@ -6,22 +6,22 @@ import java.util.List;
 import com.unknown.paldak.admin.common.domain.Criteria;
 
 public interface BaseMapper<T> {
-    List<T> getList();
+    public List<T> getList();
 
-    void insert(T item);
+    public void insert(T t);
 
-    void insertSelectKey(T item);
+    public void insertSelectKey(T t);
 
-    T read(Long id);
+    public T read(Long id);
 
-    int delete(Long id);
+    public int delete(Long id);
 
-    int update(T item);
+    public int update(T item);
 
-    List<T> getListWithPaging(Criteria cri);
+    public List<T> getListWithPaging(Criteria cri);
     
-    List<T> getDescListWithPaging(Criteria cri);
+    public List<T> getDescListWithPaging(Criteria cri);
     
-    int getTotalCount(Criteria cri);
+    public int getTotalCount(Criteria cri);
  
 }

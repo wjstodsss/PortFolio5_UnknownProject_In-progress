@@ -20,7 +20,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.unknown.paldak.admin.common.domain.Criteria;
 import com.unknown.paldak.admin.common.domain.PageDTO;
-import com.unknown.paldak.admin.common.domain.ReplyVO;
+import com.unknown.paldak.admin.domain.ReviewReplyVO;
 import com.unknown.paldak.admin.domain.ReviewVO;
 import com.unknown.paldak.admin.service.BaseService;
 import com.unknown.paldak.admin.service.ReviewReplyServiceImpl;
@@ -48,7 +48,7 @@ public class ReviewController {
 		System.out.println("jlkjlkjl");
 		System.out.println(cri.getPageNum()+"1321321");
 		
-		List<ReplyVO> replyList = replyService.getList(cri);
+		List<ReviewReplyVO> replyList = replyService.getList(cri);
 		model.addAttribute("replys", replyList);
 		
 		List<ReviewVO> list = reviewService.getList(cri);
@@ -70,7 +70,7 @@ public class ReviewController {
 		System.out.println(cri);
 		System.out.println("cricricricrircicicicicicicici" + cri);
 		
-		List<ReplyVO> replyList = replyService.getList(cri);
+		List<ReviewReplyVO> replyList = replyService.getList(cri);
 		model.addAttribute("replys", replyList);
 		replyList.forEach(replyVO -> System.out.println(replyVO + "z------------zz"));
 		List<ReviewVO> list = reviewService.getDescList(cri);
@@ -90,7 +90,7 @@ public class ReviewController {
 	public String register(@RequestParam("uploadFile") MultipartFile[] uploadFile, Model model, ReviewVO reviewVO, RedirectAttributes rttr) {
         System.out.println("kkkk");
         if (!uploadFile[0].isEmpty()) { 
-			String imageURL = fileUploadManager.uploadFiles(uploadFile);
+			String imageURL = fileUploadManager.uploadFiles(uploadFile).get("imageURLs");
 			reviewVO.setReviewImageURL(imageURL);
 		}
 
@@ -106,7 +106,7 @@ public class ReviewController {
 	public ResponseEntity<Map<String, Object>> get(@PathVariable("reviewId") Long reviewId) {
 	    ReviewVO review = reviewService.get(reviewId);
 	    System.out.println(review);
-	    ReplyVO reply = replyService.getByReviewId(reviewId); 
+	    ReviewReplyVO reply = replyService.getByReviewId(reviewId); 
 	    System.out.println(reply);
 	    Map<String, Object> responseData = new HashMap<>();
 	    responseData.put("review", review);
@@ -119,9 +119,9 @@ public class ReviewController {
 
 	
 	@PostMapping("/modify")
-	public String modify(MultipartFile[] uploadFile, ReviewVO reviewVO, @ModelAttribute("cri") Criteria cri, ReplyVO replyVO, @RequestParam("currentPath") String currentPath, RedirectAttributes rttr) {
+	public String modify(MultipartFile[] uploadFile, ReviewVO reviewVO, @ModelAttribute("cri") Criteria cri, ReviewReplyVO replyVO, @RequestParam("currentPath") String currentPath, RedirectAttributes rttr) {
         if (!uploadFile[0].isEmpty()) { 
-			String imageURL = fileUploadManager.uploadFiles(uploadFile);
+			String imageURL = fileUploadManager.uploadFiles(uploadFile).get("imageURLs");
 			reviewVO.setReviewImageURL(imageURL);
 		}
 
@@ -129,6 +129,8 @@ public class ReviewController {
         	System.out.println("------------------------");
         	replyService.register(replyVO);
         }
+        
+        
         replyService.modify(replyVO);
         
 	    if (reviewService.modify(reviewVO)) {

@@ -46,7 +46,7 @@ public class ReviewServiceImpl implements BaseService<ReviewVO>{
 	}
 
 	@Override
-	public Boolean remove(Long reviewId) {
+	public boolean remove(Long reviewId) {
 		log.info("remove ... " + reviewId);
 		return mapper.delete(reviewId)==1;
 	}

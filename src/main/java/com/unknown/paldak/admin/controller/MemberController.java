@@ -1,6 +1,8 @@
 package com.unknown.paldak.admin.controller;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -18,22 +20,18 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.unknown.paldak.admin.common.domain.Criteria;
 import com.unknown.paldak.admin.common.domain.PageDTO;
 import com.unknown.paldak.admin.domain.MemberVO;
-import com.unknown.paldak.admin.domain.TableHeadVO;
 import com.unknown.paldak.admin.service.BaseService;
-import com.unknown.paldak.admin.service.TableHeadService;
+import com.unknown.paldak.admin.service.MemberServiceImpl;
 
 import lombok.RequiredArgsConstructor;
-import lombok.extern.log4j.Log4j;
 
 @Controller
-@Log4j
 @RequestMapping("admin/member/*")
 @RequiredArgsConstructor
 public class MemberController {
 
 	private final BaseService<MemberVO> memberService;
-	private final TableHeadService tableHeadService;
-
+	private final MemberServiceImpl memberServiceUtil;
 
 	
 	
@@ -42,17 +40,14 @@ public class MemberController {
 		System.out.println("jlkjlkjl");
 		System.out.println(cri.getPageNum());
 		
-		String[] tableHead = tableHeadService.getTableHead("1");
-		model.addAttribute("tableHead", tableHead);
-		
 		List<MemberVO> list = memberService.getList(cri);
 		list.forEach(memberVO -> System.out.println(memberVO));
 		model.addAttribute("members", list);
 		
-		//model.addAttribute("pageMaker", new PageDTO(cri, 123)); // 레코드 전체갯수, 13page
         int total = memberService.getTotal(cri);
-        
-        model.addAttribute("pageMaker", new PageDTO(cri, total));
+        PageDTO pageDTO = new PageDTO(cri, total);
+        System.out.println(pageDTO);
+        model.addAttribute("pageMaker", pageDTO);
         return "admin/member";
 	}
 
@@ -61,9 +56,6 @@ public class MemberController {
 	public String descList(Criteria cri, Model model) {
 		System.out.println("1");
 		System.out.println(cri);
-		
-		String[] tableHead = tableHeadService.getTableHead("1");
-		model.addAttribute("tableHead", tableHead);
 		
 		List<MemberVO> list = memberService.getDescList(cri);
 		list.forEach(memberVO -> System.out.println(memberVO));
@@ -87,8 +79,12 @@ public class MemberController {
 	}
 
 	@GetMapping(value = "/get/{memberId}", produces = { MediaType.APPLICATION_JSON_VALUE })
-	public ResponseEntity<MemberVO> get(@PathVariable("memberId") Long memberId) {
-		return new ResponseEntity<>(memberService.get(memberId), HttpStatus.OK);
+	public ResponseEntity<MemberVO> get(@PathVariable("memberId") String memberId) {
+		System.out.println("lkhklhlkhlhl왜왜오애ㅗ애ㅗ애ㅗ애");
+		MemberVO memberVO = memberServiceUtil.getByStringId(memberId);
+		System.out.println(memberVO);
+		System.out.println("lkhkl-------------------------------------hlkhlhl왜왜오애ㅗ애ㅗ애ㅗ애");
+		return new ResponseEntity<>(memberVO, HttpStatus.OK);
 	}
 	
 	@PostMapping("/modify")
@@ -102,9 +98,9 @@ public class MemberController {
 	}
 	
 	@PostMapping("/remove")
-	public String remove(@RequestParam("memberId") Long memberId, @ModelAttribute("cri") Criteria cri, @RequestParam("currentPath") String currentPath, RedirectAttributes rttr) {
+	public String remove(@RequestParam("memberId") String memberId, @ModelAttribute("cri") Criteria cri, @RequestParam("currentPath") String currentPath, RedirectAttributes rttr) {
 		System.out.println("remove..." + memberId);
-		if (memberService.remove(memberId)) {
+		if (memberServiceUtil.removeByStringId(memberId)) {
 			rttr.addFlashAttribute("result", "success");
 		}
 		rttr.addAttribute("pageNum", cri.getPageNum());
@@ -112,4 +108,19 @@ public class MemberController {
 		System.out.println("remove..." + memberId);
 		return "redirect:" + currentPath;
 	}
+	
+	@GetMapping(value = "/checkId/{memberId}", produces = { MediaType.APPLICATION_JSON_VALUE })
+    public ResponseEntity<Map<String, Boolean>> checkDuplicateId(@PathVariable("memberId") String memberId) {
+		System.out.println(memberId);
+		boolean result = false;
+		MemberVO meberVO = memberServiceUtil.getByStringId(memberId);
+		
+        if(meberVO == null) {
+        	result =true;
+        }
+        
+        Map<String, Boolean> response = new HashMap<>();
+        response.put("result", result);
+        return new ResponseEntity<>(response, HttpStatus.OK);
+    }
 }

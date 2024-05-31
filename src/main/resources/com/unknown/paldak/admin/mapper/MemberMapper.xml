@@ -8,51 +8,43 @@
 		resultType="com.unknown.paldak.admin.domain.MemberVO">
 		select * from tbl_member where memberId > 0 order by memberId desc
 	</select>
-	<insert id="insertSelectKey"
-		parameterType="com.unknown.paldak.admin.domain.MemberVO"
-		useGeneratedKeys="true" keyProperty="memberId">
-		<selectKey keyProperty="memberId" order="BEFORE"
-			resultType="int">
-			select seq_member.nextval from dual
-		</selectKey>
-		insert into tbl_member(memberId, memberName, memberPw, memberMail,
-		memberAddr1, memberAddr2, memberAddr3, adminCk, money, point,
-		memberPhone)
+	<insert id="insert"
+		parameterType="com.unknown.paldak.admin.domain.MemberVO">
+
+		insert into tbl_member(memberId, memberPw, memberName, memberPhone, memberMail,
+		memberAddr1, memberAddr2, memberAddr3, adminCk, regDate, point, suspended, withdrawal)
 		values (
 		#{memberId},
-		#{memberName},
 		#{memberPw},
+		#{memberName},
+		#{memberPhone},
 		#{memberMail},
 		#{memberAddr1},
 		#{memberAddr2},
 		#{memberAddr3},
 		#{adminCk},
-		#{money},
+		#{regDate},
 		#{point},
-		#{memberPhone}
+		#{suspended},
+		#{withdrawal}
 		)
 	</insert>
 
-	<select id="read" parameterType="long"
+	<select id="readByStringId" parameterType="String"
 		resultType="com.unknown.paldak.admin.domain.MemberVO">
 		select * from tbl_member where memberId = #{memberId}
 	</select>
 
-	<delete id="delete" parameterType="long">
+	<delete id="deleteByStringId" parameterType="String">
 		delete from tbl_member where memberId = #{memberId}
 	</delete>
 
 	<update id="update"
 		parameterType="com.unknown.paldak.admin.domain.MemberVO">
 		update tbl_member
-		set memberPw=#{memberPw}, memberName=#{memberName},
-		memberMail=#{memberMail}, memberAddr1=#{memberAddr1},
-		memberAddr2=#{memberAddr2},
-		memberAddr3=#{memberAddr3}, adminCk=#{adminCk}, money=#{money}, point=#{point},
-		memberPhone=#{memberPhone}
+		set adminCk=#{adminCk}, suspended=#{suspended}, withdrawal=#{withdrawal}	
 		where memberId=#{memberId}
 	</update>
-	
 	
 	<sql id="criterial">
 		<trim prefix="(" suffix=") AND " prefixOverrides="OR">
@@ -60,10 +52,10 @@
 				<trim prefix="OR">
 					<choose>
 						<when test="type == 'N'.toString()">
-							memberName like '%'||#{keyword}||'%'
+							LOWER(memberName) like '%'||LOWER(#{keyword})||'%'
 						</when>
-						<when test="type == 'A'.toString()">
-							memberAddr2 like '%'||#{keyword}||'%' or memberAddr3 like '%'||#{keyword}||'%'
+						<when test="type == 'I'.toString()">
+							memberId like '%'||#{keyword}||'%'
 						</when>
 						<when test="type == 'M'.toString()">
 							memberMail like '%'||#{keyword}||'%'
@@ -79,9 +71,9 @@
 		parameterType="com.unknown.paldak.admin.common.domain.Criteria"
 		resultType="com.unknown.paldak.admin.domain.MemberVO">
         <![CDATA[
-            select memberId, memberPw, memberName, memberMail, memberAddr1, memberAddr2, memberAddr3, adminCk, regDate, money, point, memberPhone 
+            select *
             from (
-            	select /*+INDEX_DESC(tbl_member pk_member) */ rownum rn, memberId, memberPw, memberName, memberMail, memberAddr1, memberAddr2, memberAddr3, adminCk, regDate, money, point, memberPhone
+            	select rownum rn, memberId, memberName, memberMail, regDate, memberPhone, suspended, withdrawal
             from (select * from tbl_member order by memberId asc)
             where
         ]]>
@@ -96,28 +88,25 @@
 	<select id="getDescListWithPaging"
 		parameterType="com.unknown.paldak.admin.common.domain.Criteria"
 		resultType="com.unknown.paldak.admin.domain.MemberVO">
-    <![CDATA[
-        select memberId, memberPw, memberName, memberMail, memberAddr1, memberAddr2, memberAddr3, adminCk, regDate, money, point, memberPhone 
-        from (
-            select /*+INDEX_DESC(tbl_member pk_member) */ rownum rn, memberId, memberPw, memberName, memberMail, memberAddr1, memberAddr2, memberAddr3, adminCk, regDate, money, point, memberPhone
+    <![CDATA[ 
+        select *
             from (
-                select * from tbl_member order by memberId desc
-            ) where
-    ]]>
+            	select rownum rn, memberId, memberName, memberMail, regDate, memberPhone, suspended, withdrawal
+            from (select * from tbl_member order by memberId desc)
+            where
+        ]]>
              <include refid="criterial"></include>
              
-    <![CDATA[             
-             rownum <= #{pageNum} * #{amount}
-        ) 
-        where rn > (#{pageNum} - 1) * #{amount}
-    ]]>
+        <![CDATA[ 
+             rownum <=  #{pageNum} * #{amount}
+            ) where rn > (#{pageNum}-1) * #{amount}
+        ]]>
 	</select>
-
 
 	<select id="getTotalCount" resultType="int">
 		select count(*) from tbl_member where
 		<include refid="criterial"></include>
-		 memberId > 0
-</select>
+		 memberId is not null
+	</select>
 
 </mapper>

@@ -10,8 +10,7 @@
 	<div class="col-lg-10">
 		<div class="panel panel-default">
 			<div class="panel-heading">
-				Board List Page
-				
+				Review List Page
 			</div>
 			<!-- /.panel-heading -->
 			<div class="panel-body">
@@ -26,19 +25,19 @@
 				                    <c:out value="${pageMaker.cri.type eq 'W'?'selected':''}"/>>작성자</option>
 				                <option value="T"
 				                    <c:out value="${pageMaker.cri.type eq 'T'?'selected':''}"/>>제목</option>
-				                <option value="C"
-				                    <c:out value="${pageMaker.cri.type eq 'C'?'selected':''}"/>>내용</option>
+				                <option value="I"
+				                    <c:out value="${pageMaker.cri.type eq 'I'?'selected':''}"/>>상품ID</option>
 				                <option value="WT"
 				                    <c:out value="${pageMaker.cri.type eq 'WT'?'selected':''}"/>>작성자 or 제목</option>
-				                <option value="WC"
-				                    <c:out value="${pageMaker.cri.type eq 'WC'?'selected':''}"/>>작성자 or 내용</option>
-				                <option value="WTC"
-				                    <c:out value="${pageMaker.cri.type eq 'WTC'?'selected':''}"/>>작성자 or 제목 or 내용</option>
+				                <option value="WI"
+				                    <c:out value="${pageMaker.cri.type eq 'WI'?'selected':''}"/>>작성자 or 상품ID</option>
+				                <option value="WTI"
+				                    <c:out value="${pageMaker.cri.type eq 'WTI'?'selected':''}"/>>작성자 or 제목 or 상품ID</option>
 				            </select> 
 				            <input type='text' class='custom-keyword' name='keyword' value='<c:out value="${pageMaker.cri.keyword}"/>' /> 
 				            <input type='hidden' name='pageNum' value='<c:out value="${pageMaker.cri.pageNum}"/>' /> 
 				            <input type='hidden' name='amount' value='<c:out value="${pageMaker.cri.amount}"/>' />
-				            <button class='btn custom-btn'>Search</button>
+				            <button class='btn btn-default'>Search</button>
 				        </form>
 				    </div>
 				    
@@ -59,10 +58,11 @@
 					class="table table-striped table-bordered table-hover"
 					id="dataTables-example">
 					
-					<caption class="table-caption">1:1 문의</caption>
+					<caption class="table-caption">구매 후기</caption>
 					<thead>
 						<tr>
 							<th>순번</th>
+							<th>상품ID</th>
                             <th>제목</th>
                             <th>작성자</th>
                             <th>등록일</th>
@@ -81,6 +81,7 @@
 					        </c:forEach>
 					        <tr class="odd gradeX">
 					            <td><a href='#' id="${review.reviewId}" onclick="goToDetailModalForm(this)">${review.reviewId}</a></td>
+					            <td>${review.itemId}</td>
 					            <td>${review.reviewTitle}</td>
 					            <td>${review.reviewWriter}</td>
 					            <td><fmt:formatDate pattern="yyyy-MM-dd" value="${review.reviewRegdate}" /></td>
@@ -121,28 +122,6 @@
 				</form>
 
 
-				<!-- The Modal -->
-				<div class="modal" id="myModal">
-					<div class="modal-dialog">
-						<div class="modal-content">
-
-							<!-- Modal Header -->
-							<div class="modal-header">
-								<h4 class="modal-title">Modal Heading</h4>
-								<button type="button" class="close" onclick="closeModal(this)">&times;</button>
-							</div>
-							<!-- Modal body -->
-							<div class="modal-body-id">처리가 완료되었습니다.</div>
-
-							<!-- Modal footer -->
-							<div class="modal-footer">
-								<button type="button" class="btn btn-danger" onclick="closeModal(this)">Close</button>
-							</div>
-						</div>
-					</div>
-					<!-- end Modal -->
-
-
 				</div>
 				<!-- /.panel-body -->
 			</div>
@@ -169,6 +148,15 @@
 			</div>
 			<div class="modal-body">
 				<form id="registerForm" name="registerForm" role="form" action="register" method="post" enctype="multipart/form-data">
+
+
+					<div class="form-group">
+					    <label for="itemId">상품ID</label>
+					    <input type="text" class="form-control" id="itemId" name="itemId" placeholder="상품ID를 입력하세요" pattern="[0-9]+" title="숫자만 입력하세요" required>
+					    <div class="invalid-feedback">
+					        숫자만 입력하세요.
+					    </div>
+					</div>
 
 
 					<div class="form-group">
@@ -223,6 +211,10 @@
 				<div class="form-group">
 					<label>게시글 ID</label> <input class="form-control" name='reviewId' id='reviewId' readonly>
 				</div>
+				
+				<div class="form-group">
+					<label>제목</label> <input class="form-control" id='itemId' name='itemId' readonly>
+                </div>
 				<div class="form-group">
 					<label>제목</label> <input class="form-control"
 						id='reviewTitle' name='reviewTitle'>
@@ -313,11 +305,10 @@ function goToDetailModalForm(element) {
         },
 		success: function(response) {
 			var reviewData = response.review;
-			
 			$("#reviewId").val(reviewData.reviewId);
+			$("#itemId").val(reviewData.itemId);
 			$("#reviewTitle").val(reviewData.reviewTitle);
 			$("#reviewContent").text(reviewData.reviewContent);
-			
 			$("#reviewWriter").val(reviewData.reviewWriter);
 			$("#imageSRC").attr("src", "/download/" + reviewData.reviewImageURL);
             $("#imageID").val(reviewData.reviewImageURL);
@@ -329,16 +320,13 @@ function goToDetailModalForm(element) {
 			var isoDateString = upDateDate.toISOString().substring(0, 10);
 			console.log(isoDateString);
 			$('#reviewUpdateDate').val(isoDateString);
-			
 			$("#reply").text("");
 			$("#replyId").val("");
-			
 			if(response.reply != null) {
 				var replyData = response.reply;
 				$("#reply").text(replyData.reply);
 				$("#replyId").val(replyData.replyId);
 			}
-			
 			$('#formModal2').modal('show');
 		},
 		error: function(xhr, status, error) {
