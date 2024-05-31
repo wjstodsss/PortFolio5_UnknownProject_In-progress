@@ -25,13 +25,10 @@ public class MemberServiceImpl implements BaseService<MemberVO>{
 
 	@Override
 	public void register(MemberVO memberVO) {
-		System.out.println("iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii");
 		LocalDateTime now = LocalDateTime.now();
 		Date date = Date.from(now.atZone(ZoneId.systemDefault()).toInstant());
 		memberVO.setRegDate(date);
-		
 		mapper.insert(memberVO);
-		System.out.println("pppppppppppppppppppppppppppppppppppppppppppppppppppppppppp");
 		
 	}
 
@@ -67,12 +64,10 @@ public class MemberServiceImpl implements BaseService<MemberVO>{
 	}
 	
 	public MemberVO getByStringId(String memberId) {
-		log.info("get..." + memberId);	
 		return mapper.readByStringId(memberId);
 	}
 	
 	public boolean removeByStringId(String memberId) {
-		log.info("remove ... " + memberId);
 		return mapper.deleteByStringId(memberId)==1;
 	}
 	

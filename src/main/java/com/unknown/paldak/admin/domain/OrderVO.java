@@ -11,7 +11,7 @@ import lombok.ToString;
 @Setter
 @ToString
 public class OrderVO {
-    private long orderId;
+    private String orderId;
     private String receiver;
     private String memberId;
     private String memberAddr1;

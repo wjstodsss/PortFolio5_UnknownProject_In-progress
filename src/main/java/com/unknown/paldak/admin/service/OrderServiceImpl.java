@@ -1,5 +1,7 @@
 package com.unknown.paldak.admin.service;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,8 +22,14 @@ public class OrderServiceImpl implements BaseService<OrderVO>{
 
 	@Override
 	public void register(OrderVO orderVO) {
+		/* orderId만들고 OrderDTO객체 orderId에 저장 */
+		Date date = new Date();
+		SimpleDateFormat format = new SimpleDateFormat("_yyyyMMddmm");
+		String orderId = orderVO.getMemberId() + format.format(date);
+		orderVO.setOrderId(orderId);
+
 		System.out.println("ppp");
-		mapper.insertSelectKey(orderVO);	
+		mapper.insert(orderVO);	
 	}
 
 	@Override

@@ -128,12 +128,6 @@
 			<!-- /.panel -->
 		</div>
 		<!-- /.col-lg-12 -->
-	</div>
-
-</div>
-<!-- /#page-wrapper -->
-
-</div>
 <!-- 등록 모달 -->
 <div class="modal" id="formModal" tabindex="-1" role="dialog"
 	aria-hidden="true">
@@ -152,10 +146,7 @@
 
 					<div class="form-group">
 					    <label for="itemId">상품ID</label>
-					    <input type="text" class="form-control" id="itemId" name="itemId" placeholder="상품ID를 입력하세요" pattern="[0-9]+" title="숫자만 입력하세요" required>
-					    <div class="invalid-feedback">
-					        숫자만 입력하세요.
-					    </div>
+					    <input type="text" class="form-control" id="itemId" name="itemId" placeholder="상품ID를 숫자로 입력하세요" onchange="validateInput()" required>					  
 					</div>
 
 
@@ -178,7 +169,7 @@
 					</div>
 
                     <div class="form-group">
-                        <label for="uploadFile">uploadFile</label>
+                        <label for="uploadFile">파일</label>
                         <input type="file" id="uploadFile" name="uploadFile" multiple>
                         <input type="hidden" value='defaltImage.jpg' name='reviewImageURL'>
                     </div>

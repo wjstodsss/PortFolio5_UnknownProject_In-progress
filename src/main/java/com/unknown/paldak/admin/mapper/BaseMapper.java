@@ -4,6 +4,7 @@ package com.unknown.paldak.admin.mapper;
 import java.util.List;
 
 import com.unknown.paldak.admin.common.domain.Criteria;
+import com.unknown.paldak.admin.domain.CartVO;
 
 public interface BaseMapper<T> {
     public List<T> getList();

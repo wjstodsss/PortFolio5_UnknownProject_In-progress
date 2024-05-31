@@ -81,10 +81,7 @@ public class OrderController {
 
 	@GetMapping(value = "/get/{orderId}", produces = { MediaType.APPLICATION_JSON_VALUE })
 	public ResponseEntity<OrderVO> get(@PathVariable("orderId") String orderId) {
-		System.out.println("lkhklhlkhlhl왜왜오애ㅗ애ㅗ애ㅗ애");
 		OrderVO orderVO = orderServiceUtil.getByStringId(orderId);
-		System.out.println(orderVO);
-		System.out.println("lkhkl-------------------------------------hlkhlhl왜왜오애ㅗ애ㅗ애ㅗ애");
 		return new ResponseEntity<>(orderVO, HttpStatus.OK);
 	}
 	
@@ -100,7 +97,6 @@ public class OrderController {
 	
 	@PostMapping("/remove")
 	public String remove(@RequestParam("orderId") String orderId, @ModelAttribute("cri") Criteria cri, @RequestParam("currentPath") String currentPath, RedirectAttributes rttr) {
-		System.out.println("remove..." + orderId);
 		if (orderServiceUtil.removeByStringId(orderId)) {
 			rttr.addFlashAttribute("result", "success");
 		}

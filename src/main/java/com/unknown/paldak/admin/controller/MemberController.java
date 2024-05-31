@@ -34,16 +34,11 @@ public class MemberController {
 	private final MemberServiceImpl memberServiceUtil;
 
 	
-	
 	@GetMapping("/list")
 	public String list(Criteria cri, Model model) {
-		System.out.println("jlkjlkjl");
-		System.out.println(cri.getPageNum());
-		
 		List<MemberVO> list = memberService.getList(cri);
 		list.forEach(memberVO -> System.out.println(memberVO));
 		model.addAttribute("members", list);
-		
         int total = memberService.getTotal(cri);
         PageDTO pageDTO = new PageDTO(cri, total);
         System.out.println(pageDTO);
@@ -54,36 +49,24 @@ public class MemberController {
 	
 	@GetMapping("/descList")
 	public String descList(Criteria cri, Model model) {
-		System.out.println("1");
-		System.out.println(cri);
-		
 		List<MemberVO> list = memberService.getDescList(cri);
 		list.forEach(memberVO -> System.out.println(memberVO));
 		model.addAttribute("members", list);
-		
-		//model.addAttribute("pageMaker", new PageDTO(cri, 123)); // 레코드 전체갯수, 13page
         int total = memberService.getTotal(cri);
-        
         model.addAttribute("pageMaker", new PageDTO(cri, total));
         return "admin/member";
 	}
 	
 	@PostMapping("/register")
 	public String register(Model model, MemberVO memberVO, RedirectAttributes rttr) {
-	   System.out.println("kkkk");
 	    memberService.register(memberVO);
-	    System.out.println("kkkfsdfsdfsfsdfk");
 	    rttr.addFlashAttribute("result", memberVO.getMemberId());
-	    
 	    return "redirect:descList";
 	}
 
 	@GetMapping(value = "/get/{memberId}", produces = { MediaType.APPLICATION_JSON_VALUE })
 	public ResponseEntity<MemberVO> get(@PathVariable("memberId") String memberId) {
-		System.out.println("lkhklhlkhlhl왜왜오애ㅗ애ㅗ애ㅗ애");
 		MemberVO memberVO = memberServiceUtil.getByStringId(memberId);
-		System.out.println(memberVO);
-		System.out.println("lkhkl-------------------------------------hlkhlhl왜왜오애ㅗ애ㅗ애ㅗ애");
 		return new ResponseEntity<>(memberVO, HttpStatus.OK);
 	}
 	
@@ -99,7 +82,6 @@ public class MemberController {
 	
 	@PostMapping("/remove")
 	public String remove(@RequestParam("memberId") String memberId, @ModelAttribute("cri") Criteria cri, @RequestParam("currentPath") String currentPath, RedirectAttributes rttr) {
-		System.out.println("remove..." + memberId);
 		if (memberServiceUtil.removeByStringId(memberId)) {
 			rttr.addFlashAttribute("result", "success");
 		}
@@ -111,7 +93,7 @@ public class MemberController {
 	
 	@GetMapping(value = "/checkId/{memberId}", produces = { MediaType.APPLICATION_JSON_VALUE })
     public ResponseEntity<Map<String, Boolean>> checkDuplicateId(@PathVariable("memberId") String memberId) {
-		System.out.println(memberId);
+		System.out.println("ppppppppppppp");
 		boolean result = false;
 		MemberVO meberVO = memberServiceUtil.getByStringId(memberId);
 		

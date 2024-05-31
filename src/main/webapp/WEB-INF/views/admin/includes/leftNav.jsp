@@ -28,6 +28,7 @@
                                         <li><a class="dropdown-item text-light" href="/admin/item/list">상품 작업</a></li>
                                         <li><a class="dropdown-item text-light" href="/admin/item/stock/list">재고 관리</a></li>
                                         <li><a class="dropdown-item text-light" href="/admin/item/log/list">발주/입고 이력</a></li>
+                                        <li><a class="dropdown-item text-light" href="/admin/brand/list">브랜드 등록</a></li>
                                     </ul>
                                 </li>
                             
@@ -50,6 +51,7 @@
                                     <ul class="collapse dropdown-list" id="submenu3" aria-labelledby="navbarDropdown3">
                                         <li><a class="dropdown-item text-light" href="/admin/member/list">회원 작업</a></li>
                                         <li><a class="dropdown-item text-light" href="/admin/benefits/list">혜택 문의</a></li>
+                                        <li><a class="dropdown-item text-light" href="/admin/cart/list">장바구니 조회</a></li>
                                     </ul>
                                 </li>
                                 

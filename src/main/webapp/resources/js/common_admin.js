@@ -16,6 +16,7 @@ $(document).ready(function() {
 	);
 	
 	
+	
 	$(".button-add a").on("click", function(e) {
 		var sortColumn = this.getAttribute('data-sortColumn');
 		sortColumnValue.val(sortColumn);
@@ -42,11 +43,11 @@ $(document).ready(function() {
 		searchForm.submit();
 		
 	});
+
 });
 
 
 function extractPageName(url) {
-    // URL에서 마지막 '/' 다음의 문자열을 추출
     var lastSlashIndex = url.lastIndexOf('/');
     var pageName = url.substring(lastSlashIndex + 1);
     return pageName;
@@ -59,18 +60,6 @@ function removeAction(){
 	console.log(result);
 }
 
-function checkModal(result) {
-	if (result === '' || history.state) {
-		return;
-	} else {
-		if (parseInt(result) > 0) {
-			$(".modal-body-id").html("게시글" + parseInt(result) + "번이 등록되었습니다.");
-		}
-		
-		console.log("ttttttttttttt")
-		$("#myModal").modal("show");
-	}
-}
 
 function goToModalForm() {
 	$('#formModal').modal('show');
@@ -78,6 +67,17 @@ function goToModalForm() {
 
 function closeModal(element) {
 	$(element).closest('.modal').modal('hide');
+}
+
+function validateInput() {
+    const input = document.getElementById("itemId");
+    const value = input.value;
+    const pattern = /^[0-9]+$/;
+
+    if (!pattern.test(value)) {
+        alert("숫자만 입력하세요");
+        input.focus();
+    }
 }
 
 

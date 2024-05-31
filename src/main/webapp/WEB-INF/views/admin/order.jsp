@@ -129,6 +129,7 @@ aria-hidden="true">
                 <div class="form-group">
                     <label>회원ID</label>
                     <input type="text" class="form-control" name="memberId" placeholder="회원ID 입력하세요" required>
+                    <button type="button" class="btn btn-default col-lg-3 btn-dark my-2" onclick="checkMemberId()">회원ID 확인</button>
                 </div>
                 
                  <div class="btn btn-dark my-2" onclick="execution_daum_address()">
@@ -170,7 +171,7 @@ aria-hidden="true">
                     <input class="form-control" name="usePoint" required>
                 </div>
         
-                <button type="submit" class="btn btn-default btn-success"  id="submitBtn">Submit Button</button>
+                <button type="submit" class="btn btn-default btn-success"  id="submitBtn" disabled>Submit Button</button>
                 <button type="reset" class="btn btn-secondary">다시 작성</button>
                 <button type="button" class="btn btn-secondary" onclick="closeModal(this)">list</button>
             </form>
@@ -280,6 +281,34 @@ $("#currentPath").val(extractPageName(newPath));
 return newPath;
 }
 
+
+function checkMemberId() {
+    var memberId = document.forms["registerForm"]["memberId"].value;
+    if (memberId === "") {
+        alert("아이디를 입력하세요.");
+        return false;
+    }
+    $.ajax({
+		url: '/admin/member/checkId/'+ memberId, // 서버의 URL
+		type: 'get', // GET 또는 POST 요청
+		data: { memberId: memberId }, // post.id를 서버로 전달
+		success: function(response)  {
+            if (response.result) {
+            	alert("존재하지 않는 아이디입니다.");
+            	 document.getElementById("submitBtn").disabled = false;
+            } else {
+            	alert("사용 가능한 아이디입니다.");
+            	document.getElementById("submitBtn").disabled = true;
+            }
+        },
+		error: function(xhr, status, error) {
+			console.error('AJAX 요청 실패:', error);
+			document.getElementById("submitBtn").disabled = true;
+		}
+	});
+
+    
+}
 
 function goToDetailModalForm(element) {
 console.log(element)

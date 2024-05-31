@@ -4,12 +4,8 @@
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.unknown.paldak.admin.mapper.OrderMapper">
-	<insert id="insertSelectKey"
+	<insert id="insert"
 		parameterType="com.unknown.paldak.admin.domain.OrderVO">
-		<selectKey keyProperty="orderId" order="BEFORE"
-			resultType="int">
-			select seq_order.nextval from dual
-		</selectKey>
 		insert into tbl_order(orderId, receiver, memberId,
 		memberAddr1, memberAddr2, memberAddr3, shipRequest, orderState, deliveryCost, usePoint)
 		values (

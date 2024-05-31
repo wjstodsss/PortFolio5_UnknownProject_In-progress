@@ -48,9 +48,9 @@
 							reviewWriter like '%'||#{keyword}||'%'
 						</when>
 						<when test="type == 'T'.toString()">
-							reviewTitle like '%'||#{keyword}||'%'
+							lower(reviewTitle) like '%'||lower(#{keyword})||'%'
 						</when>
-						<when test="type == 'C'.toString()">
+						<when test="type == 'I'.toString()">
 							itemId like '%'||#{keyword}||'%'
 						</when>
 					</choose>

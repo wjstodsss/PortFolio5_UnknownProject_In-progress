@@ -172,7 +172,6 @@
 			<div class="modal-body">
 				<form id="registerForm" name="registerForm" role="form" action="register" method="post" enctype="multipart/form-data">
 
-
 					<div class="form-group">
 						<label for="itemId">상품ID</label> <input type="text"
 							class="form-control" name="itemId"
