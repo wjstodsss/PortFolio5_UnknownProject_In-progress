@@ -30,7 +30,6 @@
 				                    <c:out value="${pageMaker.cri.type eq 'C'?'selected':''}"/>>카테고리ID</option>
 				                <option value="I"
 				                    <c:out value="${pageMaker.cri.type eq 'I'?'selected':''}"/>>상품번호</option>
-				  
 				            </select> 
 				            <input type='text' class='custom-keyword' name='keyword' value='<c:out value="${pageMaker.cri.keyword}"/>' /> 
 				            <input type='hidden' name='pageNum' value='<c:out value="${pageMaker.cri.pageNum}"/>' /> 
@@ -45,7 +44,7 @@
 				    </div>
 				</div>
 				<!-- end 검색조건 -->
-				<button id="regBtn" type="button" class="btn btn-board btn-xs pull-right btn-info col-lg-1 mx-2 my-2" onclick="goToModalForm(); openSelection('brand', 1)"> 새글 </button>
+				<button id="regBtn" type="button" class="btn btn-board btn-xs pull-right btn-info col-lg-1 mx-2 my-2" onclick="goToModalForm(); openSelection('brand', 1, 'register')"> 새글 </button>
 				<a href="/admin/item/list" type="button" class="btn btn-board btn-xs btn-light pull-right btn-info col-lg-2 mx-2 my-2">검색해제 일반리스트 </a>
 				<table width="80%"
 					class="table table-striped table-bordered table-hover"
@@ -68,7 +67,7 @@
 					<tbody>
 						<c:forEach var="item" items="${items}">
 							<tr class="odd gradeX">
-								<td><a href='#' id="${item.itemId}" onclick="goToDetailModalForm(this)">${item.itemId}</a></td>
+								<td><a href='#' id="${item.itemId}" onclick="goToDetailModalForm(this); openSelection('brand', 1, 'update')">${item.itemId}</a></td>
 								<td><img src="/download/${item.itemImageURL}" alt="상품이미지" style="max-width: 70px"></td>
 								<td>${item.itemName}</td>                             
                                 <td>${item.itemStock}</td>
@@ -152,7 +151,7 @@
 		                     </div>
 		                     
 		                     <div class="form-group">
-								  <select id="categorySelect" class="btn btn-outline-dark my-2" onchange="openSelection('itemCate', 1)">
+								  <select id="categorySelect" class="btn btn-outline-dark my-2" onchange="openSelection('itemCate', 1, 'register')">
 								  		<option disabled selected>카테고리</option>
 									    <c:forEach var="category" items="${categorys}">
 									      	<option value="${category.cateCode}">${category.cateName}</option>
@@ -238,8 +237,8 @@
 					<span aria-hidden="true">&times;</span>
 				</button>
 			</div>
-			<div class="modal-body">
-				<form id="modifyForm" action="modify" method="post" enctype="multipart/form-data">
+			<div class="modal-body row">
+				<form class="col-lg-6" id="modifyForm" action="modify" method="post" enctype="multipart/form-data">
 	        
 				<div class="form-group">
 					<label>상품 ID</label> <input class="form-control" name='itemId' id='itemId' readonly>
@@ -261,20 +260,31 @@
                 
                 <div class="form-group">
                     <label>브랜드ID</label> <input class="form-control"
-                        id='brandId' name='brandId'>
+                        id='brandId' name='brandId' readonly>
                 </div>
                 
                 <div class="form-group">
-                    <label>브랜드명</label> <input class="form-control" id='brandName' name='brandName'>
+                    <label>브랜드명</label>
+                    <input class="form-control" id='brandName' name='brandName' readonly>
                 </div>
+                
+                <div class="form-group">
+					  <select id="categorySelect-update" class="btn btn-outline-dark my-2" onchange="openSelection('itemCate', 1, 'update')">
+					  		<option disabled selected>카테고리</option>
+						    <c:forEach var="category" items="${categorys}">
+						      	<option value="${category.cateCode}">${category.cateName}</option>
+						    </c:forEach>
+					  </select>
+				</div>
+                
 
                 <div class="form-group">
                     <label>카테고리ID</label> <input class="form-control"
-                        id='cateCode' name='cateCode'>
+                        id='cateCode' name='cateCode' readonly>
                 </div>
                   <div class="form-group">
                     <label>카테고리명</label> <input class="form-control"
-                        id='cateName' name='cateName'>
+                        id='cateName' name='cateName' readonly>
                 </div>
 
                 <div class="form-group">
@@ -324,12 +334,25 @@
 					<label for="updateDate">수정일</label> <input type="text"
 						id="updateDate" class="form-control" readonly>					
 				</div>
-				
+
 				<button type="submit" class="btn btn-default">Modify</button>
 				<button type="submit" onclick="removeAction()" class="btn btn-danger">Remove</button>
 				<button type="button" class="btn btn-secondary" onclick="closeModal(this)">list</button>
 				<input type="hidden" id="currentPath" name="currentPath" value="">
 				</form>
+				<div class="panel panel-default col-lg-6">
+                    <div class="panel-body">
+                        <label>브랜드</label>
+                        <ul class="list-group" style="height: 252px;" id="brand-list-update"></ul>
+                        <ul class='pull-right pagination' id="brand-pagination-update"></ul>
+                    </div>
+                                        
+                    <div class="panel-body">
+                        <label>카테고리 2</label>
+                        <ul class="list-group" id="itemCate-list-update"></ul>
+                        <ul class='pull-right pagination' id="itemCate-pagination-update"></ul>
+                    </div>
+                </div>
 			</div>
 		</div>
 	</div>
@@ -337,18 +360,25 @@
 
 <%@include file="includes/footer.jsp"%>
 <script>
-function openSelection(type, page) {
-    showList(type, page);
+function openSelection(type, page, manipulation) {
+    showList(type, page, manipulation);
 }
 
-function showList(type, page) {
-    var listUL = document.getElementById(type + "-list");
-    var paginationUL = document.getElementById(type + "-pagination");
-    var pageNum = 1;
-    var targeturl = null;
-
+function showList(type, page, manipulation) {
+	var listUL = "";
+	var pageNum = 1;
+    var targeturl = "";
+    var selectedCateCode="";
+	if(manipulation == 'register'){
+		listUL = document.getElementById(type + "-list");
+		selectedCateCode = type === "itemCate" ? document.getElementById("categorySelect").value : null;
+	} else {
+		listUL = document.getElementById(type + "-list-update");
+		selectedCateCode = type === "itemCate" ? document.getElementById("categorySelect-update").value : null;
+	}
     
-    var selectedCateCode = type === "itemCate" ? document.getElementById("categorySelect").value : null;
+   	
+	
     
     if(type === "itemCate"){
     	targeturl = "/admin/" + type + "/select/" + page + "/" + selectedCateCode;
@@ -383,16 +413,16 @@ function showList(type, page) {
 
             for (var i = 0, len = list.length || 0; i < len; i++) {
                 if (type === "brand") {
-                    str += "<li class='list-group-item' onclick=\"selectItem('" + type + "', '" + list[i].brandId + "', '" + list[i].brandName + "')\">" + list[i].brandName + "</li>";
+                    str += "<li class='list-group-item' onclick=\"selectItem('" + type + "', '" + list[i].brandId + "', '" + list[i].brandName + "', '" + manipulation + "')\">" + list[i].brandName + "</li>";
                 } else if (type === "itemCate") {
-                    str += "<li class='list-group-item' onclick=\"selectItem('" + type + "', '" + list[i].cateCode + "', '" + list[i].cateName + "')\">" + list[i].cateName + "</li>";
+                    str += "<li class='list-group-item' onclick=\"selectItem('" + type + "', '" + list[i].cateCode + "', '" + list[i].cateName +  "', '" + manipulation + "')\">" + list[i].cateName + "</li>";
                 }
             }
-
+			console.log(str + "klkjjljlkjlkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk")
             listUL.innerHTML = str;
 		
 		console.log(total);
-            showPageNum(type, pageNum, total);
+            showPageNum(type, pageNum, total, manipulation);
         },
         error: function(xhr, status, error) {
             console.error('AJAX 요청 실패:', error);
@@ -400,9 +430,16 @@ function showList(type, page) {
     });
 }
 
-function showPageNum(type, pageNum, total) {
-	console.log(total);
-    var paginationUL = document.getElementById(type + "-pagination");
+function showPageNum(type, pageNum, total, manipulation) {
+	console.log(type)
+	var paginationUL = "";
+	if(manipulation == 'register'){
+		console.log('fffffffffffffffffffffffffffffff')
+		paginationUL = document.getElementById(type + "-pagination");
+	} else {
+		console.log('fffffffffffffffffffffffffffffffffffffffffffffffff')
+		paginationUL = document.getElementById(type + "-pagination-update");
+	}
     var endNum = Math.ceil(pageNum / 10.0) * 10;
     var startNum = endNum - 9;
 
@@ -431,7 +468,7 @@ function showPageNum(type, pageNum, total) {
     if (next) {
         str += "<li class='paginate_button'><a class='page-link' data-page='" + (endNum + 1) + "' href='#' onclick='handlePageClick(event, \"" + type + "\")'>Next</a></li>";
     }
-
+    console.log(str)
     paginationUL.innerHTML = str;
 }
 
@@ -441,14 +478,31 @@ function handlePageClick(event, type) {
     showList(type, targetPage);
 }
 
-function selectItem(type, id, name) {
-    if (type === "brand") {
-        document.getElementById('brandRegId').value = id;
-        document.getElementById('brandRegName').value = name;
-    } else if (type === "itemCate") {
-        document.getElementById('categoryRegId').value = id;
-        document.getElementById('categoryRegName').value = name;
-    }
+function selectItem(type, id, name, manipulation) {
+	
+	if(manipulation == 'register') {
+		if (type === "brand") {
+			console.log(id)
+	        document.getElementById('brandRegId').value = id;
+	        document.getElementById('brandRegName').value = name;
+	    } else if (type === "itemCate") {
+	    	console.log(id)
+	        document.getElementById('categoryRegId').value = id;
+	        document.getElementById('categoryRegName').value = name;
+	    }
+	} else {
+		if (type === "brand") {
+	        document.getElementById('brandId').value = id;
+	        document.getElementById('brandName').value = name;
+	    } else if (type === "itemCate") {
+	    	console.log(id)
+	        document.getElementById('cateCode').value = id;
+	        document.getElementById('cateName').value = name;
+	    }
+		
+	}
+	
+    
 }
 
 

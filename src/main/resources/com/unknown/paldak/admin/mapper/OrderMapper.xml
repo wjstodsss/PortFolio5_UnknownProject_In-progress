@@ -89,7 +89,7 @@
             select *
             from (
                 select rownum rn, orderId, receiver, memberId, orderState, orderDate
-            from (select * from tbl_order order by orderId asc)
+            from (select * from tbl_order order by orderId desc)
             where
         ]]>
                 <include refid="criterial"></include>

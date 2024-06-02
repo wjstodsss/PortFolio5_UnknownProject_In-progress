@@ -2,6 +2,7 @@ $(document).ready(function() {
 	var newPath = updateActionUrl();
 	var actionForm = $("#actionForm");
 	var sortColumnValue	= $("#sortColumn")
+	var groupColumnValue	= $("#groupColumn")
 	$(".paginate_button a").on(
 			"click",
 			function(e) {
@@ -18,6 +19,10 @@ $(document).ready(function() {
 	
 	
 	$(".button-add a").on("click", function(e) {
+	console.log(groupColumnValue);
+	console.log(sortColumnValue);
+		var groupColumn = this.getAttribute('data-groupColumn');
+		groupColumnValue.val(groupColumn);
 		var sortColumn = this.getAttribute('data-sortColumn');
 		sortColumnValue.val(sortColumn);
 	    e.preventDefault();

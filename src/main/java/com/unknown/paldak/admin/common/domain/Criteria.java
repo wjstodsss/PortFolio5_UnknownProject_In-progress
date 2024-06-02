@@ -13,7 +13,7 @@ public class Criteria {
    private String type;  //검색조건, T(제목), C(내용), W(작성자)
    private String keyword;  //검색조건
    private String sortColumn;
-//   private String sortOrder;
+   private String groupColumn;
    
    
    public Criteria() {

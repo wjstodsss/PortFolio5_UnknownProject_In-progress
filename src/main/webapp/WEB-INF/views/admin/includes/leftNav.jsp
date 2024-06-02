@@ -5,7 +5,7 @@
             <div class="row">
             	<!-- 좌측 네비게이션 -->
             <div class="col-lg-2 bg-dark text-light"> <!-- 배경색과 텍스트색을 다크 테마로 변경 -->
-                <h1 class="mt-5">Admin Page</h1>
+                <h1 class="mt-5">관리자 시스템</h1>
                 <nav class="navbar navbar-expand-lg navbar-dark bg-dark"> <!-- 네비게이션도 다크 테마로 변경 -->
                     <div class="container-fluid">
                         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -61,7 +61,8 @@
                                         주문 관리
                                     </a>
                                     <ul class="collapse dropdown-list" id="submenu4" aria-labelledby="navbarDropdown4">
-                                        <li><a class="dropdown-item text-light" href="/admin/order/list">주문 작업</a></li>
+                                        <li><a class="dropdown-item text-light" href="/admin/order/list">주문 & 배송</a></li>
+                                        <li><a class="dropdown-item text-light" href="/admin/orderItem/list">주문 상세</a></li>
                                     </ul>
                                 </li>
                             </ul>

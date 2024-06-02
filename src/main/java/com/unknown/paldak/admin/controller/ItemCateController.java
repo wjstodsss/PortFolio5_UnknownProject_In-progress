@@ -39,6 +39,7 @@ public class ItemCateController {
 	    Map<String, Object> responseData = new HashMap<>();
 	    String cateParent = cateCode;
 	    try {
+	    	System.out.println(cateParent);
 	        Criteria cri = new Criteria(page, 10);
 	        System.out.println(cri);
 	        List<ItemCateVO> list = itemCateListService.getListByCateParent(cri, cateParent);
@@ -46,7 +47,7 @@ public class ItemCateController {
 	        int total = itemCateListService.getTotalByCateParent(cri, cateParent);
 	        System.out.println(total);
 	        PageDTO pageMaker = new PageDTO(cri, total);
-	        System.out.println(pageMaker);
+	        System.out.println(pageMaker + "0000000000000000000000000000000000000");
 	        responseData.put("list", list);
 	        responseData.put("pageMaker", pageMaker);
 

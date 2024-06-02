@@ -23,7 +23,7 @@ pageEncoding="UTF-8"%>
                                 <c:out value="${pageMaker.cri.type == null?'selected':''}"/>>--</option>
                             <option value="I"
                                 <c:out value="${pageMaker.cri.type eq 'I'?'selected':''}"/>>주문ID</option>
-                            <option value="N"
+                            <option value="M"
                                 <c:out value="${pageMaker.cri.type eq 'M'?'selected':''}"/>>회원ID</option>
                         </select> 
                         <input type='text' class='custom-keyword' name='keyword' value='<c:out value="${pageMaker.cri.keyword}"/>' /> 
@@ -39,13 +39,11 @@ pageEncoding="UTF-8"%>
                 </div>
             </div>
             <!-- end 검색조건 -->
-            <button id="regBtn" type="button" class="btn btn-board btn-xs pull-right btn-info col-lg-1 mx-2 my-2" onclick="goToModalForm()"> 새글 </button>
+            <button id="regBtn" type="button" class="btn btn-board btn-xs pull-right btn-info col-lg-1 mx-2 my-2" onclick="goToModalForm()">주문등록</button>
             <a href="/admin/order/list" type="button" class="btn btn-board btn-xs btn-light pull-right btn-info col-lg-2 mx-2 my-2">검색해제 일반리스트 </a>
-            <table width="80%"
-                class="table table-striped table-bordered table-hover"
-                id="dataTables-example">
+            <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                 
-                <caption class="table-caption">주문</caption>
+                <caption class="table-caption">주문 & 배송</caption>
                 <thead>
                     <tr>
                         <th>주문ID</th>
@@ -114,8 +112,7 @@ aria-hidden="true">
     <div class="modal-content row">
         <div class="modal-header">
             <h5 class="modal-title" id="cartModalLabel">주문 등록</h5>
-            <button type="button" class="close" aria-label="Close"
-                onclick="closeModal('#formModal')">
+            <button type="button" class="close" aria-label="Close" onclick="closeModal('#formModal')">
                 <span aria-hidden="true">&times;</span>
             </button>
         </div>
@@ -276,7 +273,6 @@ if (currentUrl.includes("desc")) {
     newPath = "/admin/order/list";
 }
 
-// 설정한 값으로 hidden input 업데이트
 $("#currentPath").val(extractPageName(newPath));
 return newPath;
 }
@@ -289,16 +285,16 @@ function checkMemberId() {
         return false;
     }
     $.ajax({
-		url: '/admin/member/checkId/'+ memberId, // 서버의 URL
-		type: 'get', // GET 또는 POST 요청
-		data: { memberId: memberId }, // post.id를 서버로 전달
+		url: '/admin/member/checkId/'+ memberId,
+		type: 'get',
+		data: { memberId: memberId },
 		success: function(response)  {
             if (response.result) {
             	alert("존재하지 않는 아이디입니다.");
-            	 document.getElementById("submitBtn").disabled = false;
+            	 document.getElementById("submitBtn").disabled = true;
             } else {
             	alert("사용 가능한 아이디입니다.");
-            	document.getElementById("submitBtn").disabled = true;
+            	document.getElementById("submitBtn").disabled = false;
             }
         },
 		error: function(xhr, status, error) {
@@ -314,9 +310,9 @@ function goToDetailModalForm(element) {
 console.log(element)
 let orderId = element.id;
 $.ajax({
-    url: '/admin/order/get/'+ orderId, // 서버의 URL
-    type: 'get', // GET 또는 POST 요청
-    data: { orderId: orderId }, // post.id를 서버로 전달
+    url: '/admin/order/get/'+ orderId,
+    type: 'get',
+    data: { orderId: orderId },
     success: function(response) {
         $("#orderId").val(response.orderId);
         $("#receiver").val(response.receiver);
@@ -338,9 +334,6 @@ $.ajax({
     }
 });
 }
-
-
-
 
 
 /* 다음 주소 연동 */
@@ -388,6 +381,7 @@ new daum.Postcode(
                 } else {
                     addr += ' ';
                 }
+                
                 // 우편번호와 주소 정보를 해당 필드에 넣는다.
                 $("[name=memberAddr1]").val(data.zonecode);
                 $("[name=memberAddr2]").val(addr);
