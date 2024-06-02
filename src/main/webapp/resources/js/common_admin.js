@@ -62,7 +62,13 @@ function removeAction(){
 
 
 function goToModalForm() {
-	$('#formModal').modal('show');
+    clearModalForm();
+    $('#formModal').modal('show');
+}
+
+function clearModalForm() {
+    console.log("ff");
+    $('#registerForm')[0].reset();
 }
 
 function closeModal(element) {
@@ -77,6 +83,14 @@ function validateInput() {
     if (!pattern.test(value)) {
         alert("숫자만 입력하세요");
         input.focus();
+    }
+}
+
+function showElement(elementId) {
+    var element = document.getElementById(elementId);
+    if (element) {
+        element.classList.remove("d-none"); // Remove the d-none class
+        element.classList.add("d-block");   // Add the d-block class
     }
 }
 

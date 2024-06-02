@@ -1,6 +1,9 @@
 package com.unknown.paldak.admin.controller;
 
+import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -29,8 +32,33 @@ import lombok.RequiredArgsConstructor;
 public class BrandController {
 
 	private final BaseService<BrandVO> brandService;
+	
+	
+	@GetMapping(value = "/select/{page}", produces = {MediaType.APPLICATION_JSON_VALUE})
+	public ResponseEntity<Map<String, Object>> getList(@PathVariable("page") int page) {
+	    Map<String, Object> responseData = new HashMap<>();
+	    
+	    try {
+	        Criteria cri = new Criteria(page, 10);
+	        List<BrandVO> list = brandService.getList(cri);
+	        int total = brandService.getTotal(cri);
+	        PageDTO pageMaker = new PageDTO(cri, total);
+
+	        responseData.put("list", list);
+	        responseData.put("pageMaker", pageMaker);
+
+	        return ResponseEntity.ok(responseData);
+	    } catch (Exception e) {
+	        // 로그를 남깁니다.
+	        e.printStackTrace();
+	        // 예외 발생 시 적절한 응답을 반환합니다.
+	        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+	                             .body(Collections.singletonMap("error", "서버 오류가 발생했습니다."));
+	    }
+	}
 
 
+	
 	@GetMapping("/list")
 	public String list(Criteria cri, Model model) {
 		List<BrandVO> list = brandService.getList(cri);
@@ -88,4 +116,6 @@ public class BrandController {
 		rttr.addAttribute("amount", cri.getAmount());
 		return "redirect:" + currentPath;
 	}
+	
+	
 }

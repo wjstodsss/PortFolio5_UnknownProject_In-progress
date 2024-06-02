@@ -37,10 +37,7 @@ public class BenefitsController {
 
 	private final BaseService<BenefitsVO> benefitsService;
 	private final BenefitsReplyServiceImpl replyService;
-   
 
-
-	
 	
 	@GetMapping("/list")
 	public String list(Criteria cri, Model model) {

@@ -18,4 +18,5 @@ public class ReviewVO {
    private String reviewWriter;
    private Date reviewRegdate;
    private Date reviewUpdateDate;
+   private Character answer;
 }

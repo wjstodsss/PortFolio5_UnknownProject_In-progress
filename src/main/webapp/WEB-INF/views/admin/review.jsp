@@ -72,20 +72,13 @@
 					</thead>
 					<tbody>
 						 <c:forEach var="review" items="${reviews}" varStatus="status">
-					        <!-- 현재 리뷰에 대응하는 리플 -->
-					        <c:set var="currentReply" value="N" />
-					        <c:forEach var="reply" items="${replys}">
-					            <c:if test="${review.reviewId == reply.reviewId}">
-					                <c:set var="currentReply" value="${reply.answer}" />
-					            </c:if>
-					        </c:forEach>
 					        <tr class="odd gradeX">
 					            <td><a href='#' id="${review.reviewId}" onclick="goToDetailModalForm(this)">${review.reviewId}</a></td>
 					            <td>${review.itemId}</td>
 					            <td>${review.reviewTitle}</td>
 					            <td>${review.reviewWriter}</td>
 					            <td><fmt:formatDate pattern="yyyy-MM-dd" value="${review.reviewRegdate}" /></td>
-					            <td>${currentReply}</td>
+					           <td>${review.answer != null ? review.answer : 'N'}</td>
 					        </tr>
 					    </c:forEach>
 					</tbody>

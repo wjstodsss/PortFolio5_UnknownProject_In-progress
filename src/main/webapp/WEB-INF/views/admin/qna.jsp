@@ -73,20 +73,13 @@
 					</thead>
 					<tbody>
 						 <c:forEach var="QNA" items="${qnas}" varStatus="status">
-					        <!-- 현재 리뷰에 대응하는 리플 -->
-					        <c:set var="currentReply" value="N" />
-					        <c:forEach var="reply" items="${replys}">
-					            <c:if test="${QNA.qnaId == reply.qnaId}">
-					                <c:set var="currentReply" value="${reply.answer}" />
-					            </c:if>
-					        </c:forEach>
 					        <tr class="odd gradeX">
 					            <td><a href='#' id="${QNA.qnaId}" onclick="goToDetailModalForm(this)">${QNA.qnaId}</a></td>
 					            <td>${QNA.itemId}</td>
 					            <td>${QNA.qnaTitle}</td>
 					            <td>${QNA.qnaWriter}</td>
 					            <td><fmt:formatDate pattern="yyyy-MM-dd" value="${QNA.qnaRegdate}" /></td>
-					            <td>${currentReply}</td>
+					            <td>${QNA.answer}</td>
 					        </tr>
 					    </c:forEach>
 					</tbody>

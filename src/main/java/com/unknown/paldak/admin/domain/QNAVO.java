@@ -19,4 +19,5 @@ public class QNAVO {
    private String qnaWriter;
    private Date qnaRegdate;
    private Date qnaUpdateDate;
+   private Character answer;
 }

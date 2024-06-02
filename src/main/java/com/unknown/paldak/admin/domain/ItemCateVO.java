@@ -7,7 +7,7 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class CateVO {
+public class ItemCateVO {
 	
 	private int tier;
 	

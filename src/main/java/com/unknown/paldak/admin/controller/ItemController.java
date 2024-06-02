@@ -8,7 +8,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -22,14 +21,15 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.unknown.paldak.admin.common.domain.Criteria;
 import com.unknown.paldak.admin.common.domain.PageDTO;
 import com.unknown.paldak.admin.domain.AttachImageVO;
+import com.unknown.paldak.admin.domain.ItemCateVO;
 import com.unknown.paldak.admin.domain.ItemVO;
 import com.unknown.paldak.admin.domain.ReviewReplyVO;
 import com.unknown.paldak.admin.service.AttachServiceImpl;
 import com.unknown.paldak.admin.service.BaseService;
+import com.unknown.paldak.admin.service.ItemCateServiceImpl;
 import com.unknown.paldak.admin.util.FileUploadManager;
 
 import lombok.RequiredArgsConstructor;
-import lombok.extern.log4j.Log4j;
 
 @Controller
 @RequestMapping("admin/item/*")
@@ -39,20 +39,18 @@ public class ItemController {
 	private final BaseService<ItemVO> itemService;
     private final FileUploadManager fileUploadManager;
     private final AttachServiceImpl attachService;
+    private final ItemCateServiceImpl itemCateService;
 
 
-	
-	
 	@GetMapping("/list")
 	public String list(Criteria cri, Model model) {
-		System.out.println("jlkjlkjl");
-		System.out.println(cri.getPageNum()+"1321321");
-		
-		
-		
+		System.out.println(cri);
+		List<ItemCateVO> cateList = itemCateService.getList();
+		cateList.forEach(itemVO -> System.out.println(itemVO + "kkkkkkkkkkkkkkkk"));
 		List<ItemVO> list = itemService.getList(cri);
 		list.forEach(itemVO -> System.out.println(itemVO + "kkkkkkkkkkkkkkkk"));
 		model.addAttribute("items", list);
+		model.addAttribute("categorys", cateList);
 		
 	
         int total = itemService.getTotal(cri);
@@ -64,19 +62,11 @@ public class ItemController {
 	
 	@GetMapping("/descList")
 	public String descList(Criteria cri, Model model) {
-		System.out.println("1");
-		System.out.println(cri);
-		System.out.println("cricricricrircicicicicicicici" + cri);
-	
-		
+		List<ItemCateVO> cateList = itemCateService.getList();
 		List<ItemVO> list = itemService.getDescList(cri);
-		list.forEach(itemVO -> System.out.println(itemVO + "zzzzzzzzzzzzzzzz"));
-		list.forEach(itemVO -> System.out.println(itemVO));
+		int total = itemService.getTotal(cri);
 		model.addAttribute("items", list);
-		
-		
-        int total = itemService.getTotal(cri);
-        
+        model.addAttribute("categorys", cateList);
         model.addAttribute("pageMaker", new PageDTO(cri, total));
         return "admin/item";
 	}
@@ -90,7 +80,6 @@ public class ItemController {
         long newId = itemVO.getItemId();
         if (!uploadFile[0].isEmpty()) { 		
 			Map<String, String> imageInfo = fileUploadManager.uploadFiles(uploadFile);
-			String uuidT = imageInfo.get("uuidT");
 			String uuid = imageInfo.get("uuid");
 			String fileName = imageInfo.get("originalFilename");
 			String uploadPath = imageInfo.get("datePath");
@@ -100,13 +89,9 @@ public class ItemController {
 			attachItemVO.setItemId(newId);
 	        System.out.println(attachItemVO + "sdkhfklsahflhslfkd");
 	        int result = attachService.register(attachItemVO);
-	        attachItemVO.setUuid(uuidT);
-			attachItemVO.setFileName(fileName);
-			attachItemVO.setUploadPath(uploadPath);
-			attachItemVO.setItemId(newId);
-	        int resultThum = attachService.register(attachItemVO);
+
 	        
-		    if(result< 1 && resultThum< 1) {
+		    if(result<1) {
 		    	System.out.println("이미지정보 입력 실패");
 		    	return "error";
 		    }
@@ -180,4 +165,6 @@ public class ItemController {
 		System.out.println("remove..." + itemId);
 		return "redirect:" + currentPath;
 	}
+	
+
 }

@@ -29,6 +29,7 @@
                                         <li><a class="dropdown-item text-light" href="/admin/item/stock/list">재고 관리</a></li>
                                         <li><a class="dropdown-item text-light" href="/admin/item/log/list">발주/입고 이력</a></li>
                                         <li><a class="dropdown-item text-light" href="/admin/brand/list">브랜드 등록</a></li>
+                                        <li><a class="dropdown-item text-light" href="/admin/itemCate/list">카테고리 등록</a></li>
                                     </ul>
                                 </li>
                             

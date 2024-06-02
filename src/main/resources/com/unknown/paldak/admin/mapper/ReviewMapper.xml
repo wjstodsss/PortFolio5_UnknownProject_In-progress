@@ -62,58 +62,104 @@
     
     <select id="getListWithPaging" parameterType="com.unknown.paldak.admin.common.domain.Criteria" resultType="com.unknown.paldak.admin.domain.ReviewVO">
         <![CDATA[
-            select reviewId, itemId, reviewTitle, reviewContent, reviewWriter, reviewImageURL, reviewRegdate, reviewUpdateDate 
-            from (
-            select rownum rn, reviewId, itemId, reviewTitle, reviewContent, reviewWriter, reviewImageURL, reviewRegdate, reviewUpdateDate
-            from (select * from tbl_review order by
-         ]]> 
+ 			SELECT *
+				FROM (
+				    SELECT
+				        i.*, ROWNUM AS rn
+				    FROM (
+				        SELECT
+				            r.reviewId,
+				            r.itemId,
+				            r.reviewTitle,
+				            r.reviewContent,
+				            r.reviewWriter,
+				            r.reviewImageURL,
+				            r.reviewRegdate,
+				            r.reviewUpdateDate,
+				            rr.answer
+				        FROM
+				            tbl_review r
+				        left JOIN
+				            tbl_review_reply rr
+				        ON
+				            r.reviewId = rr.reviewId
+				        ORDER BY ]]> 
 
-         <choose>
-	        <when test="sortColumn != null and sortColumn == 'reviewTitle'">
-	            <![CDATA[ reviewTitle ]]>
-	        </when>
-	         <when test="sortColumn != null and sortColumn == 'reviewWriter'">
-	            <![CDATA[ reviewWriter ]]>
-	        </when>
-	        <otherwise>
-	        	<![CDATA[ reviewId ]]>
-	        </otherwise>
-	     </choose>
-	         
-        <![CDATA[
-        		 asc)
-            where 
-        ]]>
+		         <choose>
+			        <when test="sortColumn != null and sortColumn == 'answer'">
+			            <![CDATA[ rr.answer ]]>
+			        </when>
+					<when test="sortColumn != null and sortColumn == 'reviewTitle'">
+			            <![CDATA[ r.reviewTitle ]]>
+			        </when>
+			         <when test="sortColumn != null and sortColumn == 'reviewWriter'">
+			            <![CDATA[ r.reviewWriter ]]>
+			        </when>
+			        <otherwise>
+			        	<![CDATA[ r.reviewId ]]>
+			        </otherwise>
+			     </choose>
+			         
+		        <![CDATA[ asc
+				    ) i
+				    WHERE
+        		]]>
             <include refid="criterial"></include>
        <![CDATA[ 
             rownum <=  #{pageNum} * #{amount}
             ) where rn > (#{pageNum}-1) * #{amount}
         ]]>
     </select>
+    
+    
+        
+        
+        
 
     <select id="getDescListWithPaging" parameterType="com.unknown.paldak.admin.common.domain.Criteria" resultType="com.unknown.paldak.admin.domain.ReviewVO">
-        <![CDATA[
-            select reviewId, itemId, reviewTitle, reviewContent, reviewWriter, reviewImageURL, reviewRegdate, reviewUpdateDate from (
-            select rownum rn, reviewId, itemId, reviewTitle, reviewContent, reviewWriter, reviewImageURL, reviewRegdate, reviewUpdateDate
-            from (select * from tbl_review order by
-         ]]> 
+                <![CDATA[
+ 			SELECT *
+				FROM (
+				    SELECT
+				        i.*, ROWNUM AS rn
+				    FROM (
+				        SELECT
+				            r.reviewId,
+				            r.itemId,
+				            r.reviewTitle,
+				            r.reviewContent,
+				            r.reviewWriter,
+				            r.reviewImageURL,
+				            r.reviewRegdate,
+				            r.reviewUpdateDate,
+				            rr.answer
+				        FROM
+				            tbl_review r
+				        left JOIN
+				            tbl_review_reply rr
+				        ON
+				            r.reviewId = rr.reviewId
+				        ORDER BY ]]> 
 
-         <choose>
-	        <when test="sortColumn != null and sortColumn == 'reviewTitle'">
-	            <![CDATA[ reviewTitle ]]>
-	        </when>
-	         <when test="sortColumn != null and sortColumn == 'reviewWriter'">
-	            <![CDATA[ reviewWriter ]]>
-	        </when>
-	        <otherwise>
-	        	<![CDATA[ reviewId ]]>
-	        </otherwise>
-	     </choose>
-	         
-        <![CDATA[
-        		 desc)
-            where 
-        ]]>
+		         <choose>
+			        <when test="sortColumn != null and sortColumn == 'answer'">
+			            <![CDATA[ rr.answer ]]>
+			        </when>
+					<when test="sortColumn != null and sortColumn == 'reviewTitle'">
+			            <![CDATA[ r.reviewTitle ]]>
+			        </when>
+			         <when test="sortColumn != null and sortColumn == 'reviewWriter'">
+			            <![CDATA[ r.reviewWriter ]]>
+			        </when>
+			        <otherwise>
+			        	<![CDATA[ r.reviewId ]]>
+			        </otherwise>
+			     </choose>
+			         
+		        <![CDATA[ desc
+				    ) i
+				    WHERE
+        		]]>
             <include refid="criterial"></include>
        <![CDATA[ 
             rownum <=  #{pageNum} * #{amount}

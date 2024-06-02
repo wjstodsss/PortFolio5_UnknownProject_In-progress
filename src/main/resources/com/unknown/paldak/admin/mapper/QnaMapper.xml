@@ -60,30 +60,53 @@
 		</trim>
 	</sql>
 
+
+		
     
     <select id="getListWithPaging" parameterType="com.unknown.paldak.admin.common.domain.Criteria" resultType="com.unknown.paldak.admin.domain.QNAVO">
         <![CDATA[
-            select qnaId, itemId, qnaTitle, qnaContent, qnaCategory, qnaWriter, qnaImageURL, qnaRegdate, qnaUpdateDate 
-            from (
-            select rownum rn, qnaId, itemId, qnaTitle, qnaContent, qnaCategory, qnaWriter, qnaImageURL, qnaRegdate, qnaUpdateDate
-            from (select * from tbl_qna order by
+            SELECT *
+		FROM (
+		    SELECT
+		        i.*, ROWNUM AS rn
+		    FROM (
+		        SELECT
+		            q.qnaId,
+		            q.itemId,
+		            q.qnaTitle,
+		            q.qnaContent,
+		            qnaCategory,
+		            q.qnaWriter,
+		            q.qnaImageURL,
+		            q.qnaRegdate,
+		            q.qnaUpdateDate,
+		            qr.answer
+		        FROM
+		            tbl_qna q
+		        LEFT JOIN
+		            tbl_qna_reply qr ON q.qnaId = qr.qnaId
+		        ORDER BY
          ]]> 
 
          <choose>
+         	<when test="sortColumn != null and sortColumn == 'answer'">
+	            <![CDATA[ qr.answer ]]>
+	        </when>
 	        <when test="sortColumn != null and sortColumn == 'qnaTitle'">
-	            <![CDATA[ qnaTitle ]]>
+	            <![CDATA[ q.qnaTitle ]]>
 	        </when>
 	        <when test="sortColumn != null and sortColumn == 'qnaWriter'">
-	            <![CDATA[ qnaWriter ]]>
+	            <![CDATA[ q.qnaWriter ]]>
 	        </when>
 	        <otherwise>
-	        	<![CDATA[ qnaId ]]>
+	        	<![CDATA[ q.qnaId ]]>
 	        </otherwise>
 	     </choose>
 	         
         <![CDATA[
-        		 asc)
-            where 
+        		 ASC
+		    ) i
+		    WHERE
         ]]>
             <include refid="criterial"></include>
        <![CDATA[ 

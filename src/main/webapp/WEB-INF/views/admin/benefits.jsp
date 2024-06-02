@@ -25,7 +25,6 @@
 				                    <c:out value="${pageMaker.cri.type eq 'B'?'selected':''}"/>>혜택ID</option>
 				                <option value="W"
 				                    <c:out value="${pageMaker.cri.type eq 'W'?'selected':''}"/>>작성자</option>
-				          
 				            </select> 
 				            <input type='text' class='custom-keyword' name='keyword' value='<c:out value="${pageMaker.cri.keyword}"/>' /> 
 				            <input type='hidden' name='pageNum' value='<c:out value="${pageMaker.cri.pageNum}"/>' /> 
@@ -63,7 +62,6 @@
 					</thead>
 					<tbody>
 						 <c:forEach var="benefit" items="${benefits}" varStatus="status">
-					        <!-- 현재 리뷰에 대응하는 리플 -->
 					        <tr class="odd gradeX">
 					            <td><a href='#' id="${benefit.benefitsId}" onclick="goToDetailModalForm(this)">${benefit.benefitsId}</a></td>
 					            <td class="benefits-description">${benefit.benefitsDescription}</td>
@@ -95,14 +93,13 @@
 					</ul>
 				</div>
 				<!-- end 페이지 처리 -->
-
 				<form id='actionForm' action="/admin/benefits/list" method='get'>
 					<input type='hidden' name='pageNum'
 						value='${pageMaker.cri.pageNum}'> <input type='hidden'
 						name='amount' value='${pageMaker.cri.amount}'>
-								<input type='hidden' name='type' value='${pageMaker.cri.type}'>
-								<input type='hidden' name='keyword' value='${pageMaker.cri.keyword}'>
-								<input type='hidden' name='sortColumn' id='sortColumn'>
+					<input type='hidden' name='type' value='${pageMaker.cri.type}'>
+					<input type='hidden' name='keyword' value='${pageMaker.cri.keyword}'>
+					<input type='hidden' name='sortColumn' id='sortColumn'>
 				</form>
 
 

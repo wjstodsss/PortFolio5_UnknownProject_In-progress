@@ -45,21 +45,10 @@ public class QnaController {
 	
 	@GetMapping("/list")
 	public String list(Criteria cri, Model model) {
-		System.out.println("jlkjlkjl");
-		System.out.println(cri.getPageNum()+"1321321");
-		
-		List<QNAReplyVO> replyList = replyService.getList(cri);
-		model.addAttribute("replys", replyList);
-		
 		List<QNAVO> list = qnaService.getList(cri);
-		list.forEach(qnaVO -> System.out.println(qnaVO + "kkkkkkkkkkkkkkkk"));
 		model.addAttribute("qnas", list);
-		
-		//model.addAttribute("pageMaker", new PageDTO(cri, 123)); // 레코드 전체갯수, 13page
         int total = qnaService.getTotal(cri);
-        
         model.addAttribute("pageMaker", new PageDTO(cri, total));
-        replyList.forEach(replyVO -> System.out.println(replyVO + "z------------zz"));
         return "admin/qna";
 	}
 
