@@ -41,6 +41,10 @@ public class DashboardController {
         Integer todaySales = dashboardService.getTodaySales();
         Integer monthlySales = dashboardService.getMonthlySales();
         List<DashboardVO> todayTopFive = dashboardService.getTodayTopFive();
+        
+        List<DashboardVO> topFiveByReviewCount = dashboardService.getTopFiveByReviewCount();
+        System.out.println(topFiveByReviewCount);
+        System.out.println(todayTopFive);
     	model.addAttribute("todayRegistrations", registrations);
     	model.addAttribute("thisMonthRegistrations", thisMonthRegistrations);
     	model.addAttribute("dailyOrderCount", dailyOrderCount);
@@ -58,6 +62,7 @@ public class DashboardController {
     	model.addAttribute("todaySales", todaySales);
     	model.addAttribute("monthlySales", monthlySales);
     	model.addAttribute("todayTopFive", todayTopFive);
+    	model.addAttribute("topFiveByReviewCount", topFiveByReviewCount);
         return "admin/dashboard";
 	}
     

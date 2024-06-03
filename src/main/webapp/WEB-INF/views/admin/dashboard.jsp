@@ -90,106 +90,33 @@
             <div class="row">
                 <!-- 테이블1 -->
                 <div class="col-lg-6">
-                    <!-- 테이블1-1 -->
-                    <div class="dashboard-item">
-                        <div class="row">
-                            <div class="table-container">
-                                <table class="table table-striped table-bordered mt-5">
-                                    <caption class="table-caption">최다 리뷰 순위 TOP5</caption>
-                                    <thead class="table-dark">
-                                        <tr>
-                                            <th scope="col">#</th>
-                                            <th scope="col">First</th>
-                                            <th scope="col">Last</th>
-                                            <th scope="col">Handle</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <th scope="row">1</th>
-                                            <td>Mark</td>
-                                            <td>Otto</td>
-                                            <td>@mdo</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">2</th>
-                                            <td>Jacob</td>
-                                            <td>Thornton</td>
-                                            <td>@fat</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">3</th>
-                                            <td>Larry</td>
-                                            <td>the Bird</td>
-                                            <td>@twitter</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">4</th>
-                                            <td>Larry</td>
-                                            <td>the Bird</td>
-                                            <td>@twitter</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">5</th>
-                                            <td>Larry</td>
-                                            <td>the Bird</td>
-                                            <td>@twitter</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- 테이블1-2 -->
+                     <!-- 테이블2-2 -->
                     <div class="dashboard-item">
                         <div class="row">   
                             <div class="table-container">
                                 <table class="table table-striped table-bordered mt-5">
-                                    <caption class="table-caption">상품 순위 TOP5</caption>
+                                    <caption class="table-caption">최대 리뷰 TOP5</caption>
                                     <thead class="table-dark">
                                         <tr>
-                                            <th scope="col">#</th>
-                                            <th scope="col">First</th>
-                                            <th scope="col">Last</th>
-                                            <th scope="col">Handle</th>
+                                            <th scope="col">순위</th>
+                                            <th scope="col">상품명</th>
+                                            <th scope="col">리뷰수</th>
                                         </tr>
                                     </thead>
                                     <tbody>
+                                    <c:forEach var="reviewTop" items="${topFiveByReviewCount}">
                                         <tr>
-                                            <th scope="row">1</th>
-                                            <td>Mark</td>
-                                            <td>Otto</td>
-                                            <td>@mdo</td>
+                                        	<td>${reviewTop.RANK}</td>
+                                        	<td>${reviewTop.ITEMNAME}</td>
+                                        	<td>${reviewTop.REVIEWCOUNT}</td>
                                         </tr>
-                                        <tr>
-                                            <th scope="row">2</th>
-                                            <td>Jacob</td>
-                                            <td>Thornton</td>
-                                            <td>@fat</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">3</th>
-                                            <td>Larry</td>
-                                            <td>the Bird</td>
-                                            <td>@twitter</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">4</th>
-                                            <td>Larry</td>
-                                            <td>the Bird</td>
-                                            <td>@twitter</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">5</th>
-                                            <td>Larry</td>
-                                            <td>the Bird</td>
-                                            <td>@twitter</td>
-                                        </tr>
+                                     </c:forEach>
                                     </tbody>
                                 </table>
                             </div>
                         </div>
                     </div>
+                    <!-- 테이블 2-2 -->
                 </div>
 
                 <!-- 테이블2 -->
@@ -220,57 +147,7 @@
                             </div>
                         </div>
                     </div>
-                    <!-- 테이블2-2 -->
-                    <div class="dashboard-item">
-                        <div class="row">   
-                            <div class="table-container">
-                                <table class="table table-striped table-bordered mt-5">
-                                    <caption class="table-caption">일일 판매량 TOP5</caption>
-                                    <thead class="table-dark">
-                                        <tr>
-                                            <th scope="col">#</th>
-                                            <th scope="col">First</th>
-                                            <th scope="col">Last</th>
-                                            <th scope="col">Handle</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <th scope="row">1</th>
-                                            <td>Mark</td>
-                                            <td>Otto</td>
-                                            <td>@mdo</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">2</th>
-                                            <td>Jacob</td>
-                                            <td>Thornton</td>
-                                            <td>@fat</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">3</th>
-                                            <td>Larry</td>
-                                            <td>the Bird</td>
-                                            <td>@twitter</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">4</th>
-                                            <td>Larry</td>
-                                            <td>the Bird</td>
-                                            <td>@twitter</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">5</th>
-                                            <td>Larry</td>
-                                            <td>the Bird</td>
-                                            <td>@twitter</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- 테이블 2-2 -->
+                   
                 </div>
             </div>
         </div>

@@ -129,7 +129,7 @@ aria-hidden="true">
                     <button type="button" class="btn btn-default col-lg-3 btn-dark my-2" onclick="checkMemberId()">회원ID 확인</button>
                 </div>
                 
-                 <div class="btn btn-dark my-2" onclick="execution_daum_address()">
+                 <div class="form-group btn btn-dark " onclick="execution_daum_address()">
                       <span>주소 찾기</span>
                  </div>
                  

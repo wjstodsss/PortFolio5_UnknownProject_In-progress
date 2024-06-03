@@ -115,6 +115,11 @@ public class DashboardServiceImpl implements DashboardService {
 		return dashboardMapper.getTodayTopFive();
 	}
 
+	@Override
+	public List<DashboardVO> getTopFiveByReviewCount() { 
+		return dashboardMapper.getTopFiveByReviewCount();
+	}
+
 
 
 }

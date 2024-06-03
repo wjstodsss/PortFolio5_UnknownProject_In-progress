@@ -160,13 +160,13 @@
             ]]>
     </select>
     
-     <resultMap id="top5SalesMap" type="java.util.Map">
+     <resultMap id="topFiveSalesMap" type="java.util.Map">
         <id property="rank" column="Rank"/>
         <result property="itemName" column="item Name"/>
         <result property="salesAmount" column="Sales Amount"/>
     </resultMap>
 
-    <select id="getTodayTopFive" resultMap="top5SalesMap">
+    <select id="getTodayTopFive" resultMap="topFiveSalesMap">
         <![CDATA[
         SELECT * FROM (
             SELECT 
@@ -190,7 +190,25 @@
         ]]>
     </select>
     
+    <resultMap id="map" type="java.util.Map">
+        <id property="rank" column="Rank"/>
+        <result property="rank" column="rank"/>
+        <result property="itemName" column="itemName"/>
+        <result property="reviewCount" column="reviewCount"/>
+    </resultMap>
+    
+	 <select id="getTopFiveByReviewCount" resultType="map">
+		 <![CDATA[
+		    SELECT rownum AS rank, itemName, reviewCount
+		    FROM (
+		      SELECT i.itemName, COUNT(r.reviewId) AS reviewCount
+		      FROM tbl_item i
+		      LEFT JOIN tbl_review r ON i.itemId = r.itemId
+		      GROUP BY i.itemName
+		      ORDER BY reviewCount DESC
+		    )
+		    WHERE rownum <= 5
+		    ]]>
+	  </select>
 	
-	
-
 </mapper>

@@ -42,6 +42,8 @@ public interface DashboardMapper {
     
     List<DashboardVO> getTodayTopFive();
     
+    List<DashboardVO> getTopFiveByReviewCount();
+    
 
 }
 

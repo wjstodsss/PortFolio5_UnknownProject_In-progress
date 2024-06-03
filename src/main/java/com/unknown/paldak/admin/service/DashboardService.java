@@ -41,4 +41,6 @@ public interface DashboardService {
     int getMonthlySales();
     
     List<DashboardVO> getTodayTopFive();
+    
+    List<DashboardVO> getTopFiveByReviewCount();
 }

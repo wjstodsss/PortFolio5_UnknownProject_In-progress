@@ -25,5 +25,6 @@ public class DashboardVO {
     private int waitingItemsCount;
     private int rank;
     private String itemName;
-    private long salesAmount;
+    private long salesAmount;  
 }
+
