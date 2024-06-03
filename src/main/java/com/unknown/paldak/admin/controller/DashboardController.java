@@ -38,6 +38,9 @@ public class DashboardController {
         Integer totalOrdersCount = dashboardService.getTotalOrdersCount();
         Integer receivedItemsCount = dashboardService.getReceivedItemsCount();
         Integer waitingItemsCount = dashboardService.getWaitingItemsCount();
+        Integer todaySales = dashboardService.getTodaySales();
+        Integer monthlySales = dashboardService.getMonthlySales();
+        List<DashboardVO> todayTopFive = dashboardService.getTodayTopFive();
     	model.addAttribute("todayRegistrations", registrations);
     	model.addAttribute("thisMonthRegistrations", thisMonthRegistrations);
     	model.addAttribute("dailyOrderCount", dailyOrderCount);
@@ -52,6 +55,9 @@ public class DashboardController {
     	model.addAttribute("totalOrdersCount", totalOrdersCount);
     	model.addAttribute("receivedItemsCount", receivedItemsCount);
     	model.addAttribute("waitingItemsCount", waitingItemsCount);
+    	model.addAttribute("todaySales", todaySales);
+    	model.addAttribute("monthlySales", monthlySales);
+    	model.addAttribute("todayTopFive", todayTopFive);
         return "admin/dashboard";
 	}
     

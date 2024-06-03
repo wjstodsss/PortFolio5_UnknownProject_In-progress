@@ -1,5 +1,7 @@
 package com.unknown.paldak.admin.service;
 
+import java.util.List;
+
 import com.unknown.paldak.admin.domain.DashboardVO;
 
 
@@ -33,5 +35,10 @@ public interface DashboardService {
     int getReceivedItemsCount();
     
     int getWaitingItemsCount();
+    
+    int getTodaySales();
 
+    int getMonthlySales();
+    
+    List<DashboardVO> getTodayTopFive();
 }

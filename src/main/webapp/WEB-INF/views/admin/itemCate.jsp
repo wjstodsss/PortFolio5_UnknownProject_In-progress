@@ -44,11 +44,11 @@
 				   
 					</div>
 					<!-- end 검색조건 --> 
-					<button id="regBtn" type="button" class="btn btn-board btn-xs pull-right btn-info col-lg-2 mx-2 my-2" onclick="goToModalForm()"> 브랜드 등록 </button>
+					<button id="regBtn" type="button" class="btn btn-board btn-xs pull-right btn-info col-lg-2 mx-2 my-2" onclick="goToModalForm()"> 카테고리 등록 </button>
 					<a href="/admin/itemCate/list" type="button" class="btn btn-board btn-xs btn-light pull-right btn-info col-lg-2 mx-2 my-2">검색해제 일반리스트 </a>
 					<table class="table table-striped table-bordered table-hover" id="dataTables-example">
 						
-						<caption class="table-caption">브랜드</caption>
+						<caption class="table-caption">카테고리</caption>
 						<thead>
 							<tr>
 								<th class="col-lg-2">카테고리ID</th>

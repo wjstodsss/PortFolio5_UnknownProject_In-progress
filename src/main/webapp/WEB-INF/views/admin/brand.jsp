@@ -53,8 +53,9 @@
 							<tr>
 								<th class="col-lg-1">브랜드ID</th>
 	                            <th class="col-lg-1">브랜드명</th>
-	                            <th class="col-lg-10">브랜드소개</th>
-	                           
+	                            <th class="col-lg-6">브랜드소개</th>
+	                            <th class="col-lg-2">등록일</th>
+	                            <th class="col-lg-2">수정일</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -64,6 +65,8 @@
 								    <td><a href='#' id="${brand.brandId}" onclick="goToDetailModalForm(this)">${brand.brandId}</a></td>
 								    <td>${brand.brandName}</td>
 								    <td>${brand.brandIntro}</td>
+								    <td><fmt:formatDate pattern="yyyy-MM-dd" value="${brand.regDate != null ? brand.regDate : '기본 등록일'}" /></td>
+									<td><fmt:formatDate pattern="yyyy-MM-dd" value="${brand.updateDate != null ? brand.updateDate : '기본 수정일'}" /></td>
 								</tr>
 						    </c:forEach>
 						</tbody>

@@ -2,6 +2,8 @@ package com.unknown.paldak.admin.mapper;
 
 
 
+import java.util.List;
+
 import com.unknown.paldak.admin.domain.DashboardVO;
 
 public interface DashboardMapper {
@@ -33,6 +35,13 @@ public interface DashboardMapper {
     int getReceivedItemsCount();
     
     int getWaitingItemsCount();
+    
+    int getTodaySales();
+
+    int getMonthlySales();
+    
+    List<DashboardVO> getTodayTopFive();
+    
 
 }
 

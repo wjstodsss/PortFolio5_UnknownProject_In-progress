@@ -99,6 +99,21 @@ public class DashboardServiceImpl implements DashboardService {
 	public int getWaitingItemsCount() {		
 		return dashboardMapper.getWaitingItemsCount();
 	}
+	
+	@Override
+	public int getTodaySales() {
+		return dashboardMapper.getTodaySales();
+	}
+
+	@Override
+	public int getMonthlySales() {
+		return dashboardMapper.getMonthlySales();
+	}
+
+	@Override
+	public List<DashboardVO> getTodayTopFive() {
+		return dashboardMapper.getTodayTopFive();
+	}
 
 
 

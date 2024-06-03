@@ -20,8 +20,8 @@
                         <div class="col-lg-4">
                             <div class="dashboard-item text-center">
                                 <h4>매출 현황</h4>
-                                <p>금일 매출액: 200,000원</p>
-                                <p>월간 매출액: 20,000,000원</p>
+                                <p>금일 매출액: ${todaySales}원</p>
+                                <p>월간 매출액: ${monthlySales}원</p>
                             </div>
                         </div>
                         <div class="col-lg-4">
@@ -202,43 +202,19 @@
                                     <caption class="table-caption">일일 판매량 TOP5</caption>
                                     <thead class="table-dark">
                                         <tr>
-                                            <th scope="col">#</th>
-                                            <th scope="col">First</th>
-                                            <th scope="col">Last</th>
-                                            <th scope="col">Handle</th>
+                                            <th scope="col">순위</th>
+                                            <th scope="col">상품명</th>
+                                            <th scope="col">판매액</th>
                                         </tr>
                                     </thead>
                                     <tbody>
+                                    <c:forEach var="todayTop" items="${todayTopFive}">
                                         <tr>
-                                            <th scope="row">1</th>
-                                            <td>Mark</td>
-                                            <td>Otto</td>
-                                            <td>@mdo</td>
+                                        	<td>${todayTop.rank}</td>
+                                        	<td>${todayTop.itemName}</td>
+                                        	<td>${todayTop.salesAmount}</td>
                                         </tr>
-                                        <tr>
-                                            <th scope="row">2</th>
-                                            <td>Jacob</td>
-                                            <td>Thornton</td>
-                                            <td>@fat</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">3</th>
-                                            <td>Larry</td>
-                                            <td>the Bird</td>
-                                            <td>@twitter</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">4</th>
-                                            <td>Larry</td>
-                                            <td>the Bird</td>
-                                            <td>@twitter</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">5</th>
-                                            <td>Larry</td>
-                                            <td>the Bird</td>
-                                            <td>@twitter</td>
-                                        </tr>
+                                     </c:forEach>
                                     </tbody>
                                 </table>
                             </div>
@@ -294,6 +270,7 @@
                             </div>
                         </div>
                     </div>
+                    <!-- 테이블 2-2 -->
                 </div>
             </div>
         </div>

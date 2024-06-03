@@ -79,7 +79,7 @@
 					            <td>${QNA.qnaTitle}</td>
 					            <td>${QNA.qnaWriter}</td>
 					            <td><fmt:formatDate pattern="yyyy-MM-dd" value="${QNA.qnaRegdate}" /></td>
-					            <td>${QNA.answer}</td>
+					            <td>${QNA.answer != null ? QNA.answer : 'N'}</td>
 					        </tr>
 					    </c:forEach>
 					</tbody>

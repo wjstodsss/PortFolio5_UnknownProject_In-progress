@@ -30,7 +30,7 @@
 
     <update id="update" parameterType="com.unknown.paldak.admin.domain.BrandVO">
         update tbl_brand 
-        set brandName=#{brandName}, brandIntro=#{brandIntro}
+        set brandName=#{brandName}, brandIntro=#{brandIntro}, updateDate = #{updateDate}
         where brandId=#{brandId}
     </update>
 
@@ -57,7 +57,7 @@
         <![CDATA[
             select * 
             from (
-            select rownum rn, brandId, brandName, brandIntro
+            select rownum rn, brandId, brandName, brandIntro, regDate, updateDate
             from (select * from tbl_brand order by
             ]]>
 	         <choose>
@@ -84,7 +84,7 @@
           <![CDATA[
             select * 
             from (
-            select rownum rn, brandId, brandName, brandIntro
+            select rownum rn, brandId, brandName, brandIntro, regDate, updateDate
             from (select * from tbl_brand order by ]]>
 	         <choose>
 		        <when test="sortColumn != null and sortColumn == 'brandName'">

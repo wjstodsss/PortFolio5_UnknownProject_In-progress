@@ -62,7 +62,7 @@
                                     </a>
                                     <ul class="collapse dropdown-list" id="submenu4" aria-labelledby="navbarDropdown4">
                                         <li><a class="dropdown-item text-light" href="/admin/order/list">주문 & 배송</a></li>
-                                        <li><a class="dropdown-item text-light" href="/admin/orderItem/list">주문 상세</a></li>
+                                        <li><a class="dropdown-item text-light" href="/admin/orderItem/list">주문 상품</a></li>
                                     </ul>
                                 </li>
                             </ul>

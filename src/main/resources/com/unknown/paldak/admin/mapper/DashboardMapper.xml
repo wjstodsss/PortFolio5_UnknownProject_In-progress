@@ -5,113 +5,191 @@
 
 <mapper namespace="com.unknown.paldak.admin.mapper.DashboardMapper">
 
-    <!-- Get today's registrations -->
     <select id="getTodayRegistrations" resultType="com.unknown.paldak.admin.domain.DashboardVO">
+     <![CDATA[
         SELECT TO_CHAR(regDate, 'YYYY-MM-DD') AS regdateMem, COUNT(*) AS memberCount
         FROM tbl_member
         WHERE TRUNC(regDate) = TRUNC(SYSDATE)
         GROUP BY TO_CHAR(regDate, 'YYYY-MM-DD')
         ORDER BY regdateMem
+        ]]>
     </select>
     
-    <!-- Get this month's registrations -->
+
     <select id="getThisMonthRegistrations" resultType="com.unknown.paldak.admin.domain.DashboardVO">
+     <![CDATA[
         SELECT TO_CHAR(regDate, 'YYYY-MM') AS regmonthMem, COUNT(*) AS memberCount
         FROM tbl_member
         WHERE TRUNC(regDate, 'MM') = TRUNC(SYSDATE, 'MM')
         GROUP BY TO_CHAR(regDate, 'YYYY-MM')
         ORDER BY regmonthMem
+        ]]>
     </select>
     
-    <!-- Get daily order count -->
+
     <select id="getDailyOrderCount" resultType="com.unknown.paldak.admin.domain.DashboardVO">
+     <![CDATA[
         SELECT TO_CHAR(orderDate, 'YYYY-MM-DD') AS orderDate, COUNT(*) AS orderCount
         FROM tbl_order
         WHERE TRUNC(orderDate) = TRUNC(SYSDATE)
         GROUP BY TO_CHAR(orderDate, 'YYYY-MM-DD')
         ORDER BY orderDate
+        ]]>
     </select>
 
-    <!-- Get monthly order count -->
     <select id="getMonthlyOrderCount" resultType="com.unknown.paldak.admin.domain.DashboardVO">
+     <![CDATA[
         SELECT TO_CHAR(orderDate, 'YYYY-MM') AS orderMonth, COUNT(*) AS orderCount
         FROM tbl_order
         WHERE TRUNC(orderDate, 'MM') = TRUNC(SYSDATE, 'MM')
         GROUP BY TO_CHAR(orderDate, 'YYYY-MM')
         ORDER BY orderMonth
+        ]]>
     </select>
-    
-	<!-- Count of new items for the current month -->
+
 	<select id="getNewItemsCount" resultType="int">
+	 <![CDATA[
 	    SELECT COUNT(*) as itemCount
 	    FROM tbl_item
 	    WHERE TRUNC(regDate, 'MM') = TRUNC(SYSDATE, 'MM')
+	    ]]>
 	</select>
 	
-	<!-- Total count of items -->
+
 	<select id="getTotalItemsCount" resultType="int">
+	 <![CDATA[
 	    SELECT COUNT(*) as itemCount
 	    FROM tbl_item
+	    ]]>
 	</select>
-	
-	<!-- Get the count of reviews registered today -->
+
 	<select id="getReviewCountToday" resultType="int">
+	 <![CDATA[
 	    SELECT COUNT(*) AS reviewCount
 	    FROM tbl_review
 	    WHERE TRUNC(reviewregdate) = TRUNC(SYSDATE)
+	    ]]>
 	</select>
 	
-	<!-- Get the count of reviews awaiting response -->
 	<select id="getPendingReviewCount" resultType="int">
+	 <![CDATA[
 	    SELECT 
 	        (SELECT COUNT(*) FROM tbl_review) - 
 	        (SELECT COUNT(*) FROM tbl_review_reply WHERE answer = 'Y') AS pendingCount
 	    FROM dual
+	    ]]>
 	</select>
-	
-	<!-- Get the count of inquiries registered today -->
+
 	<select id="getQnaCountToday" resultType="int">
+	 <![CDATA[
 	    SELECT COUNT(*) AS qnaCount
 	    FROM tbl_qna
 	    WHERE TRUNC(qnaRegdate) = TRUNC(SYSDATE)
+	    ]]>
 	</select>
 	
-	<!-- Get the count of inquiries awaiting response -->
+
 	<select id="getPendingQnaCount" resultType="int">
+	 <![CDATA[
 	    SELECT 
 	        (SELECT COUNT(*) FROM tbl_qna) - 
 	        (SELECT COUNT(*) FROM tbl_qna_reply WHERE answer = 'Y') AS pendingQnaCount
 	    FROM dual
+	    ]]>
 	</select>
-	
-	<!-- Get the count of items needing to be ordered -->
-    <select id="getItemsNeedOrderCount" resultType="int">
-        SELECT COUNT(*) as itemsNeedOrderCount
-	    FROM tbl_item
-	    WHERE itemStock &lt;= 50
-    </select>
 	
 
+  	<select id="getItemsNeedOrderCount" resultType="int">
+	    <![CDATA[
+	        SELECT COUNT(*) as itemsNeedOrderCount
+	        FROM tbl_item
+	        WHERE itemStock <= 50
+	    ]]>
+	</select>
+
 	
-	<!-- Get the total number of orders -->
+
 	<select id="getTotalOrdersCount" resultType="int">
+	 <![CDATA[
 	    SELECT COUNT(*) as totalOrdersCount
 	    FROM tbl_stockInfo
+	    ]]>
 	</select>
 	
-	<!-- Get the count of items received -->
+	
 	<select id="getReceivedItemsCount" resultType="int">
+	 <![CDATA[
 	    SELECT COUNT(*) as receivedItemsCount
 	    FROM tbl_stockInfo
 	    WHERE isReceived = 'Y'
+	    ]]>
 	</select>
 	
-	<!-- Get the count of items waiting for receipt -->
+
 	<select id="getWaitingItemsCount" resultType="int">
+	 <![CDATA[
 	    SELECT COUNT(*) as waitingItemsCount
 	    FROM tbl_stockInfo
 	    WHERE isReceived = 'N'
+	    ]]>
 	</select>
+	
+    <select id="getTodaySales" resultType="int">
+     <![CDATA[
+        SELECT 
+            SUM(oi.itemPrice * oi.itemCount) AS TodaySales
+        FROM 
+            tbl_orderItem oi
+        JOIN 
+            tbl_order o ON oi.orderId = o.orderId
+        WHERE 
+            TRUNC(o.orderDate) = TRUNC(SYSDATE)
+            ]]>
+    </select>
+    
+    <select id="getMonthlySales" resultType="int">
+     <![CDATA[
+        SELECT 
+            SUM(oi.itemPrice * oi.itemCount) AS MonthlySales
+        FROM 
+            tbl_orderItem oi
+        JOIN 
+            tbl_order o ON oi.orderId = o.orderId
+        WHERE 
+            TRUNC(o.orderDate, 'MM') = TRUNC(SYSDATE, 'MM')
+            ]]>
+    </select>
+    
+     <resultMap id="top5SalesMap" type="java.util.Map">
+        <id property="rank" column="Rank"/>
+        <result property="itemName" column="item Name"/>
+        <result property="salesAmount" column="Sales Amount"/>
+    </resultMap>
+
+    <select id="getTodayTopFive" resultMap="top5SalesMap">
+        <![CDATA[
+        SELECT * FROM (
+            SELECT 
+                RANK() OVER (ORDER BY SUM(oi.itemPrice * oi.itemCount) DESC) AS "Rank",
+                i.itemName AS "item Name",
+                SUM(oi.itemPrice * oi.itemCount) AS "Sales Amount"
+            FROM 
+                tbl_orderItem oi
+            JOIN 
+                tbl_item i ON oi.itemId = i.itemId
+            JOIN 
+                tbl_order o ON oi.orderId = o.orderId
+            WHERE 
+                TRUNC(o.orderDate) = TRUNC(SYSDATE)
+            GROUP BY 
+                i.itemName
+            ORDER BY 
+                "Sales Amount" DESC
+        )
+        WHERE ROWNUM <= 5
+        ]]>
+    </select>
+    
 	
 	
 

@@ -1,5 +1,8 @@
 package com.unknown.paldak.admin.service;
 
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.util.Date;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -29,6 +32,9 @@ public class BrandServiceImpl implements BaseService<BrandVO>{
 	
 	@Override
 	public boolean modify(BrandVO brandVO) {
+		LocalDateTime now = LocalDateTime.now();
+		Date date = Date.from(now.atZone(ZoneId.systemDefault()).toInstant());
+		brandVO.setUpdateDate(date);
 		return mapper.update(brandVO)==1;
 	}
 
