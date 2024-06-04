@@ -32,13 +32,8 @@
 
 # 담당업무
  관리자 페이지
- 
-## 개발 환경
-- 개발 환경: 이클립스(STS3), Visual Studio Code, tomcat
-- 프로그래밍 언어: Java, HTML, CSS, JavaScript
-- 데이터베이스: 오라클
-- 버전 관리: Git
-- 라이브러리: spring-web-MVC, mybatis, ojdbc, lombok, hikariCP, jackson, gson, json-simple
+
+# 프레젠 테이션 
 
 # 기능 시연
 
