@@ -14,7 +14,7 @@
 4. **자기 계발:** 프로젝트를 통해 새로운 기술을 학습하고, 문제를 해결하는 과정에서 성장합니다.
 
 ## 기술 스택
-<div align=center>
+<div>
   <img src="https://img.shields.io/badge/oracle-F80000?style=for-the-badge&logo=oracle&logoColor=white"> 
   <img src="https://img.shields.io/badge/java-007396?style=for-the-badge&logo=java&logoColor=white"> 
   <img src="https://img.shields.io/badge/javascript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black">
@@ -25,7 +25,6 @@
   <img src="https://img.shields.io/badge/jquery-0769AD?style=for-the-badge&logo=jquery&logoColor=white">
   <img src="https://img.shields.io/badge/amazonaws-232F3E?style=for-the-badge&logo=amazonaws&logoColor=white"> 
   <br>
- 
 </div>
 # 담당업무
  관리자 페이지
