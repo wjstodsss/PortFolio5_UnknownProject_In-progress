@@ -39,62 +39,70 @@
 	</sql>
 
     
-    <select id="getListWithPaging" parameterType="com.unknown.paldak.admin.common.domain.Criteria" resultType="com.unknown.paldak.admin.domain.CartVO">
+     <select id="getListWithPaging" parameterType="com.unknown.paldak.admin.common.domain.Criteria" resultType="com.unknown.paldak.admin.domain.CartVO">
         <![CDATA[
-            select * 
+          SELECT * FROM (
+            SELECT c.*
             from (
-            select rownum rn, cartId, memberId, itemId, itemCount
-            from (select * from tbl_cart order by
+            SELECT rownum rn, c.cartId, c.memberId, c.itemId, c.itemCount, i.itemName
+            from tbl_cart c
+            LEFT JOIN tbl_item i ON c.itemId = i.itemId
+            order by
             ]]>
 	         <choose>
 		        <when test="sortColumn != null and sortColumn == 'memberId'">
-		            <![CDATA[ memberId ]]>
+		            <![CDATA[ c.memberId ]]>
 		        </when>
 		        <when test="sortColumn != null and sortColumn == 'itemId'">
-		            <![CDATA[ itemId ]]>
+		            <![CDATA[ c.itemId ]]>
 		        </when>
 		        <otherwise>
-		        	<![CDATA[ cartId ]]>
+		        	<![CDATA[ c.cartId ]]>
 		        </otherwise>
 		     </choose>
 			          
 	        <![CDATA[
-	        		 asc)
+	        		 asc) c
 	            where 
 	        ]]>
             <include refid="criterial"></include>
-       <![CDATA[ 
-            rownum <=  #{pageNum} * #{amount}
-            ) where rn > (#{pageNum}-1) * #{amount}
-        ]]>
+          <![CDATA[ 
+              rownum <=  #{pageNum} * #{amount}
+              ) where rn > (#{pageNum}-1) * #{amount}
+          ]]>
     </select>
 
     <select id="getDescListWithPaging" parameterType="com.unknown.paldak.admin.common.domain.Criteria" resultType="com.unknown.paldak.admin.domain.CartVO">
-          <![CDATA[
-            select * 
+                 <![CDATA[
+          SELECT * FROM (
+            SELECT c.*
             from (
-            select rownum rn, cartId, memberId, itemId, itemCount
-            from (select * from tbl_cart order by ]]>
+            SELECT rownum rn, c.cartId, c.memberId, c.itemId, c.itemCount, i.itemName
+            from tbl_cart c
+            LEFT JOIN tbl_item i ON c.itemId = i.itemId
+            order by
+            ]]>
 	         <choose>
 		        <when test="sortColumn != null and sortColumn == 'memberId'">
-		            <![CDATA[ memberId ]]>
+		            <![CDATA[ c.memberId ]]>
 		        </when>
 		        <when test="sortColumn != null and sortColumn == 'itemId'">
-		            <![CDATA[ itemId ]]>
+		            <![CDATA[ c.itemId ]]>
 		        </when>
 		        <otherwise>
-		        	<![CDATA[ cartId ]]>
+		        	<![CDATA[ c.cartId ]]>
 		        </otherwise>
 		     </choose>
-		     <![CDATA[
-		     desc)
+			          
+	        <![CDATA[
+	        		 desc) c
 	            where 
-		      ]]>
+	        ]]>
             <include refid="criterial"></include>
-       <![CDATA[ 
-            rownum <=  #{pageNum} * #{amount}
-            ) where rn > (#{pageNum}-1) * #{amount}
-        ]]>
+          <![CDATA[ 
+              rownum <=  #{pageNum} * #{amount}
+              ) where rn > (#{pageNum}-1) * #{amount}
+          ]]>
     </select>
     
     <select id="getTotalCount" resultType="int">

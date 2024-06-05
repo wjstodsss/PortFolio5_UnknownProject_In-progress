@@ -12,4 +12,5 @@ public class CartVO {
     private String memberId;
     private long itemId;
     private long itemCount;
+    private String itemName;
 }

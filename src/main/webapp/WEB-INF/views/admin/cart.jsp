@@ -54,6 +54,7 @@
 								<th class="col-lg-1">장바구니ID</th>
 	                            <th class="col-lg-3">회원ID</th>
 	                            <th class="col-lg-3">상품ID</th>
+	                            <th class="col-lg-3">상품명</th>
 	                            <th class="col-lg-3">상품수량</th>
 	                           
 							</tr>
@@ -61,9 +62,10 @@
 						<tbody>
 							 <c:forEach var="cart" items="${carts}" varStatus="status">
 						        <tr class="odd gradeX">
-								    <td><a href='#' id="${cart.cartId}" onclick="goToDetailModalForm(this)">${cart.cartId}</a></td>
+								    <td>${cart.cartId}</td>
 								    <td>${cart.memberId}</td>
 								    <td>${cart.itemId}</td>
+								    <td>${cart.itemName}</td>
 								    <td>${cart.itemCount}</td>
 								</tr>
 						    </c:forEach>
@@ -102,7 +104,7 @@
 			</div>
 			<!-- /.panel -->
 		</div>
-		<!-- /.col-lg-12 -->
+		
 <%@include file="includes/footer.jsp"%>
 
 <script>
