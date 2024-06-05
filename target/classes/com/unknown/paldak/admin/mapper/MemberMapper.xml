@@ -65,7 +65,12 @@
 			</foreach>
 		</trim>
 	</sql>
-
+	
+  	<update id="updateWithdrawal" parameterType="com.unknown.paldak.admin.domain.MemberVO">
+	    update tbl_member
+	    set withdrawal = #{withdrawal}
+	    where memberId = #{memberId}
+	</update>
 
 	<select id="getListWithPaging"
 		parameterType="com.unknown.paldak.admin.common.domain.Criteria"

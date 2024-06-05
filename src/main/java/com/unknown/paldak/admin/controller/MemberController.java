@@ -20,6 +20,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.unknown.paldak.admin.common.domain.Criteria;
 import com.unknown.paldak.admin.common.domain.PageDTO;
 import com.unknown.paldak.admin.domain.MemberVO;
+import com.unknown.paldak.admin.domain.OrderVO;
 import com.unknown.paldak.admin.service.BaseService;
 import com.unknown.paldak.admin.service.MemberServiceImpl;
 
@@ -69,6 +70,25 @@ public class MemberController {
 		MemberVO memberVO = memberServiceUtil.getByStringId(memberId);
 		return new ResponseEntity<>(memberVO, HttpStatus.OK);
 	}
+	
+	@GetMapping(value = "/handleWithdrawal/{memberId}", produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<Map<String, String>> modifyOrderState(@PathVariable("memberId") String memberId) {
+	    MemberVO memberVO = new MemberVO();
+	    memberVO.setMemberId(memberId);
+	    memberVO.setWithdrawal("Y");
+	    
+	    boolean result = memberServiceUtil.modifyWithdrawal(memberVO);
+	    
+	    Map<String, String> response = new HashMap<>();
+	    if (result) {
+	        response.put("status", "success");
+	        return ResponseEntity.ok(response);
+	    } else {
+	        response.put("status", "fail");
+	        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(response);
+	    }
+	}
+
 	
 	@PostMapping("/modify")
 	public String modify(MemberVO memberVO, @ModelAttribute("cri") Criteria cri, @RequestParam("currentPath") String currentPath, RedirectAttributes rttr) {

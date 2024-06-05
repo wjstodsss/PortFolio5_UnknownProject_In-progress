@@ -36,15 +36,14 @@
 				    </div>
 				    
 				    <div class="col-lg-8 button-add">	
-				     	<a href="/admin/member/list" type="button" class="btn btn-board btn-xs btn-dark pull-right btn-info col-lg-2 mx-2 my-2"> 오름차순 </a>
+				        <a href="/admin/member/list" type="button" class="btn btn-board btn-xs btn-dark pull-right btn-info col-lg-2 mx-2 my-2"> 오름차순 </a>
 				        <a href="/admin/member/descList" type="button" class="btn btn-board btn-xs pull-right btn-info btn-warning col-lg-2 mx-2 my-2"> 내림차순</a>		       
 				    </div>
 				</div>
 				<!-- end 검색조건 -->
 				<button id="regBtn" type="button" class="btn btn-board btn-xs pull-right btn-info col-lg-2 mx-2 my-2" onclick="goToModalForm()">회원등록</button>
 				<a href="/admin/member/list" type="button" class="btn btn-board btn-xs btn-light pull-right btn-info col-lg-2 mx-2 my-2">검색해제 일반리스트 </a>
-				<table width="80%"
-					class="table table-striped table-bordered table-hover"
+				<table class="table table-striped table-bordered table-hover"
 					id="dataTables-example">
 					
 					<caption class="table-caption">회원</caption>
@@ -64,7 +63,7 @@
 					<tbody>
 						<c:forEach var="member" items="${members}">
 							<tr class="odd gradeX">
-								<td><a href='#' id="${member.memberId}" onclick="goToDetailModalForm(this)">${member.memberId}</a></td>
+								<td><a href='#' id="${member.memberId}" onclick="goToDetailModalForm(this); ; ">${member.memberId}</a></td>
 								<td>${member.memberName}</td>                             
                                 <td>${member.memberMail}</td>
 								<td><fmt:formatDate pattern="yyyy-MM-dd" value="${member.regDate}" /></td>
@@ -299,10 +298,9 @@
 
 					<div class="form-group">
                         <label>탈퇴 여부</label>
-                        <select class="form-control" id='withdrawal' name='withdrawal' onchange="checkWithdrawalStatus()" required>
-		                    <option value="N">활동</option>
-		                    <option value="Y">탈퇴</option>
-	                    </select>
+                        <input type="hidden" class="form-control"  id='withdrawal' name='withdrawal' readonly>
+                        <input type="text" class="form-control"  id='withdrawalText' readonly>
+                       
                      </div>
 
                 <div class="form-group">
@@ -311,7 +309,7 @@
 				</div>
 
 				<button type="submit" class="btn btn-default">Modify</button>
-				<button type="submit" onclick="removeAction()" class="btn btn-danger" id="removeButton" disabled>Remove</button>
+				<input type="button" onclick="modifyWithdrawal()" class="btn btn-danger" value="탈퇴 처리" id="handleWithdrawal" disabled>
 				<button type="button" class="btn btn-secondary" onclick="closeModal(this)">list</button>
 				<input type="hidden" id="currentPath" name="currentPath" value="">
 				</form>
@@ -325,6 +323,23 @@
 		src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js">
 </script>
 <script>
+function modifyWithdrawal() {
+	var memberId = document.getElementById("memberId").value
+	$.ajax({
+		url: '/admin/member/handleWithdrawal/'+ memberId,
+		type: 'get',
+		data: { memberId: memberId },
+		success: function(response)  {
+			window.location.href = '/admin/member/list';
+			alert("탈퇴 처리를 완료하였습니다.")
+		},
+		error: function(xhr, status, error) {
+			window.location.href = '/admin/member/list';
+			alert("탈퇴 처리를 실패하였습니다.")
+		}
+	});
+}
+
 function updateActionUrl() {
     var currentUrl = window.location.href;
     var newPath;
@@ -360,6 +375,11 @@ function goToDetailModalForm(element) {
 			$("#point").val(response.point);
 			$("#suspended").val(response.suspended);
 			$("#withdrawal").val(response.withdrawal);
+			if(response.withdrawal === 'N') {
+				$("#withdrawalText").val('활동');	
+			} else {
+				$("#withdrawalText").val('탈퇴');	
+			}
 			var regDate = new Date(response.regDate);
 			var regDateString = regDate.toISOString().substring(0, 10);
 			$('#regDate').val(regDateString);
@@ -371,6 +391,8 @@ function goToDetailModalForm(element) {
 		}
 	});
 }
+
+
 
 
 function checkId() {
@@ -403,13 +425,15 @@ function checkId() {
 
 function checkWithdrawalStatus() {
     var withdrawalSelect = document.getElementById('withdrawal');
-    var removeButton = document.getElementById('removeButton');
-    if (withdrawalSelect.value === 'Y') {
-        removeButton.disabled = false;
+    var handleWithdrawal = document.getElementById('handleWithdrawal');
+    if (withdrawalSelect.value === 'N') {
+        handleWithdrawal.disabled = false;
     } else {
-        removeButton.disabled = true;
+        handleWithdrawal.disabled = true;
     }
 }
+
+
 
 
 

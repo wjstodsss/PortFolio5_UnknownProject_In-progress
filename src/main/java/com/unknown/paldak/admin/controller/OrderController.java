@@ -83,7 +83,6 @@ public class OrderController {
 		OrderVO orderVO = orderServiceUtil.getByStringId(orderId);
 		return new ResponseEntity<>(orderVO, HttpStatus.OK);
 	}
-
 	
 	@GetMapping(value = "/orderState/{orderId}", produces = { MediaType.APPLICATION_JSON_VALUE })
 	public ResponseEntity<OrderVO> modifyOrderState(@PathVariable("orderId") String orderId) {

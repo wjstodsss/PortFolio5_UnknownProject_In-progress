@@ -39,11 +39,9 @@
 	</update>
 	
 	<update id="updateOrderState" parameterType="com.unknown.paldak.admin.domain.OrderVO">
-
 	    update tbl_order
 	    set orderState = #{orderState}
 	    where orderId = #{orderId}
-
 	</update>
 	
 	 <select id="read" parameterType="long" resultType="com.unknown.paldak.admin.domain.OrderVO">

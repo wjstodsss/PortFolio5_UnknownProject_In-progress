@@ -15,7 +15,6 @@ import com.unknown.paldak.admin.mapper.MemberMapper;
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j;
 
-@Log4j
 @Service
 @AllArgsConstructor
 public class MemberServiceImpl implements BaseService<MemberVO>{
@@ -70,5 +69,11 @@ public class MemberServiceImpl implements BaseService<MemberVO>{
 	public boolean removeByStringId(String memberId) {
 		return mapper.deleteByStringId(memberId)==1;
 	}
+	
+	  public boolean modifyWithdrawal(MemberVO memberVO) {
+			int result = mapper.updateWithdrawal(memberVO);
+			System.out.println(result + "kkkk33333333333333333kkkkkkkkkkkkkkkkkkkkkkkkkkkkk");
+			return result==1;
+		}
 	
 }
