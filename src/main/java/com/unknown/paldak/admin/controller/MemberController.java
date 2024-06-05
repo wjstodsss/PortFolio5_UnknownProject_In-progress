@@ -113,11 +113,10 @@ public class MemberController {
 	
 	@GetMapping(value = "/checkId/{memberId}", produces = { MediaType.APPLICATION_JSON_VALUE })
     public ResponseEntity<Map<String, Boolean>> checkDuplicateId(@PathVariable("memberId") String memberId) {
-		System.out.println("ppppppppppppp");
 		boolean result = false;
-		MemberVO meberVO = memberServiceUtil.getByStringId(memberId);
+		MemberVO memberVO = memberServiceUtil.getByStringId(memberId);
 		
-        if(meberVO == null) {
+        if(memberVO == null) {
         	result =true;
         }
         

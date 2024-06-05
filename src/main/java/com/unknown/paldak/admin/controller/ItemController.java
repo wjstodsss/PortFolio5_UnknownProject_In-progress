@@ -113,7 +113,20 @@ public class ItemController {
 	    return new ResponseEntity<>(responseData, HttpStatus.OK);
 	}
 
-
+	@GetMapping(value = "/checkItem/{itemId}", produces = { MediaType.APPLICATION_JSON_VALUE })
+    public ResponseEntity<Map<String, Boolean>> checkDuplicateId(@PathVariable("itemId") long itemId) {
+		
+		boolean result = false;
+		ItemVO itemVO = itemService.get(itemId);
+		System.out.println(itemVO);
+        if(itemVO != null) {
+        	result = true;
+        }
+        
+        Map<String, Boolean> response = new HashMap<>();
+        response.put("result", result);
+        return new ResponseEntity<>(response, HttpStatus.OK);
+    }
 	
 	@PostMapping("/modify")
 	public String modify(MultipartFile[] uploadFile, ItemVO itemVO, @ModelAttribute("cri") Criteria cri, AttachImageVO attachItemVO, ReviewReplyVO replyVO, @RequestParam("currentPath") String currentPath, RedirectAttributes rttr) {

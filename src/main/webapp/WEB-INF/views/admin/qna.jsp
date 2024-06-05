@@ -166,9 +166,8 @@
 				<form id="registerForm" name="registerForm" role="form" action="register" method="post" enctype="multipart/form-data">
 
 					<div class="form-group">
-						<label for="itemId">상품ID</label> <input type="text"
-							class="form-control" name="itemId"
-							placeholder="상품ID를 입력하세요" required>
+						<label for="itemId">상품ID</label> <input type="text" class="form-control" data-type="register" name="itemId" placeholder="상품ID를 숫자로 입력하세요" required>
+					    <button type="button" class="btn btn-default col-lg-3 btn-dark my-2" onclick="checkItem(this, 'register')">상품 확인</button>	
 					</div>
 					
 					<div class="form-group">
@@ -209,7 +208,7 @@
                     </div>
                     
                     
-					<button type="submit" class="btn btn-default btn-success">Submit Button</button>
+					<button type="submit" class="btn btn-default btn-success" id="submitBtn">Submit Button</button>
 					<button type="reset" class="btn btn-secondary">다시 작성</button>
 					<button type="button" class="btn btn-secondary" onclick="closeModal(this)">list</button>
 				</form>
@@ -314,6 +313,32 @@
 <%@include file="includes/footer.jsp"%>
 
 <script>
+
+function checkItem(element) {
+    var itemId = $(element).prevAll('input[data-type="register"]').val();
+    if (itemId === "") {
+        alert("상품ID를 입력하세요.");
+        return false;
+    }
+    $.ajax({
+		url: '/admin/item/checkItem/'+ itemId,
+		type: 'get', 
+		data: { itemId: itemId },
+		success: function(response)  {
+            if (response.result) {
+            	alert("상품이 존재합니다. 이어서 작성해주세요.");
+                document.getElementById("submitBtn").disabled = false;
+            } else {
+                alert("입력하신 아이템 정보가 없습니다.");
+                document.getElementById("submitBtn").disabled = true;
+            }
+        },
+		error: function(xhr, status, error) {
+			console.error('AJAX 요청 실패:', error);
+			document.getElementById("submitBtn").disabled = true;
+		}
+	});
+}
 function updateActionUrl() {
     var currentUrl = window.location.href;
     var newPath;

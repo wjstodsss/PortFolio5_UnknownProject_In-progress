@@ -166,7 +166,7 @@
 					<div class="form-group">
 						<label for="noticeBrand">브랜드</label> <input type="text"
 							class="form-control" name="noticeBrand"
-							placeholder="브랜드 관련 공지시 브랜드를 입력하세요" required>
+							placeholder="브랜드 관련 공지시 브랜드를 입력하세요">
 					</div>
 
                     <div class="form-group">
