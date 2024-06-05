@@ -122,7 +122,8 @@
 					    SELECT
 					        i.*, ROWNUM AS rn
 					    FROM (
-					        SELECT i.*, ib.brandName, ic.cateName, ii.uploadPath || '/' || ii.uuid || '_' || ii.fileName AS imageURL FROM tbl_item i
+					        SELECT i.*, ib.brandName, NVL(ss.itemState, '판매') as itemState, ic.cateName, ii.uploadPath || '/' || ii.uuid || '_' || ii.fileName AS imageURL FROM tbl_item i
+					        LEFT JOIN tbl_itemState ss ON i.itemId = ss.itemId
 					        LEFT JOIN tbl_itemimage ii ON i.itemId = ii.itemId
 					        LEFT JOIN tbl_brand ib ON i.brandId = ib.brandId
 					        LEFT JOIN tbl_itemCate ic ON i.cateCode = ic.cateCode
@@ -146,8 +147,11 @@
 					    SELECT
 					        i.*, ROWNUM AS rn
 					    FROM (
-					        SELECT i.*, ii.uploadPath || '/' || ii.uuid || '_' || ii.fileName AS imageURL FROM tbl_item i
+					        SELECT i.*, ib.brandName, NVL(ss.itemState, '판매') as itemState, ic.cateName, ii.uploadPath || '/' || ii.uuid || '_' || ii.fileName AS imageURL FROM tbl_item i
+					        LEFT JOIN tbl_itemState ss ON i.itemId = ss.itemId
 					        LEFT JOIN tbl_itemimage ii ON i.itemId = ii.itemId
+					        LEFT JOIN tbl_brand ib ON i.brandId = ib.brandId
+					        LEFT JOIN tbl_itemCate ic ON i.cateCode = ic.cateCode
 					        ORDER BY i.itemId
 				        		 desc) i
 				            where 
@@ -157,6 +161,7 @@
 					          rownum <=  #{pageNum} * #{amount}
 					          ) where rn > (#{pageNum}-1) * #{amount}
 					      ]]>
+
 		</select>
 
 	<select id="getTotalCount" resultType="int">
@@ -164,4 +169,19 @@
 		<include refid="criterial"></include>
 		itemId > 0
 	</select>
+	
+	<insert id="insertItemState" parameterType="com.unknown.paldak.admin.domain.ItemVO">
+	    <selectKey keyProperty="itemStateId" order="BEFORE" resultType="int">
+	        select seq_itemStateId.nextval from dual
+	    </selectKey>
+	    insert into tbl_itemState (itemStateId, itemId, itemState)
+	    values (#{itemStateId}, #{itemId}, '판매')
+	</insert>
+
+	
+	<update id="updateItemState" parameterType="com.unknown.paldak.admin.domain.ItemVO">
+	    update tbl_itemState
+	    set itemState = #{itemState}
+	    where itemId = #{itemId}
+	</update>
 </mapper>

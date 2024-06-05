@@ -52,7 +52,7 @@ public class ItemServiceImpl implements BaseService<ItemVO>{
 	@Override
 	public List<ItemVO> getList(Criteria cri) {
 		List<ItemVO> result = mapper.getListWithPaging(cri);
-		
+		result.forEach(itemVO -> log.info(itemVO));
 		return result;
 	}
 	
@@ -66,5 +66,15 @@ public class ItemServiceImpl implements BaseService<ItemVO>{
 		return mapper.getTotalCount(cri);
 	}
 	
+	public boolean registerItemState(ItemVO itemVO) {
+		int result = mapper.insertItemState(itemVO);
+		return result==1;
+	}
+
+	
+	public boolean modifyItemState(ItemVO itemVO) {
+		int result = mapper.updateItemState(itemVO);
+		return result==1;
+	}
 	
 }

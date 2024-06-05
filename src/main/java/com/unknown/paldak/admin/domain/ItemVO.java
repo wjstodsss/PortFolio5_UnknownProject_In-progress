@@ -59,5 +59,9 @@ public class ItemVO {
 
     /* 이미지 정보 */
     private String itemImageURL;
+    
+    private String itemState;
+    
+    private long itemStateId;
 }
 

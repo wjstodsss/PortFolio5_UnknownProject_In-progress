@@ -44,7 +44,7 @@
 				    </div>
 				</div>
 				<!-- end 검색조건 -->
-				<button id="regBtn" type="button" class="btn btn-board btn-xs pull-right btn-info col-lg-1 mx-2 my-2" onclick="goToModalForm(); openSelection('brand', 1, 'register')"> 상품 등록 </button>
+				<button id="regBtn" type="button" class="btn btn-board btn-xs pull-right btn-info col-lg-2 mx-2 my-2" onclick="goToModalForm(); openSelection('brand', 1, 'register')"> 상품 등록 </button>
 				<a href="/admin/item/list" type="button" class="btn btn-board btn-xs btn-light pull-right btn-info col-lg-2 mx-2 my-2">검색해제 일반리스트 </a>
 				<table width="80%"
 					class="table table-striped table-bordered table-hover"
@@ -62,6 +62,7 @@
                             <th>브랜드명</th>
                             <th>카테고리명</th>
                             <th>등록일</th>
+                            <th>판매/품절</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -76,6 +77,7 @@
                                 <td>${item.brandName}</td>
                                 <td>${item.cateName}</td>
 								<td><fmt:formatDate pattern="yyyy-MM-dd" value="${item.regDate}" /></td>
+								<td>${item.itemState}</td>
 							</tr>
 						</c:forEach>
 					</tbody>
@@ -113,7 +115,7 @@
 			<!-- /.panel -->
 		</div>
 		<!-- /.col-lg-12 -->
-	</div>
+
 	<!-- 등록 모달 -->
 	<div class="modal" id="formModal" tabindex="-1" role="dialog" aria-hidden="true">
 		<div class="modal-dialog mx-auto" role="document">
@@ -136,14 +138,14 @@
 			                 <label>브랜드</label>
 			                 
 			                 <div class="form-group">
-	                            <input type="text" class="form-control" id="brandRegName" name="brandName" placeholder="(우측 또는 하단)브랜드 목록에서 선택해주세요" readonly required>
+	                            <input type="text" class="form-control" id="brandRegName" placeholder="(우측 또는 하단)브랜드 목록에서 선택해주세요" readonly required>
 	                            <input type="hidden" id="brandRegId" name="brandId">	                       
 	                        </div>
 				                
 				             </div>
 		                     <div class="form-group">
-		                        <label>제조연도</label> <input class="form-control"
-		                           name='mnfcYear' placeholder="제조연도" required>
+		                        <label>제조연월일</label>
+								<input type="date" class="form-control" name="mnfcYear" placeholder="제조연월일" required>
 		                     </div>
 		                     <div class="form-group">
 		                        <label>제조사</label> <input class="form-control"
@@ -218,9 +220,6 @@
 	            </div>
 	        </div>
 	    </div>
-				</div>
-			</div>
-		</div>
 	</div>
 
 
@@ -265,7 +264,7 @@
                 
                 <div class="form-group">
                     <label>브랜드명</label>
-                    <input class="form-control" id='brandName' name='brandName' readonly>
+                    <input class="form-control" id='brandName' readonly>
                 </div>
                 
                 <div class="form-group">
@@ -336,7 +335,7 @@
 				</div>
 
 				<button type="submit" class="btn btn-default">Modify</button>
-				<button type="submit" onclick="removeAction()" class="btn btn-danger">Remove</button>
+				<input type="button" onclick="itemStateUpdate()" class="btn btn-danger" value="품절">
 				<button type="button" class="btn btn-secondary" onclick="closeModal(this)">list</button>
 				<input type="hidden" id="currentPath" name="currentPath" value="">
 				</form>
@@ -360,6 +359,22 @@
 
 <%@include file="includes/footer.jsp"%>
 <script>
+
+function itemStateUpdate() {
+	var itemId = document.getElementById("itemId").value
+	$.ajax({
+		url: '/admin/item/itemState/'+ itemId,
+		type: 'get',
+		success: function(response)  {
+			window.location.href = '/admin/item/list';
+		},
+		error: function(xhr, status, error) {
+			window.location.href = '/admin/item/list';
+			alert('요청 실패');
+		}
+	});
+}
+
 function openSelection(type, page, manipulation) {
     showList(type, page, manipulation);
 }

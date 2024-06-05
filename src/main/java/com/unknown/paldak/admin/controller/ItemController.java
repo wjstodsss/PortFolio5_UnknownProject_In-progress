@@ -27,6 +27,7 @@ import com.unknown.paldak.admin.domain.ReviewReplyVO;
 import com.unknown.paldak.admin.service.AttachServiceImpl;
 import com.unknown.paldak.admin.service.BaseService;
 import com.unknown.paldak.admin.service.ItemCateServiceImpl;
+import com.unknown.paldak.admin.service.ItemServiceImpl;
 import com.unknown.paldak.admin.util.FileUploadManager;
 
 import lombok.RequiredArgsConstructor;
@@ -40,6 +41,7 @@ public class ItemController {
     private final FileUploadManager fileUploadManager;
     private final AttachServiceImpl attachService;
     private final ItemCateServiceImpl itemCateService;
+    private final ItemServiceImpl itemServiceUtil;
 
 
 	@GetMapping("/list")
@@ -71,11 +73,15 @@ public class ItemController {
         return "admin/item";
 	}
 	
+	
 
 	@PostMapping("/register")
 	public String register(@RequestParam("uploadFile") MultipartFile[] uploadFile, Model model, AttachImageVO attachItemVO, ItemVO itemVO, RedirectAttributes rttr) {
         System.out.println("kkkk");
+       
         
+        
+       
         itemService.register(itemVO);
         long newId = itemVO.getItemId();
         if (!uploadFile[0].isEmpty()) { 		
@@ -97,7 +103,10 @@ public class ItemController {
 		    }
 		}
         
-   
+        boolean itemStateResult = itemServiceUtil.registerItemState(itemVO);
+        if(!itemStateResult) {
+        	return "error";
+        }
 	    rttr.addFlashAttribute("result", newId);
 	    return "redirect:descList";
 	}
@@ -111,6 +120,23 @@ public class ItemController {
 
 	    // ResponseEntity에 JSON 데이터 반환
 	    return new ResponseEntity<>(responseData, HttpStatus.OK);
+	}
+	
+	@GetMapping(value = "/itemState/{itemId}", produces = { MediaType.APPLICATION_JSON_VALUE })
+	public ResponseEntity<ItemVO> modifyItemState(@PathVariable("itemId") long itemId) {
+		System.out.println("900999999999999999999999999999999999999");
+		ItemVO itemVO = new ItemVO();
+		itemVO.setItemId(itemId);
+		itemVO.setItemState("품절");
+	    
+	    boolean result = itemServiceUtil.modifyItemState(itemVO);
+	    
+	    System.out.println(result);
+	    if (result) {
+	        return new ResponseEntity<>(itemVO, HttpStatus.OK);
+	    } else {
+	        return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+	    }
 	}
 
 	@GetMapping(value = "/checkItem/{itemId}", produces = { MediaType.APPLICATION_JSON_VALUE })
