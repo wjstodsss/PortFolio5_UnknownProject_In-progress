@@ -1,4 +1,4 @@
-# 팀 프로젝트 (쇼핑몰)
+![image](https://github.com/wjstodsss/PortFolio5_UnknownProject_In-progress/assets/68169507/c61d4682-2a0a-4985-a95e-a42f5aecb303)# 팀 프로젝트 (쇼핑몰)
 
 # 프로젝트 소개
 
@@ -34,6 +34,7 @@
  관리자 페이지
 
 # 프레젠 테이션 
+![image](https://github.com/wjstodsss/PortFolio5_UnknownProject_In-progress/assets/68169507/ffcbbec8-a0ab-4a43-883b-fd738f99fb90)
 
 # 기능 시연
 
