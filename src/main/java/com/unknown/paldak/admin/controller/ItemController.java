@@ -20,38 +20,37 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.unknown.paldak.admin.common.domain.Criteria;
 import com.unknown.paldak.admin.common.domain.PageDTO;
-import com.unknown.paldak.admin.common.domain.ReplyVO;
+import com.unknown.paldak.admin.domain.AttachImageVO;
+import com.unknown.paldak.admin.domain.ItemCateVO;
 import com.unknown.paldak.admin.domain.ItemVO;
+import com.unknown.paldak.admin.domain.ReviewReplyVO;
+import com.unknown.paldak.admin.service.AttachServiceImpl;
 import com.unknown.paldak.admin.service.BaseService;
-
+import com.unknown.paldak.admin.service.ItemCateServiceImpl;
 import com.unknown.paldak.admin.util.FileUploadManager;
 
-
 import lombok.RequiredArgsConstructor;
-import lombok.extern.log4j.Log4j;
 
 @Controller
-@Log4j
 @RequestMapping("admin/item/*")
 @RequiredArgsConstructor
 public class ItemController {
 
 	private final BaseService<ItemVO> itemService;
     private final FileUploadManager fileUploadManager;
+    private final AttachServiceImpl attachService;
+    private final ItemCateServiceImpl itemCateService;
 
 
-	
-	
 	@GetMapping("/list")
 	public String list(Criteria cri, Model model) {
-		System.out.println("jlkjlkjl");
-		System.out.println(cri.getPageNum()+"1321321");
-		
-		
-		
+		System.out.println(cri);
+		List<ItemCateVO> cateList = itemCateService.getList();
+		cateList.forEach(itemVO -> System.out.println(itemVO + "kkkkkkkkkkkkkkkk"));
 		List<ItemVO> list = itemService.getList(cri);
 		list.forEach(itemVO -> System.out.println(itemVO + "kkkkkkkkkkkkkkkk"));
 		model.addAttribute("items", list);
+		model.addAttribute("categorys", cateList);
 		
 	
         int total = itemService.getTotal(cri);
@@ -63,37 +62,43 @@ public class ItemController {
 	
 	@GetMapping("/descList")
 	public String descList(Criteria cri, Model model) {
-		System.out.println("1");
-		System.out.println(cri);
-		System.out.println("cricricricrircicicicicicicici" + cri);
-	
-		
+		List<ItemCateVO> cateList = itemCateService.getList();
 		List<ItemVO> list = itemService.getDescList(cri);
-		list.forEach(itemVO -> System.out.println(itemVO + "zzzzzzzzzzzzzzzz"));
-		list.forEach(itemVO -> System.out.println(itemVO));
+		int total = itemService.getTotal(cri);
 		model.addAttribute("items", list);
-		
-		
-        int total = itemService.getTotal(cri);
-        
+        model.addAttribute("categorys", cateList);
         model.addAttribute("pageMaker", new PageDTO(cri, total));
         return "admin/item";
 	}
 	
 
 	@PostMapping("/register")
-	public String register(@RequestParam("uploadFile") MultipartFile[] uploadFile, Model model, ItemVO itemVO, RedirectAttributes rttr) {
+	public String register(@RequestParam("uploadFile") MultipartFile[] uploadFile, Model model, AttachImageVO attachItemVO, ItemVO itemVO, RedirectAttributes rttr) {
         System.out.println("kkkk");
-        if (!uploadFile[0].isEmpty()) { 
-			String imageURL = fileUploadManager.uploadFiles(uploadFile);
-			itemVO.setItemImageURL(imageURL);
+        
+        itemService.register(itemVO);
+        long newId = itemVO.getItemId();
+        if (!uploadFile[0].isEmpty()) { 		
+			Map<String, String> imageInfo = fileUploadManager.uploadFiles(uploadFile);
+			String uuid = imageInfo.get("uuid");
+			String fileName = imageInfo.get("originalFilename");
+			String uploadPath = imageInfo.get("datePath");
+			attachItemVO.setUuid(uuid);
+			attachItemVO.setFileName(fileName);
+			attachItemVO.setUploadPath(uploadPath);
+			attachItemVO.setItemId(newId);
+	        System.out.println(attachItemVO + "sdkhfklsahflhslfkd");
+	        int result = attachService.register(attachItemVO);
+
+	        
+		    if(result<1) {
+		    	System.out.println("이미지정보 입력 실패");
+		    	return "error";
+		    }
 		}
-        System.out.println("kkkk3");
-        System.out.println(itemVO);
-	    itemService.register(itemVO);
-	    System.out.println("kkkfsdfsdfsfsdfk");
-	    rttr.addFlashAttribute("result", itemVO.getItemId());
-	    
+        
+   
+	    rttr.addFlashAttribute("result", newId);
 	    return "redirect:descList";
 	}
 
@@ -111,10 +116,27 @@ public class ItemController {
 
 	
 	@PostMapping("/modify")
-	public String modify(MultipartFile[] uploadFile, ItemVO itemVO, @ModelAttribute("cri") Criteria cri, ReplyVO replyVO, @RequestParam("currentPath") String currentPath, RedirectAttributes rttr) {
+	public String modify(MultipartFile[] uploadFile, ItemVO itemVO, @ModelAttribute("cri") Criteria cri, AttachImageVO attachItemVO, ReviewReplyVO replyVO, @RequestParam("currentPath") String currentPath, RedirectAttributes rttr) {
+		
+	        long currentItemId = itemVO.getItemId();
+	        if (!uploadFile[0].isEmpty()) { 		
+				Map<String, String> imageInfo = fileUploadManager.uploadFiles(uploadFile);
+				String uuid = imageInfo.get("uuid");
+				String fileName = imageInfo.get("originalFilename");
+				String uploadPath = imageInfo.get("datePath");
+				attachItemVO.setUuid(uuid);
+				attachItemVO.setFileName(fileName);
+				attachItemVO.setUploadPath(uploadPath);
+				attachItemVO.setItemId(currentItemId);
+		        System.out.println(attachItemVO + "sdkhfklsahflhslfkd");
+		        attachService.modify(attachItemVO);		     
+			}
+		
+		
+		
 		System.out.println("jh-----------------///////////kjhjk");
         if (!uploadFile[0].isEmpty()) { 
-			String imageURL = fileUploadManager.uploadFiles(uploadFile);
+			String imageURL = fileUploadManager.uploadFiles(uploadFile).get("imageURLs");
 			itemVO.setItemImageURL(imageURL);
 		}
 
@@ -130,13 +152,19 @@ public class ItemController {
 	@PostMapping("/remove")
 	public String remove(@RequestParam("itemId") Long itemId, @ModelAttribute("cri") Criteria cri, @RequestParam("currentPath") String currentPath, RedirectAttributes rttr) {
 		
+		String itemImageURL = itemService.get(itemId).getItemImageURL();
+		
 		System.out.println("remove..." + itemId);
 		if (itemService.remove(itemId)) {
 			rttr.addFlashAttribute("result", "success");
 		}
+		
+		fileUploadManager.deleteFile(itemImageURL);
 		rttr.addAttribute("pageNum", cri.getPageNum());
 		rttr.addAttribute("amount", cri.getAmount());
 		System.out.println("remove..." + itemId);
 		return "redirect:" + currentPath;
 	}
+	
+
 }

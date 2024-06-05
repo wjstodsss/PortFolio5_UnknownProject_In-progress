@@ -1,9 +1,9 @@
 package com.unknown.paldak.admin.mapper;
 
 
-import com.unknown.paldak.admin.common.domain.ReplyVO;
+import com.unknown.paldak.admin.domain.ReviewReplyVO;
 
-public interface ReviewReplyMapper extends BaseMapper<ReplyVO>{
-	public ReplyVO readByReviewId(Long reviewId);
+public interface ReviewReplyMapper extends BaseMapper<ReviewReplyVO>{
+	public ReviewReplyVO readByReviewId(Long reviewId);
 	
 }

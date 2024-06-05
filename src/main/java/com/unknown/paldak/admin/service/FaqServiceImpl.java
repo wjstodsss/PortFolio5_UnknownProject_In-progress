@@ -46,7 +46,7 @@ public class FaqServiceImpl implements BaseService<FAQVO>{
 	}
 
 	@Override
-	public Boolean remove(Long faqId) {
+	public boolean remove(Long faqId) {
 		log.info("remove ... " + faqId);
 		return mapper.delete(faqId)==1;
 	}

@@ -20,8 +20,8 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.unknown.paldak.admin.common.domain.Criteria;
 import com.unknown.paldak.admin.common.domain.PageDTO;
-import com.unknown.paldak.admin.common.domain.ReplyVO;
 import com.unknown.paldak.admin.domain.QNAVO;
+import com.unknown.paldak.admin.domain.QNAReplyVO;
 import com.unknown.paldak.admin.service.BaseService;
 import com.unknown.paldak.admin.service.QnaReplyServiceImpl;
 import com.unknown.paldak.admin.util.FileUploadManager;
@@ -45,21 +45,10 @@ public class QnaController {
 	
 	@GetMapping("/list")
 	public String list(Criteria cri, Model model) {
-		System.out.println("jlkjlkjl");
-		System.out.println(cri.getPageNum()+"1321321");
-		
-		List<ReplyVO> replyList = replyService.getList(cri);
-		model.addAttribute("replys", replyList);
-		
 		List<QNAVO> list = qnaService.getList(cri);
-		list.forEach(qnaVO -> System.out.println(qnaVO + "kkkkkkkkkkkkkkkk"));
 		model.addAttribute("qnas", list);
-		
-		//model.addAttribute("pageMaker", new PageDTO(cri, 123)); // 레코드 전체갯수, 13page
         int total = qnaService.getTotal(cri);
-        
         model.addAttribute("pageMaker", new PageDTO(cri, total));
-        replyList.forEach(replyVO -> System.out.println(replyVO + "z------------zz"));
         return "admin/qna";
 	}
 
@@ -70,7 +59,7 @@ public class QnaController {
 		System.out.println(cri);
 		System.out.println("cricricricrircicicicicicicici" + cri);
 		
-		List<ReplyVO> replyList = replyService.getList(cri);
+		List<QNAReplyVO> replyList = replyService.getList(cri);
 		model.addAttribute("replys", replyList);
 		
 		replyList.forEach(replyVO -> System.out.println(replyVO + "z------------zz"));
@@ -91,7 +80,7 @@ public class QnaController {
 	public String register(@RequestParam("uploadFile") MultipartFile[] uploadFile, Model model, QNAVO qnaVO, RedirectAttributes rttr) {
         System.out.println("kkkk");
         if (!uploadFile[0].isEmpty()) { 
-			String imageURL = fileUploadManager.uploadFiles(uploadFile);
+			String imageURL = fileUploadManager.uploadFiles(uploadFile).get("imageURLs");
 			qnaVO.setQnaImageURL(imageURL);
 		}
 
@@ -107,7 +96,7 @@ public class QnaController {
 	public ResponseEntity<Map<String, Object>> get(@PathVariable("qnaId") Long qnaId) {
 	    QNAVO qna = qnaService.get(qnaId);
 	    System.out.println(qna);
-	    ReplyVO reply = replyService.getByQnaId(qnaId); 
+	    QNAReplyVO reply = replyService.getByQnaId(qnaId); 
 	    System.out.println(reply);
 	    Map<String, Object> responseData = new HashMap<>();
 	    responseData.put("qna", qna);
@@ -120,9 +109,9 @@ public class QnaController {
 
 	
 	@PostMapping("/modify")
-	public String modify(MultipartFile[] uploadFile, QNAVO qnaVO, @ModelAttribute("cri") Criteria cri, ReplyVO replyVO, @RequestParam("currentPath") String currentPath, RedirectAttributes rttr) {
+	public String modify(MultipartFile[] uploadFile, QNAVO qnaVO, @ModelAttribute("cri") Criteria cri, QNAReplyVO replyVO, @RequestParam("currentPath") String currentPath, RedirectAttributes rttr) {
         if (!uploadFile[0].isEmpty()) { 
-			String imageURL = fileUploadManager.uploadFiles(uploadFile);
+			String imageURL = fileUploadManager.uploadFiles(uploadFile).get("imageURLs");
 			qnaVO.setQnaImageURL(imageURL);
 		}
 

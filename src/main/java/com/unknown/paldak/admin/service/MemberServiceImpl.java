@@ -1,5 +1,8 @@
 package com.unknown.paldak.admin.service;
 
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,16 +25,15 @@ public class MemberServiceImpl implements BaseService<MemberVO>{
 
 	@Override
 	public void register(MemberVO memberVO) {
-		log.info("register... " + memberVO);
-		
-System.out.println("lkjkljl");
-		mapper.insertSelectKey(memberVO);
+		LocalDateTime now = LocalDateTime.now();
+		Date date = Date.from(now.atZone(ZoneId.systemDefault()).toInstant());
+		memberVO.setRegDate(date);
+		mapper.insert(memberVO);
 		
 	}
 
 	@Override
 	public MemberVO get(Long memberId) {
-		log.info("get..." + memberId);	
 		return mapper.read(memberId);
 	}
 
@@ -41,8 +43,7 @@ System.out.println("lkjkljl");
 	}
 
 	@Override
-	public Boolean remove(Long memberId) {
-		log.info("remove ... " + memberId);
+	public boolean remove(Long memberId) {
 		return mapper.delete(memberId)==1;
 	}
 
@@ -62,5 +63,12 @@ System.out.println("lkjkljl");
 		return mapper.getTotalCount(cri);
 	}
 	
+	public MemberVO getByStringId(String memberId) {
+		return mapper.readByStringId(memberId);
+	}
+	
+	public boolean removeByStringId(String memberId) {
+		return mapper.deleteByStringId(memberId)==1;
+	}
 	
 }

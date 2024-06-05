@@ -4,11 +4,11 @@
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.unknown.paldak.admin.mapper.QnaReplyMapper">
-    <select id="getList" resultType="com.unknown.paldak.admin.common.domain.ReplyVO">
+    <select id="getList" resultType="com.unknown.paldak.admin.domain.QNAReplyVO">
         select * from tbl_qna_reply where replyId > 0 order by replyId desc
     </select>
 
-    <insert id="insertSelectKey" parameterType="com.unknown.paldak.admin.common.domain.ReplyVO">
+    <insert id="insertSelectKey" parameterType="com.unknown.paldak.admin.domain.QNAReplyVO">
         <selectKey keyProperty="replyId" order="BEFORE" resultType="long">
             select seq_qna_reply.nextval from dual
         </selectKey>
@@ -22,7 +22,7 @@
         )
     </insert>
 
-    <select id="read" parameterType="long" resultType="com.unknown.paldak.admin.common.domain.ReplyVO">
+    <select id="read" parameterType="long" resultType="com.unknown.paldak.admin.domain.QNAReplyVO">
         select * from tbl_qna_reply where replyId = #{replyId}
     </select>
     
@@ -31,7 +31,7 @@
         delete from tbl_qna_reply where replyId = #{replyId}
     </delete>
 
-    <update id="update" parameterType="com.unknown.paldak.admin.common.domain.ReplyVO">
+    <update id="update" parameterType="com.unknown.paldak.admin.domain.QNAReplyVO">
         update tbl_qna_reply 
         set reply=#{reply}, replyUpdateDate=#{replyUpdateDate}
         where replyId=#{replyId}
@@ -59,7 +59,7 @@
 	</sql>
 
     
-    <select id="getListWithPaging" parameterType="com.unknown.paldak.admin.common.domain.Criteria" resultType="com.unknown.paldak.admin.common.domain.ReplyVO">
+    <select id="getListWithPaging" parameterType="com.unknown.paldak.admin.common.domain.Criteria" resultType="com.unknown.paldak.admin.domain.QNAReplyVO">
         <![CDATA[
             select replyId, qnaId, reply, replyer, replyDate, replyUpdateDate, answer 
             from (
@@ -74,7 +74,7 @@
         ]]>
     </select>
 
-    <select id="getDescListWithPaging" parameterType="com.unknown.paldak.admin.common.domain.Criteria" resultType="com.unknown.paldak.admin.common.domain.ReplyVO">
+    <select id="getDescListWithPaging" parameterType="com.unknown.paldak.admin.common.domain.Criteria" resultType="com.unknown.paldak.admin.domain.QNAReplyVO">
         <![CDATA[
             select replyId, qnaId, reply, replyer, replyDate, replyUpdateDate, answer 
             from (
@@ -89,7 +89,7 @@
         ]]>
     </select>
     
-    <select id="readByQnaId" parameterType="long" resultType="com.unknown.paldak.admin.common.domain.ReplyVO">
+    <select id="readByQnaId" parameterType="long" resultType="com.unknown.paldak.admin.domain.QNAReplyVO">
         select * from tbl_qna_reply where qnaId = #{qnaId}
     </select>
     

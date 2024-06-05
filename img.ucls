@@ -1,0 +1,1589 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class-diagram version="1.2.4" icons="true" always-add-relationships="false" generalizations="true" realizations="true" 
+  associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
+  <class id="1" language="java" name="com.unknown.paldak.admin.controller.CartController" 
+    project="PortFolio5_UnknownProject_In-progress" 
+    file="/PortFolio5_UnknownProject_In-progress/src/main/java/com/unknown/paldak/admin/controller/CartController.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="207" width="291" x="679" y="214"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="2" language="java" name="com.unknown.paldak.admin.controller.BenefitsController" 
+    project="PortFolio5_UnknownProject_In-progress" 
+    file="/PortFolio5_UnknownProject_In-progress/src/main/java/com/unknown/paldak/admin/controller/BenefitsController.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="225" width="397" x="1010" y="214"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="3" language="java" name="com.unknown.paldak.admin.controller.ProductController" 
+    project="PortFolio5_UnknownProject_In-progress" 
+    file="/PortFolio5_UnknownProject_In-progress/src/main/java/com/unknown/paldak/admin/controller/ProductController.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="243" width="342" x="1447" y="214"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="4" language="java" name="com.unknown.paldak.admin.controller.StockLogController" 
+    project="PortFolio5_UnknownProject_In-progress" 
+    file="/PortFolio5_UnknownProject_In-progress/src/main/java/com/unknown/paldak/admin/controller/StockLogController.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="225" width="363" x="1829" y="214"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="5" language="java" name="com.unknown.paldak.admin.controller.OrderController" 
+    project="PortFolio5_UnknownProject_In-progress" 
+    file="/PortFolio5_UnknownProject_In-progress/src/main/java/com/unknown/paldak/admin/controller/OrderController.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="243" width="312" x="2232" y="214"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="6" language="java" name="com.unknown.paldak.admin.controller.FaqController" 
+    project="PortFolio5_UnknownProject_In-progress" 
+    file="/PortFolio5_UnknownProject_In-progress/src/main/java/com/unknown/paldak/admin/controller/FaqController.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="243" width="357" x="2584" y="214"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="7" language="java" name="com.unknown.paldak.admin.controller.MemberController" 
+    project="PortFolio5_UnknownProject_In-progress" 
+    file="/PortFolio5_UnknownProject_In-progress/src/main/java/com/unknown/paldak/admin/controller/MemberController.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="243" width="342" x="2981" y="214"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="8" language="java" name="com.unknown.paldak.admin.controller.NoticeController" 
+    project="PortFolio5_UnknownProject_In-progress" 
+    file="/PortFolio5_UnknownProject_In-progress/src/main/java/com/unknown/paldak/admin/controller/NoticeController.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="225" width="366" x="3363" y="214"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="9" language="java" name="com.unknown.paldak.admin.controller.StockInfoController" 
+    project="PortFolio5_UnknownProject_In-progress" 
+    file="/PortFolio5_UnknownProject_In-progress/src/main/java/com/unknown/paldak/admin/controller/StockInfoController.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="225" width="363" x="3769" y="214"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="10" language="java" name="com.unknown.paldak.admin.controller.ErrorController" 
+    project="PortFolio5_UnknownProject_In-progress" 
+    file="/PortFolio5_UnknownProject_In-progress/src/main/java/com/unknown/paldak/admin/controller/ErrorController.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="99" width="166" x="4172" y="214"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="11" language="java" name="com.unknown.paldak.admin.controller.ReviewController" 
+    project="PortFolio5_UnknownProject_In-progress" 
+    file="/PortFolio5_UnknownProject_In-progress/src/main/java/com/unknown/paldak/admin/controller/ReviewController.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="261" width="460" x="4378" y="214"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="12" language="java" name="com.unknown.paldak.admin.controller.OrderItemController" 
+    project="PortFolio5_UnknownProject_In-progress" 
+    file="/PortFolio5_UnknownProject_In-progress/src/main/java/com/unknown/paldak/admin/controller/OrderItemController.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="135" width="264" x="4878" y="214"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="13" language="java" name="com.unknown.paldak.admin.controller.BrandController" 
+    project="PortFolio5_UnknownProject_In-progress" 
+    file="/PortFolio5_UnknownProject_In-progress/src/main/java/com/unknown/paldak/admin/controller/BrandController.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="225" width="300" x="5182" y="214"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="14" language="java" name="com.unknown.paldak.admin.controller.ItemController" 
+    project="PortFolio5_UnknownProject_In-progress" 
+    file="/PortFolio5_UnknownProject_In-progress/src/main/java/com/unknown/paldak/admin/controller/ItemController.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="261" width="517" x="5522" y="214"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="15" language="java" name="com.unknown.paldak.admin.controller.QnaController" 
+    project="PortFolio5_UnknownProject_In-progress" 
+    file="/PortFolio5_UnknownProject_In-progress/src/main/java/com/unknown/paldak/admin/controller/QnaController.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="261" width="427" x="6079" y="214"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="16" language="java" name="com.unknown.paldak.admin.controller.FileDownloadController" 
+    project="PortFolio5_UnknownProject_In-progress" 
+    file="/PortFolio5_UnknownProject_In-progress/src/main/java/com/unknown/paldak/admin/controller/FileDownloadController.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="117" width="356" x="6546" y="214"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="17" language="java" name="com.unknown.paldak.admin.controller.DashboardController" 
+    project="PortFolio5_UnknownProject_In-progress" 
+    file="/PortFolio5_UnknownProject_In-progress/src/main/java/com/unknown/paldak/admin/controller/DashboardController.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="189" width="320" x="6942" y="214"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="18" language="java" name="com.unknown.paldak.admin.controller.HomeController" 
+    project="PortFolio5_UnknownProject_In-progress" 
+    file="/PortFolio5_UnknownProject_In-progress/src/main/java/com/unknown/paldak/admin/controller/HomeController.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="117" width="166" x="7302" y="214"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="19" language="java" name="com.unknown.paldak.admin.controller.ItemCateController" 
+    project="PortFolio5_UnknownProject_In-progress" 
+    file="/PortFolio5_UnknownProject_In-progress/src/main/java/com/unknown/paldak/admin/controller/ItemCateController.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="243" width="351" x="7508" y="214"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="20" language="java" name="com.unknown.paldak.admin.domain.ReviewReplyVO" 
+    project="PortFolio5_UnknownProject_In-progress" 
+    file="/PortFolio5_UnknownProject_In-progress/src/main/java/com/unknown/paldak/admin/domain/ReviewReplyVO.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2085" y="2594"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="21" language="java" name="com.unknown.paldak.admin.domain.StockInfoVO" 
+    project="PortFolio5_UnknownProject_In-progress" 
+    file="/PortFolio5_UnknownProject_In-progress/src/main/java/com/unknown/paldak/admin/domain/StockInfoVO.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2302" y="2675"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="22" language="java" name="com.unknown.paldak.admin.domain.BenefitsReplyVO" 
+    project="PortFolio5_UnknownProject_In-progress" 
+    file="/PortFolio5_UnknownProject_In-progress/src/main/java/com/unknown/paldak/admin/domain/BenefitsReplyVO.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2519" y="2594"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="23" language="java" name="com.unknown.paldak.admin.domain.BrandVO" 
+    project="PortFolio5_UnknownProject_In-progress" 
+    file="/PortFolio5_UnknownProject_In-progress/src/main/java/com/unknown/paldak/admin/domain/BrandVO.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2727" y="2540"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="24" language="java" name="com.unknown.paldak.admin.domain.DashboardVO" 
+    project="PortFolio5_UnknownProject_In-progress" 
+    file="/PortFolio5_UnknownProject_In-progress/src/main/java/com/unknown/paldak/admin/domain/DashboardVO.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2940" y="2891"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="25" language="java" name="com.unknown.paldak.admin.domain.ItemVO" 
+    project="PortFolio5_UnknownProject_In-progress" 
+    file="/PortFolio5_UnknownProject_In-progress/src/main/java/com/unknown/paldak/admin/domain/ItemVO.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="3158" y="2837"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="26" language="java" name="com.unknown.paldak.admin.domain.QNAReplyVO" 
+    project="PortFolio5_UnknownProject_In-progress" 
+    file="/PortFolio5_UnknownProject_In-progress/src/main/java/com/unknown/paldak/admin/domain/QNAReplyVO.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="3370" y="2594"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="27" language="java" name="com.unknown.paldak.admin.domain.FAQVO" 
+    project="PortFolio5_UnknownProject_In-progress" 
+    file="/PortFolio5_UnknownProject_In-progress/src/main/java/com/unknown/paldak/admin/domain/FAQVO.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="3585" y="2594"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="28" language="java" name="com.unknown.paldak.admin.domain.AttachImageVO" 
+    project="PortFolio5_UnknownProject_In-progress" 
+    file="/PortFolio5_UnknownProject_In-progress/src/main/java/com/unknown/paldak/admin/domain/AttachImageVO.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="3790" y="2513"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="29" language="java" name="com.unknown.paldak.admin.domain.ProductVO2" 
+    project="PortFolio5_UnknownProject_In-progress" 
+    file="/PortFolio5_UnknownProject_In-progress/src/main/java/com/unknown/paldak/admin/domain/ProductVO2.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="4004" y="2648"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="30" language="java" name="com.unknown.paldak.admin.domain.ReviewVO" 
+    project="PortFolio5_UnknownProject_In-progress" 
+    file="/PortFolio5_UnknownProject_In-progress/src/main/java/com/unknown/paldak/admin/domain/ReviewVO.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="4233" y="2648"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="31" language="java" name="com.unknown.paldak.admin.domain.MemberVO" 
+    project="PortFolio5_UnknownProject_In-progress" 
+    file="/PortFolio5_UnknownProject_In-progress/src/main/java/com/unknown/paldak/admin/domain/MemberVO.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="4451" y="2756"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="32" language="java" name="com.unknown.paldak.admin.domain.OrderItemVO" 
+    project="PortFolio5_UnknownProject_In-progress" 
+    file="/PortFolio5_UnknownProject_In-progress/src/main/java/com/unknown/paldak/admin/domain/OrderItemVO.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="4668" y="2675"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="33" language="java" name="com.unknown.paldak.admin.domain.OrderVO" 
+    project="PortFolio5_UnknownProject_In-progress" 
+    file="/PortFolio5_UnknownProject_In-progress/src/main/java/com/unknown/paldak/admin/domain/OrderVO.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="4886" y="2702"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="34" language="java" name="com.unknown.paldak.admin.domain.QNAVO" 
+    project="PortFolio5_UnknownProject_In-progress" 
+    file="/PortFolio5_UnknownProject_In-progress/src/main/java/com/unknown/paldak/admin/domain/QNAVO.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="5095" y="2675"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="35" language="java" name="com.unknown.paldak.admin.domain.ItemCateVO" 
+    project="PortFolio5_UnknownProject_In-progress" 
+    file="/PortFolio5_UnknownProject_In-progress/src/main/java/com/unknown/paldak/admin/domain/ItemCateVO.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="5299" y="2513"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="36" language="java" name="com.unknown.paldak.admin.domain.TableHeadVO" 
+    project="PortFolio5_UnknownProject_In-progress" 
+    file="/PortFolio5_UnknownProject_In-progress/src/main/java/com/unknown/paldak/admin/domain/TableHeadVO.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="5497" y="2486"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="37" language="java" name="com.unknown.paldak.admin.domain.BenefitsVO" 
+    project="PortFolio5_UnknownProject_In-progress" 
+    file="/PortFolio5_UnknownProject_In-progress/src/main/java/com/unknown/paldak/admin/domain/BenefitsVO.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="5713" y="2540"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="38" language="java" name="com.unknown.paldak.admin.domain.NoticeVO" 
+    project="PortFolio5_UnknownProject_In-progress" 
+    file="/PortFolio5_UnknownProject_In-progress/src/main/java/com/unknown/paldak/admin/domain/NoticeVO.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="5942" y="2594"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="39" language="java" name="com.unknown.paldak.admin.domain.ProductVO" 
+    project="PortFolio5_UnknownProject_In-progress" 
+    file="/PortFolio5_UnknownProject_In-progress/src/main/java/com/unknown/paldak/admin/domain/ProductVO.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="6169" y="2648"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="40" language="java" name="com.unknown.paldak.admin.domain.CartVO" 
+    project="PortFolio5_UnknownProject_In-progress" 
+    file="/PortFolio5_UnknownProject_In-progress/src/main/java/com/unknown/paldak/admin/domain/CartVO.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="6384" y="2513"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="41" language="java" name="com.unknown.paldak.admin.mapper.StockInfoMapper" 
+    project="PortFolio5_UnknownProject_In-progress" 
+    file="/PortFolio5_UnknownProject_In-progress/src/main/java/com/unknown/paldak/admin/mapper/StockInfoMapper.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1984" y="1060"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <interface id="42" language="java" name="com.unknown.paldak.admin.mapper.AttachMapper" 
+    project="PortFolio5_UnknownProject_In-progress" 
+    file="/PortFolio5_UnknownProject_In-progress/src/main/java/com/unknown/paldak/admin/mapper/AttachMapper.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2289" y="651"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <interface id="43" language="java" name="com.unknown.paldak.admin.mapper.FaqMapper" 
+    project="PortFolio5_UnknownProject_In-progress" 
+    file="/PortFolio5_UnknownProject_In-progress/src/main/java/com/unknown/paldak/admin/mapper/FaqMapper.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2217" y="1051"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <interface id="44" language="java" name="com.unknown.paldak.admin.mapper.ProductMapper" 
+    project="PortFolio5_UnknownProject_In-progress" 
+    file="/PortFolio5_UnknownProject_In-progress/src/main/java/com/unknown/paldak/admin/mapper/ProductMapper.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2416" y="1051"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <interface id="45" language="java" name="com.unknown.paldak.admin.mapper.ItemCateMapper" 
+    project="PortFolio5_UnknownProject_In-progress" 
+    file="/PortFolio5_UnknownProject_In-progress/src/main/java/com/unknown/paldak/admin/mapper/ItemCateMapper.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2679" y="1087"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <interface id="46" language="java" name="com.unknown.paldak.admin.mapper.MemberMapper" 
+    project="PortFolio5_UnknownProject_In-progress" 
+    file="/PortFolio5_UnknownProject_In-progress/src/main/java/com/unknown/paldak/admin/mapper/MemberMapper.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2957" y="1069"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <interface id="47" language="java" name="com.unknown.paldak.admin.mapper.CartMapper" 
+    project="PortFolio5_UnknownProject_In-progress" 
+    file="/PortFolio5_UnknownProject_In-progress/src/main/java/com/unknown/paldak/admin/mapper/CartMapper.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="3171" y="1051"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <interface id="48" language="java" name="com.unknown.paldak.admin.mapper.ReviewMapper" 
+    project="PortFolio5_UnknownProject_In-progress" 
+    file="/PortFolio5_UnknownProject_In-progress/src/main/java/com/unknown/paldak/admin/mapper/ReviewMapper.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="3370" y="1051"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="49" language="java" name="com.unknown.paldak.admin.mapper.UploadSample" 
+    project="PortFolio5_UnknownProject_In-progress" 
+    file="/PortFolio5_UnknownProject_In-progress/src/main/java/com/unknown/paldak/admin/mapper/UploadSample.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2860" y="660"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="50" language="java" name="com.unknown.paldak.admin.mapper.BenefitsReplyMapper" 
+    project="PortFolio5_UnknownProject_In-progress" 
+    file="/PortFolio5_UnknownProject_In-progress/src/main/java/com/unknown/paldak/admin/mapper/BenefitsReplyMapper.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="3603" y="1060"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <interface id="51" language="java" name="com.unknown.paldak.admin.mapper.BrandMapper" 
+    project="PortFolio5_UnknownProject_In-progress" 
+    file="/PortFolio5_UnknownProject_In-progress/src/main/java/com/unknown/paldak/admin/mapper/BrandMapper.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="3836" y="1051"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <interface id="52" language="java" name="com.unknown.paldak.admin.mapper.OrderMapper" 
+    project="PortFolio5_UnknownProject_In-progress" 
+    file="/PortFolio5_UnknownProject_In-progress/src/main/java/com/unknown/paldak/admin/mapper/OrderMapper.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="4046" y="1078"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <interface id="53" language="java" name="com.unknown.paldak.admin.mapper.DashboardMapper" 
+    project="PortFolio5_UnknownProject_In-progress" 
+    file="/PortFolio5_UnknownProject_In-progress/src/main/java/com/unknown/paldak/admin/mapper/DashboardMapper.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="3465" y="786"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <interface id="54" language="java" name="com.unknown.paldak.admin.mapper.QnaMapper" 
+    project="PortFolio5_UnknownProject_In-progress" 
+    file="/PortFolio5_UnknownProject_In-progress/src/main/java/com/unknown/paldak/admin/mapper/QnaMapper.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="4255" y="1051"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <interface id="55" language="java" name="com.unknown.paldak.admin.mapper.ItemMapper" 
+    project="PortFolio5_UnknownProject_In-progress" 
+    file="/PortFolio5_UnknownProject_In-progress/src/main/java/com/unknown/paldak/admin/mapper/ItemMapper.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="4460" y="1060"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <interface id="56" language="java" name="com.unknown.paldak.admin.mapper.QnaReplyMapper" 
+    project="PortFolio5_UnknownProject_In-progress" 
+    file="/PortFolio5_UnknownProject_In-progress/src/main/java/com/unknown/paldak/admin/mapper/QnaReplyMapper.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="4681" y="1060"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <interface id="57" language="java" name="com.unknown.paldak.admin.mapper.NoticeMapper" 
+    project="PortFolio5_UnknownProject_In-progress" 
+    file="/PortFolio5_UnknownProject_In-progress/src/main/java/com/unknown/paldak/admin/mapper/NoticeMapper.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="4895" y="1051"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <interface id="58" language="java" name="com.unknown.paldak.admin.mapper.OrderItemMapper" 
+    project="PortFolio5_UnknownProject_In-progress" 
+    file="/PortFolio5_UnknownProject_In-progress/src/main/java/com/unknown/paldak/admin/mapper/OrderItemMapper.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="5094" y="1051"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <interface id="59" language="java" name="com.unknown.paldak.admin.mapper.StockLogMapper" 
+    project="PortFolio5_UnknownProject_In-progress" 
+    file="/PortFolio5_UnknownProject_In-progress/src/main/java/com/unknown/paldak/admin/mapper/StockLogMapper.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="5293" y="1051"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <interface id="60" language="java" name="com.unknown.paldak.admin.mapper.TableHeadMapper" 
+    project="PortFolio5_UnknownProject_In-progress" 
+    file="/PortFolio5_UnknownProject_In-progress/src/main/java/com/unknown/paldak/admin/mapper/TableHeadMapper.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="5511" y="1060"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <interface id="61" language="java" name="com.unknown.paldak.admin.mapper.BenefitsMapper" 
+    project="PortFolio5_UnknownProject_In-progress" 
+    file="/PortFolio5_UnknownProject_In-progress/src/main/java/com/unknown/paldak/admin/mapper/BenefitsMapper.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="5728" y="1051"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <interface id="62" language="java" name="com.unknown.paldak.admin.mapper.ReviewReplyMapper" 
+    project="PortFolio5_UnknownProject_In-progress" 
+    file="/PortFolio5_UnknownProject_In-progress/src/main/java/com/unknown/paldak/admin/mapper/ReviewReplyMapper.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="5958" y="1060"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <interface id="63" language="java" name="com.unknown.paldak.admin.mapper.BaseMapper" 
+    project="PortFolio5_UnknownProject_In-progress" 
+    file="/PortFolio5_UnknownProject_In-progress/src/main/java/com/unknown/paldak/admin/mapper/BaseMapper.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="4064" y="705"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="64" language="java" name="com.unknown.paldak.admin.service.BrandServiceImpl" 
+    project="PortFolio5_UnknownProject_In-progress" 
+    file="/PortFolio5_UnknownProject_In-progress/src/main/java/com/unknown/paldak/admin/service/BrandServiceImpl.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2526" y="1535"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="65" language="java" name="com.unknown.paldak.admin.service.QnaReplyServiceImpl" 
+    project="PortFolio5_UnknownProject_In-progress" 
+    file="/PortFolio5_UnknownProject_In-progress/src/main/java/com/unknown/paldak/admin/service/QnaReplyServiceImpl.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2778" y="1553"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="66" language="java" name="com.unknown.paldak.admin.service.ReviewServiceImpl" 
+    project="PortFolio5_UnknownProject_In-progress" 
+    file="/PortFolio5_UnknownProject_In-progress/src/main/java/com/unknown/paldak/admin/service/ReviewServiceImpl.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="3035" y="1544"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="67" language="java" name="com.unknown.paldak.admin.service.StockInfoServiceImpl" 
+    project="PortFolio5_UnknownProject_In-progress" 
+    file="/PortFolio5_UnknownProject_In-progress/src/main/java/com/unknown/paldak/admin/service/StockInfoServiceImpl.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="3357" y="1589"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="68" language="java" name="com.unknown.paldak.admin.service.BenefitsServiceImpl" 
+    project="PortFolio5_UnknownProject_In-progress" 
+    file="/PortFolio5_UnknownProject_In-progress/src/main/java/com/unknown/paldak/admin/service/BenefitsServiceImpl.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="3681" y="1544"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="69" language="java" name="com.unknown.paldak.admin.service.DashboardService" 
+    project="PortFolio5_UnknownProject_In-progress" 
+    file="/PortFolio5_UnknownProject_In-progress/src/main/java/com/unknown/paldak/admin/service/DashboardService.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2029" y="2070"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="70" language="java" name="com.unknown.paldak.admin.service.QnaServiceImpl" 
+    project="PortFolio5_UnknownProject_In-progress" 
+    file="/PortFolio5_UnknownProject_In-progress/src/main/java/com/unknown/paldak/admin/service/QnaServiceImpl.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="3925" y="1544"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="71" language="java" name="com.unknown.paldak.admin.service.DashboardServiceImpl" 
+    project="PortFolio5_UnknownProject_In-progress" 
+    file="/PortFolio5_UnknownProject_In-progress/src/main/java/com/unknown/paldak/admin/service/DashboardServiceImpl.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2029" y="1634"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="72" language="java" name="com.unknown.paldak.admin.service.FaqServiceImpl" 
+    project="PortFolio5_UnknownProject_In-progress" 
+    file="/PortFolio5_UnknownProject_In-progress/src/main/java/com/unknown/paldak/admin/service/FaqServiceImpl.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="4160" y="1544"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="73" language="java" name="com.unknown.paldak.admin.service.OrderServiceImpl" 
+    project="PortFolio5_UnknownProject_In-progress" 
+    file="/PortFolio5_UnknownProject_In-progress/src/main/java/com/unknown/paldak/admin/service/OrderServiceImpl.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="4399" y="1562"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="74" language="java" name="com.unknown.paldak.admin.service.AttachServiceImpl" 
+    project="PortFolio5_UnknownProject_In-progress" 
+    file="/PortFolio5_UnknownProject_In-progress/src/main/java/com/unknown/paldak/admin/service/AttachServiceImpl.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2293" y="1499"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="75" language="java" name="com.unknown.paldak.admin.service.AttachService" 
+    project="PortFolio5_UnknownProject_In-progress" 
+    file="/PortFolio5_UnknownProject_In-progress/src/main/java/com/unknown/paldak/admin/service/AttachService.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2293" y="1935"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="76" language="java" name="com.unknown.paldak.admin.service.MemberServiceImpl" 
+    project="PortFolio5_UnknownProject_In-progress" 
+    file="/PortFolio5_UnknownProject_In-progress/src/main/java/com/unknown/paldak/admin/service/MemberServiceImpl.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="4646" y="1562"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="77" language="java" name="com.unknown.paldak.admin.service.ReviewReplyServiceImpl" 
+    project="PortFolio5_UnknownProject_In-progress" 
+    file="/PortFolio5_UnknownProject_In-progress/src/main/java/com/unknown/paldak/admin/service/ReviewReplyServiceImpl.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="4918" y="1553"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="78" language="java" name="com.unknown.paldak.admin.service.ItemServiceImpl" 
+    project="PortFolio5_UnknownProject_In-progress" 
+    file="/PortFolio5_UnknownProject_In-progress/src/main/java/com/unknown/paldak/admin/service/ItemServiceImpl.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="5181" y="1544"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="79" language="java" name="com.unknown.paldak.admin.service.ItemCateServiceImpl" 
+    project="PortFolio5_UnknownProject_In-progress" 
+    file="/PortFolio5_UnknownProject_In-progress/src/main/java/com/unknown/paldak/admin/service/ItemCateServiceImpl.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="5460" y="1580"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="80" language="java" name="com.unknown.paldak.admin.service.TableHeadService" 
+    project="PortFolio5_UnknownProject_In-progress" 
+    file="/PortFolio5_UnknownProject_In-progress/src/main/java/com/unknown/paldak/admin/service/TableHeadService.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1753" y="1481"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="81" language="java" name="com.unknown.paldak.admin.service.CartServiceImpl" 
+    project="PortFolio5_UnknownProject_In-progress" 
+    file="/PortFolio5_UnknownProject_In-progress/src/main/java/com/unknown/paldak/admin/service/CartServiceImpl.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="5739" y="1535"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="82" language="java" name="com.unknown.paldak.admin.service.ProductServiceImpl" 
+    project="PortFolio5_UnknownProject_In-progress" 
+    file="/PortFolio5_UnknownProject_In-progress/src/main/java/com/unknown/paldak/admin/service/ProductServiceImpl.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="5981" y="1544"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="83" language="java" name="com.unknown.paldak.admin.service.OrderItemServiceImpl" 
+    project="PortFolio5_UnknownProject_In-progress" 
+    file="/PortFolio5_UnknownProject_In-progress/src/main/java/com/unknown/paldak/admin/service/OrderItemServiceImpl.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="6236" y="1535"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="84" language="java" name="com.unknown.paldak.admin.service.BenefitsReplyServiceImpl" 
+    project="PortFolio5_UnknownProject_In-progress" 
+    file="/PortFolio5_UnknownProject_In-progress/src/main/java/com/unknown/paldak/admin/service/BenefitsReplyServiceImpl.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="6515" y="1553"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="85" language="java" name="com.unknown.paldak.admin.service.NoticeServiceImpl" 
+    project="PortFolio5_UnknownProject_In-progress" 
+    file="/PortFolio5_UnknownProject_In-progress/src/main/java/com/unknown/paldak/admin/service/NoticeServiceImpl.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="6786" y="1544"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="86" language="java" name="com.unknown.paldak.admin.service.BaseService" 
+    project="PortFolio5_UnknownProject_In-progress" 
+    file="/PortFolio5_UnknownProject_In-progress/src/main/java/com/unknown/paldak/admin/service/BaseService.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="4622" y="1971"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="87" language="java" name="com.unknown.paldak.admin.util.PropertiesManager" 
+    project="PortFolio5_UnknownProject_In-progress" 
+    file="/PortFolio5_UnknownProject_In-progress/src/main/java/com/unknown/paldak/admin/util/PropertiesManager.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2456" y="128"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="88" language="java" name="com.unknown.paldak.admin.util.FileUploadManager" 
+    project="PortFolio5_UnknownProject_In-progress" 
+    file="/PortFolio5_UnknownProject_In-progress/src/main/java/com/unknown/paldak/admin/util/FileUploadManager.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2704" y="128"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="89" language="java" name="com.unknown.paldak.admin.util.UploadPathConfig" 
+    project="PortFolio5_UnknownProject_In-progress" 
+    file="/PortFolio5_UnknownProject_In-progress/src/main/java/com/unknown/paldak/admin/util/UploadPathConfig.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="3020" y="119"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <association id="90">    
+    <end type="SOURCE" refId="80" navigable="false">      
+      <attribute id="91" name="tableHeadMapper"/>      
+      <multiplicity id="92" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="60" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="93">    
+    <end type="SOURCE" refId="7" navigable="false">      
+      <attribute id="94" name="memberService"/>      
+      <multiplicity id="95" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="86" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="96">    
+    <end type="SOURCE" refId="50"/>    
+    <end type="TARGET" refId="63"/>  
+  </generalization>  
+  <association id="97">    
+    <end type="SOURCE" refId="11" navigable="false">      
+      <attribute id="98" name="replyService"/>      
+      <multiplicity id="99" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="77" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="100">    
+    <end type="SOURCE" refId="15" navigable="false">      
+      <attribute id="101" name="fileUploadManager"/>      
+      <multiplicity id="102" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="88" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="103">    
+    <end type="SOURCE" refId="56"/>    
+    <end type="TARGET" refId="63"/>  
+  </generalization>  
+  <association id="104">    
+    <end type="SOURCE" refId="83" navigable="false">      
+      <attribute id="105" name="mapper"/>      
+      <multiplicity id="106" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="58" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="107">    
+    <end type="SOURCE" refId="65" navigable="false">      
+      <attribute id="108" name="mapper"/>      
+      <multiplicity id="109" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="56" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="110">    
+    <end type="SOURCE" refId="72"/>    
+    <end type="TARGET" refId="86"/>  
+  </realization>  
+  <association id="111">    
+    <end type="SOURCE" refId="14" navigable="false">      
+      <attribute id="112" name="itemCateService"/>      
+      <multiplicity id="113" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="79" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="114">    
+    <end type="SOURCE" refId="17" navigable="false">      
+      <attribute id="115" name="dashboardService"/>      
+      <multiplicity id="116" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="69" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="117">    
+    <end type="SOURCE" refId="68"/>    
+    <end type="TARGET" refId="86"/>  
+  </realization>  
+  <realization id="118">    
+    <end type="SOURCE" refId="65"/>    
+    <end type="TARGET" refId="86"/>  
+  </realization>  
+  <generalization id="119">    
+    <end type="SOURCE" refId="51"/>    
+    <end type="TARGET" refId="63"/>  
+  </generalization>  
+  <association id="120">    
+    <end type="SOURCE" refId="67" navigable="false">      
+      <attribute id="121" name="logMapper"/>      
+      <multiplicity id="122" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="59" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="123">    
+    <end type="SOURCE" refId="71"/>    
+    <end type="TARGET" refId="69"/>  
+  </realization>  
+  <association id="124">    
+    <end type="SOURCE" refId="4" navigable="false">      
+      <attribute id="125" name="stockInfoService"/>      
+      <multiplicity id="126" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="86" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="127">    
+    <end type="SOURCE" refId="7" navigable="false">      
+      <attribute id="128" name="memberServiceUtil"/>      
+      <multiplicity id="129" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="76" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="130">    
+    <end type="SOURCE" refId="9" navigable="false">      
+      <attribute id="131" name="stockInfoService"/>      
+      <multiplicity id="132" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="86" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="133">    
+    <end type="SOURCE" refId="81"/>    
+    <end type="TARGET" refId="86"/>  
+  </realization>  
+  <association id="134">    
+    <end type="SOURCE" refId="67" navigable="false">      
+      <attribute id="135" name="mapper"/>      
+      <multiplicity id="136" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="41" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="137">    
+    <end type="SOURCE" refId="11" navigable="false">      
+      <attribute id="138" name="reviewService"/>      
+      <multiplicity id="139" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="86" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="140">    
+    <end type="SOURCE" refId="54"/>    
+    <end type="TARGET" refId="63"/>  
+  </generalization>  
+  <realization id="141">    
+    <end type="SOURCE" refId="66"/>    
+    <end type="TARGET" refId="86"/>  
+  </realization>  
+  <realization id="142">    
+    <end type="SOURCE" refId="76"/>    
+    <end type="TARGET" refId="86"/>  
+  </realization>  
+  <association id="143">    
+    <end type="SOURCE" refId="64" navigable="false">      
+      <attribute id="144" name="mapper"/>      
+      <multiplicity id="145" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="51" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="146">    
+    <end type="SOURCE" refId="76" navigable="false">      
+      <attribute id="147" name="mapper"/>      
+      <multiplicity id="148" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="46" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="149">    
+    <end type="SOURCE" refId="74"/>    
+    <end type="TARGET" refId="75"/>  
+  </realization>  
+  <association id="150">    
+    <end type="SOURCE" refId="15" navigable="false">      
+      <attribute id="151" name="replyService"/>      
+      <multiplicity id="152" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="65" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="153">    
+    <end type="SOURCE" refId="44"/>    
+    <end type="TARGET" refId="63"/>  
+  </generalization>  
+  <association id="154">    
+    <end type="SOURCE" refId="5" navigable="false">      
+      <attribute id="155" name="orderService"/>      
+      <multiplicity id="156" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="86" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="157">    
+    <end type="SOURCE" refId="66" navigable="false">      
+      <attribute id="158" name="mapper"/>      
+      <multiplicity id="159" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="48" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="160">    
+    <end type="SOURCE" refId="8" navigable="false">      
+      <attribute id="161" name="fileUploadManager"/>      
+      <multiplicity id="162" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="88" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="163">    
+    <end type="SOURCE" refId="67"/>    
+    <end type="TARGET" refId="86"/>  
+  </realization>  
+  <realization id="164">    
+    <end type="SOURCE" refId="84"/>    
+    <end type="TARGET" refId="86"/>  
+  </realization>  
+  <realization id="165">    
+    <end type="SOURCE" refId="82"/>    
+    <end type="TARGET" refId="86"/>  
+  </realization>  
+  <association id="166">    
+    <end type="SOURCE" refId="3" navigable="false">      
+      <attribute id="167" name="productService"/>      
+      <multiplicity id="168" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="86" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="169">    
+    <end type="SOURCE" refId="19" navigable="false">      
+      <attribute id="170" name="itemCateListService"/>      
+      <multiplicity id="171" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="79" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="172">    
+    <end type="SOURCE" refId="16" navigable="false">      
+      <attribute id="173" name="uploadPathConfig"/>      
+      <multiplicity id="174" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="89" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="175">    
+    <end type="SOURCE" refId="85" navigable="false">      
+      <attribute id="176" name="mapper"/>      
+      <multiplicity id="177" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="57" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="178">    
+    <end type="SOURCE" refId="6" navigable="false">      
+      <attribute id="179" name="faqService"/>      
+      <multiplicity id="180" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="86" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="181">    
+    <end type="SOURCE" refId="84" navigable="false">      
+      <attribute id="182" name="mapper"/>      
+      <multiplicity id="183" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="50" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="184">    
+    <end type="SOURCE" refId="4" navigable="false">      
+      <attribute id="185" name="stockInfoServiceUtil"/>      
+      <multiplicity id="186" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="67" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="187">    
+    <end type="SOURCE" refId="14" navigable="false">      
+      <attribute id="188" name="fileUploadManager"/>      
+      <multiplicity id="189" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="88" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="190">    
+    <end type="SOURCE" refId="74" navigable="false">      
+      <attribute id="191" name="attachMapper"/>      
+      <multiplicity id="192" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="42" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="193">    
+    <end type="SOURCE" refId="14" navigable="false">      
+      <attribute id="194" name="attachService"/>      
+      <multiplicity id="195" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="74" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="196">    
+    <end type="SOURCE" refId="46"/>    
+    <end type="TARGET" refId="63"/>  
+  </generalization>  
+  <association id="197">    
+    <end type="SOURCE" refId="67" navigable="false">      
+      <attribute id="198" name="itemMapper"/>      
+      <multiplicity id="199" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="55" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="200">    
+    <end type="SOURCE" refId="68" navigable="false">      
+      <attribute id="201" name="mapper"/>      
+      <multiplicity id="202" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="61" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="203">    
+    <end type="SOURCE" refId="11" navigable="false">      
+      <attribute id="204" name="fileUploadManager"/>      
+      <multiplicity id="205" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="88" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="206">    
+    <end type="SOURCE" refId="83"/>    
+    <end type="TARGET" refId="86"/>  
+  </realization>  
+  <association id="207">    
+    <end type="SOURCE" refId="9" navigable="false">      
+      <attribute id="208" name="stockInfoServiceUtil"/>      
+      <multiplicity id="209" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="67" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="210">    
+    <end type="SOURCE" refId="72" navigable="false">      
+      <attribute id="211" name="mapper"/>      
+      <multiplicity id="212" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="43" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="213">    
+    <end type="SOURCE" refId="43"/>    
+    <end type="TARGET" refId="63"/>  
+  </generalization>  
+  <association id="214">    
+    <end type="SOURCE" refId="6" navigable="false">      
+      <attribute id="215" name="fileUploadManager"/>      
+      <multiplicity id="216" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="88" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="217">    
+    <end type="SOURCE" refId="78"/>    
+    <end type="TARGET" refId="86"/>  
+  </realization>  
+  <association id="218">    
+    <end type="SOURCE" refId="81" navigable="false">      
+      <attribute id="219" name="mapper"/>      
+      <multiplicity id="220" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="47" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="221">    
+    <end type="SOURCE" refId="55"/>    
+    <end type="TARGET" refId="63"/>  
+  </generalization>  
+  <association id="222">    
+    <end type="SOURCE" refId="77" navigable="false">      
+      <attribute id="223" name="mapper"/>      
+      <multiplicity id="224" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="62" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="225">    
+    <end type="SOURCE" refId="59"/>    
+    <end type="TARGET" refId="63"/>  
+  </generalization>  
+  <generalization id="226">    
+    <end type="SOURCE" refId="48"/>    
+    <end type="TARGET" refId="63"/>  
+  </generalization>  
+  <generalization id="227">    
+    <end type="SOURCE" refId="60"/>    
+    <end type="TARGET" refId="63"/>  
+  </generalization>  
+  <generalization id="228">    
+    <end type="SOURCE" refId="58"/>    
+    <end type="TARGET" refId="63"/>  
+  </generalization>  
+  <generalization id="229">    
+    <end type="SOURCE" refId="41"/>    
+    <end type="TARGET" refId="63"/>  
+  </generalization>  
+  <generalization id="230">    
+    <end type="SOURCE" refId="61"/>    
+    <end type="TARGET" refId="63"/>  
+  </generalization>  
+  <association id="231">    
+    <end type="SOURCE" refId="5" navigable="false">      
+      <attribute id="232" name="orderServiceUtil"/>      
+      <multiplicity id="233" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="73" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="234">    
+    <end type="SOURCE" refId="47"/>    
+    <end type="TARGET" refId="63"/>  
+  </generalization>  
+  <association id="235">    
+    <end type="SOURCE" refId="73" navigable="false">      
+      <attribute id="236" name="mapper"/>      
+      <multiplicity id="237" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="52" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="238">    
+    <end type="SOURCE" refId="45"/>    
+    <end type="TARGET" refId="63"/>  
+  </generalization>  
+  <realization id="239">    
+    <end type="SOURCE" refId="70"/>    
+    <end type="TARGET" refId="86"/>  
+  </realization>  
+  <generalization id="240">    
+    <end type="SOURCE" refId="62"/>    
+    <end type="TARGET" refId="63"/>  
+  </generalization>  
+  <association id="241">    
+    <end type="SOURCE" refId="79" navigable="false">      
+      <attribute id="242" name="mapper"/>      
+      <multiplicity id="243" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="45" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="244">    
+    <end type="SOURCE" refId="19" navigable="false">      
+      <attribute id="245" name="itemCateService"/>      
+      <multiplicity id="246" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="86" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="247">    
+    <end type="SOURCE" refId="2" navigable="false">      
+      <attribute id="248" name="replyService"/>      
+      <multiplicity id="249" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="84" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="250">    
+    <end type="SOURCE" refId="13" navigable="false">      
+      <attribute id="251" name="brandService"/>      
+      <multiplicity id="252" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="86" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="253">    
+    <end type="SOURCE" refId="85"/>    
+    <end type="TARGET" refId="86"/>  
+  </realization>  
+  <association id="254">    
+    <end type="SOURCE" refId="12" navigable="false">      
+      <attribute id="255" name="orderItemService"/>      
+      <multiplicity id="256" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="86" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="257">    
+    <end type="SOURCE" refId="82" navigable="false">      
+      <attribute id="258" name="mapper"/>      
+      <multiplicity id="259" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="44" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="260">    
+    <end type="SOURCE" refId="57"/>    
+    <end type="TARGET" refId="63"/>  
+  </generalization>  
+  <association id="261">    
+    <end type="SOURCE" refId="88" navigable="false">      
+      <attribute id="262" name="uploadPathConfig"/>      
+      <multiplicity id="263" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="89" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="264">    
+    <end type="SOURCE" refId="8" navigable="false">      
+      <attribute id="265" name="noticeService"/>      
+      <multiplicity id="266" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="86" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="267">    
+    <end type="SOURCE" refId="15" navigable="false">      
+      <attribute id="268" name="qnaService"/>      
+      <multiplicity id="269" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="86" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="270">    
+    <end type="SOURCE" refId="64"/>    
+    <end type="TARGET" refId="86"/>  
+  </realization>  
+  <association id="271">    
+    <end type="SOURCE" refId="14" navigable="false">      
+      <attribute id="272" name="itemService"/>      
+      <multiplicity id="273" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="86" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="274">    
+    <end type="SOURCE" refId="70" navigable="false">      
+      <attribute id="275" name="mapper"/>      
+      <multiplicity id="276" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="54" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="277">    
+    <end type="SOURCE" refId="1" navigable="false">      
+      <attribute id="278" name="cartService"/>      
+      <multiplicity id="279" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="86" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="280">    
+    <end type="SOURCE" refId="77"/>    
+    <end type="TARGET" refId="86"/>  
+  </realization>  
+  <association id="281">    
+    <end type="SOURCE" refId="2" navigable="false">      
+      <attribute id="282" name="benefitsService"/>      
+      <multiplicity id="283" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="86" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="284">    
+    <end type="SOURCE" refId="71" navigable="false">      
+      <attribute id="285" name="dashboardMapper"/>      
+      <multiplicity id="286" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="53" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="287">    
+    <end type="SOURCE" refId="79"/>    
+    <end type="TARGET" refId="86"/>  
+  </realization>  
+  <association id="288">    
+    <end type="SOURCE" refId="78" navigable="false">      
+      <attribute id="289" name="mapper"/>      
+      <multiplicity id="290" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="55" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="291">    
+    <end type="SOURCE" refId="73"/>    
+    <end type="TARGET" refId="86"/>  
+  </realization>  
+  <association id="292">    
+    <end type="SOURCE" refId="3" navigable="false">      
+      <attribute id="293" name="fileUploadManager"/>      
+      <multiplicity id="294" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="88" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="295">    
+    <end type="SOURCE" refId="52"/>    
+    <end type="TARGET" refId="63"/>  
+  </generalization>  
+  <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+    sort-features="false" accessors="true" visibility="true">    
+    <attributes public="true" package="true" protected="true" private="true" static="true"/>    
+    <operations public="true" package="true" protected="true" private="true" static="true"/>  
+  </classifier-display>  
+  <association-display labels="true" multiplicity="true"/>
+</class-diagram>

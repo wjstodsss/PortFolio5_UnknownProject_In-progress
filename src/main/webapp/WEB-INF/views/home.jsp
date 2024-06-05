@@ -18,7 +18,7 @@
 <a href="admin/faq/list">관리자 faq</a>
 <a href="admin/review/list">관리자 review</a>
 <a href="admin/item/list">관리자 review</a>
-<a href="productDetails">테스트</a>
+<a href="admin/dashboard/main">테스트</a>
 
 </body>
 </html>
