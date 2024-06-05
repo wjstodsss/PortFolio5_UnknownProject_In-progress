@@ -1,5 +1,3 @@
-![image](https://github.com/wjstodsss/PortFolio5_UnknownProject_In-progress/assets/68169507/c61d4682-2a0a-4985-a95e-a42f5aecb303)# 팀 프로젝트 (쇼핑몰)
-
 # 프로젝트 소개
 
 이 프로젝트는 전형적인 웹 어플리케이션 아키텍처를 기반으로 구축된 팀 프로젝트입니다.
@@ -36,7 +34,19 @@
 # 프레젠 테이션 
 ![image](https://github.com/wjstodsss/PortFolio5_UnknownProject_In-progress/assets/68169507/ffcbbec8-a0ab-4a43-883b-fd738f99fb90)
 ![image](https://github.com/wjstodsss/PortFolio5_UnknownProject_In-progress/assets/68169507/2d1bd8ba-816d-4b64-be44-15b9cc7795e6)
-
+![image](https://github.com/wjstodsss/PortFolio5_UnknownProject_In-progress/assets/68169507/91efad4d-9d44-408d-98b5-493fc286014e)
+![image](https://github.com/wjstodsss/PortFolio5_UnknownProject_In-progress/assets/68169507/20662559-10c9-4607-b42f-b0c0e291a959)
+![image](https://github.com/wjstodsss/PortFolio5_UnknownProject_In-progress/assets/68169507/6c1f3b5f-883e-4296-8757-0d12ed9038ab)
+![image](https://github.com/wjstodsss/PortFolio5_UnknownProject_In-progress/assets/68169507/098d4320-7296-42ef-901d-286c170897c6)
+![image](https://github.com/wjstodsss/PortFolio5_UnknownProject_In-progress/assets/68169507/a986b417-7f54-4f13-8fb9-1931af00a356)
+![image](https://github.com/wjstodsss/PortFolio5_UnknownProject_In-progress/assets/68169507/a9a0ccce-4722-4fd6-8c98-8635813dc7bc)
+![image](https://github.com/wjstodsss/PortFolio5_UnknownProject_In-progress/assets/68169507/1d4d1b80-1ea0-453c-ac72-e9f48095d754)
+![image](https://github.com/wjstodsss/PortFolio5_UnknownProject_In-progress/assets/68169507/c14595de-5560-4cc8-92e7-9b2214924db8)
+![image](https://github.com/wjstodsss/PortFolio5_UnknownProject_In-progress/assets/68169507/b6d2cfb2-302a-400a-8a53-938f2b5edbd5)
+![image](https://github.com/wjstodsss/PortFolio5_UnknownProject_In-progress/assets/68169507/f4e0b4ec-e4b0-410d-a455-b66b6a86c7d7)
+![image](https://github.com/wjstodsss/PortFolio5_UnknownProject_In-progress/assets/68169507/cb4e271f-1223-4a31-8ac7-991c8c15f96e)
+![image](https://github.com/wjstodsss/PortFolio5_UnknownProject_In-progress/assets/68169507/d609fc18-5036-4cb0-8ad0-de7ca3e659ee)
+![image](https://github.com/wjstodsss/PortFolio5_UnknownProject_In-progress/assets/68169507/f19354be-228e-48d9-93cc-ff389cdbf4b6)
 
 # 기능 시연
 
