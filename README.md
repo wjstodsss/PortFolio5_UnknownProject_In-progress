@@ -76,7 +76,8 @@
 - 주요 집계 현황: 매출, 회원, 문의, 구매 후기, 상품, 발주, 입고 현형/ 최대 구매 후기, 일일 판매액 TOP 5
   
 
-![admin-login](https://github.com/wjstodsss/PortFolio5_UnknownProject_In-progress/assets/68169507/dc46569e-a0f2-42f6-947f-7069fbaefa17)
 
+
+![test2](https://github.com/wjstodsss/PortFolio5_UnknownProject_In-progress/assets/68169507/f4f5ebc7-1eac-481a-b305-bd993086b2ec)
 
 
