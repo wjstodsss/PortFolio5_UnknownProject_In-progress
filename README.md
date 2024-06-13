@@ -49,8 +49,9 @@
 ![image](https://github.com/wjstodsss/PortFolio5_UnknownProject_In-progress/assets/68169507/f19354be-228e-48d9-93cc-ff389cdbf4b6)
 
 # 기능 시연
-
-## 주문 관리
+<details>
+  <summary>v1.0</summary>
+  ## 주문 관리
 - 주문 & 배송: 주문 등록/ 주문 상태, 배송지, 배송요청 수정/ 주문ID, 회원ID기준 검색/ 주문ID 기준 정렬
 - 주문 상품: 주문별 상품 내역 조회/ 주문ID 검색/ 주문상세ID 기준 정렬
   
@@ -74,6 +75,8 @@
 
 ## 대시 보드
 - 주요 집계 현황: 매출, 회원, 문의, 구매 후기, 상품, 발주, 입고 현형/ 최대 구매 후기, 일일 판매액 TOP 5
+</details>
+
   
 
 
